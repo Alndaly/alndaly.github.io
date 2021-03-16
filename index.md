@@ -1,8 +1,8 @@
-## Welcome to Alnda GitHub Pages
+## Welcome to Alnda Pages
 
-You can use the [editor on GitHub](https://github.com/Alndaly/Alndaly.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+关键：数据集的划分
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+测试集与应该与训练集“互拆”
 
 ### Markdown
 
@@ -11,7 +11,7 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 ```markdown
 Syntax highlighted code block
 
-# Header 1 first level
+# Header 1 
 ## Header 2 
 ### Header 3
 
