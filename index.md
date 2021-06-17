@@ -3,8 +3,9 @@
 考研资料分享
 
 ### Markdown
-
 Just keep moving, keep trying!
+生命不是你活了多少日子
+而是你记住了多少日子。
 
 ![](https://cdn.jsdelivr.net/gh/Alndaly/imgsrc/bgtq.jpg)
 
