@@ -1,0 +1,609 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="VIM相关文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VIM-可视模式">
+<meta property="og:url" content="http://example.com/2022/04/05/Learn-Vim_zh_cn/ch11_visual_mode/index.html">
+<meta property="og:site_name" content="Kinda">
+<meta property="og:description" content="VIM相关文档">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-04T16:26:39.000Z">
+<meta property="article:modified_time" content="2022-04-04T16:36:01.402Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="VIM">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>VIM-可视模式 - Kinda</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Kinda</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Alndaly/imgsrc/img/202204050048495.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="VIM-可视模式">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-05 00:26" pubdate>
+        2022年4月5日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      44 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">VIM-可视模式</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：1 小时前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="第11章-可视模式"><a href="#第11章-可视模式" class="headerlink" title="第11章 可视模式"></a>第11章 可视模式</h1><p>高亮显示文本块并对其进行更改，是很多文本编辑器中的常见功能。 Vim也可以使用可视模式实现这一功能。在本章中，您将学习如何使用可视模式来有效地处理文本块。</p>
+<h2 id="三种可视模式"><a href="#三种可视模式" class="headerlink" title="三种可视模式"></a>三种可视模式</h2><p>Vim有三种可视模式，分别是：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">v</span>         逐字符可视模式<br>V         逐行可视模式<br>Ctrl-v    逐块可视模式<br></code></pre></td></tr></table></figure>
+
+<p>如果您有下列文字：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-literal">one</span><br><span class="hljs-literal">two</span><br><span class="hljs-literal">three</span><br></code></pre></td></tr></table></figure>
+
+<p>逐字符可视模式用于选择单个字符。在第一行的第一个字符上按<code>v</code>。然后使用<code>j</code>跳转至下一行。它高亮显示从”one”到光标位置的所有文本。现在，如果您按<code>gU</code>，Vim将高亮显示的字符转为大写。</p>
+<p>逐行可视模式适用于整行。按<code>V</code>并观看Vim选择光标的所在行。就像逐字符可视模式一样，如果您运行<code>gU</code>，Vim将高亮显示的字符转为大写。</p>
+<p>逐块可视模式适用于行和列。与其他两种模式相比，它为您提供了更大的移动自由度。按<code>Ctrl-V</code>，Vim像逐字符可视模式一样高亮显示光标下的字符，但向下移动时，除非光标已经在行尾，否则不会高亮显示光标上方的整行，它跳转至下一行时高亮显示尽可能少的字符。尝试用<code>h/j/k/l</code>移动，并观察光标的移动。</p>
+<p>在Vim窗口的左下方，您会看到显示<code>-- VISUAL --</code>，<code>-- VISUAL LINE --</code>或<code>-- VISUAL BLOCK --</code>以提示您所处的可视模式。</p>
+<p>当您处于可视模式时，可以通过按<code>v</code>，<code>V</code>或<code>Ctrl-V</code>键切换到另一种可视模式。例如，如果您处于逐行可视模式，并且想要切换为逐块可视模式，请运行<code>Ctrl-V</code>。试试吧！</p>
+<p>有三种退出可视模式的方法：<code>esc</code>，<code>Ctrl-C</code>和与当前可视模式相同的键。后者的意思是，如果您当前处于逐行可视模式(<code>V</code>)，则可以通过再次按<code>V</code>退出它。如果您处于字符可视模式，则可以通过按<code>v</code>退出它。如果您处于逐块可视模式，请按<code>Ctrl-V</code>。</p>
+<p>实际上，还有另一种进入可视模式的方式：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">gv</span>    转到上一个可视模式<br></code></pre></td></tr></table></figure>
+
+<p>它将在与上次相同的高亮显示的文本块上启动相同的可视模式。</p>
+<h2 id="可视模式导航"><a href="#可视模式导航" class="headerlink" title="可视模式导航"></a>可视模式导航</h2><p>在可视模式下，您可以使用Vim动作(motion)扩展高亮显示的文本块。</p>
+<p>让我们使用之前使用的相同文本：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-literal">one</span><br><span class="hljs-literal">two</span><br><span class="hljs-literal">three</span><br></code></pre></td></tr></table></figure>
+
+<p>这次让我们从”two”行开始。按<code>v</code>进入字符可视模式(这里的方括号<code>[]</code>表示高亮显示的字符)：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">one<br><span class="hljs-string">[t]</span>wo<br>three<br></code></pre></td></tr></table></figure>
+
+<p>按<code>j</code>，Vim将高亮显示从”two”行到”three”行的第一个字符的所有文本。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">one</span><br>[<span class="hljs-keyword">two</span><br>t]hree<br></code></pre></td></tr></table></figure>
+
+<p>假设您刚刚意识到还需要高亮显示”one”行，因此按<code>k</code>。令您沮丧的是，它现在排除了”three”高亮。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">one<br><span class="hljs-string">[t]</span>wo<br>three<br></code></pre></td></tr></table></figure>
+
+<p>有没有一种方法可以自由地扩展视觉选择范围，以向您想要的任何方向发展？</p>
+<p>答案是肯定的。让我们先恢复光标到高亮显示”two”和”three”行的位置。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">one</span><br>[two<br>t]hree    <span class="hljs-operator">&lt;</span><span class="hljs-comment">-- 光标</span><br></code></pre></td></tr></table></figure>
+
+<p>高亮区域跟随光标移动。如果要将其向上扩展到行”one”，则需要将光标移动到”two”，现在您的光标在”three”行上。这时可以用<code>o</code>或<code>O</code>切换光标位置。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">one</span><br>[two     <span class="hljs-operator">&lt;</span><span class="hljs-comment">-- 光标</span><br>t]hree<br></code></pre></td></tr></table></figure>
+
+<p>现在，当您按<code>k</code>时，它不再缩小选择，而是向上扩展。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata">[<span class="hljs-keyword">one</span><br><span class="hljs-keyword">two</span><br>t]hree<br></code></pre></td></tr></table></figure>
+
+<p>在可视模式中使用<code>o</code>或<code>O</code>，光标会在高亮选择区域的开头和结尾跳转，以便与您扩展高亮区域。</p>
+<h2 id="可视模式语法"><a href="#可视模式语法" class="headerlink" title="可视模式语法"></a>可视模式语法</h2><p>可视模式与普通模式使用相同的操作符(operations)。</p>
+<p>例如，如果您有以下文字，然后您想在可视模式中删除前两行：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-literal">one</span><br><span class="hljs-literal">two</span><br><span class="hljs-literal">three</span><br></code></pre></td></tr></table></figure>
+
+<p>用逐行可视模式(<code>V</code>)高亮显示”one”和”two”行：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata">[<span class="hljs-keyword">one</span><br><span class="hljs-keyword">two</span>]<br>three<br></code></pre></td></tr></table></figure>
+
+<p>按下<code>d</code>键将删除选择，类似于普通模式。请注意，与普通模式的语法规则有所不同，动词+名词不适用可视模式。虽然存在相同的动词(<code>d</code>)，但在可视模式下没有名词。可视模式下的语法规则是名词+动词(反过来了)，其中名词是高亮显示的文本。首先选择文本块，然后进行操作。</p>
+<p>在普通模式下，有一些命令不需要名词(motion)，例如<code>x</code>删除光标下方的单个字符，还有<code>r</code>替换光标下方的字符(<code>rx</code>将当前光标下的字符替换为<code>x</code>)。在可视模式下，这些命令现在将应用于整个高亮显示的文本，而不是单个字符。回到高亮显示的文本：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata">[<span class="hljs-keyword">one</span><br><span class="hljs-keyword">two</span>]<br>three<br></code></pre></td></tr></table></figure>
+
+<p>运行<code>x</code>会删除所有高亮显示的文本。</p>
+<p>您可以使用此行为在markdown文本中快速创建标题。假设您需要快速下面的文本转换为一级markdown标题(“&#x3D;&#x3D;&#x3D;”):</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Chapter One</span><br></code></pre></td></tr></table></figure>
+
+<p>首先，您使用<code>yy</code>复制文本，然后使用<code>p</code>粘贴文本：</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs inform7"><span class="hljs-section">Chapter One</span><br><span class="hljs-section">Chapter One</span><br></code></pre></td></tr></table></figure>
+
+<p>现在转到第二行，以逐行可视模式选择它：</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs inform7"><span class="hljs-section">Chapter One</span><br><span class="hljs-comment">[Chapter One]</span><br></code></pre></td></tr></table></figure>
+
+<p>在markdown中，您可以通过在文本下方添加一系列<code>=</code>来创建标题，因此您可以通过运行<code>r=</code>来替换整个高亮显示的文本：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf">Chapter One<br><span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><br></code></pre></td></tr></table></figure>
+
+<p>要了解有关可视模式下的运算符的更多信息，请查看<code>:h visual-operators</code>。</p>
+<h2 id="可视模式和Ex命令"><a href="#可视模式和Ex命令" class="headerlink" title="可视模式和Ex命令"></a>可视模式和Ex命令</h2><p>您可以有选择地在高亮显示的文本块上应用Ex命令。如果您具有以下表达式,并想将前两行的”const”替换为”let”：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs abnf">const one <span class="hljs-operator">=</span> <span class="hljs-string">&quot;one&quot;</span><span class="hljs-comment">;</span><br>const two <span class="hljs-operator">=</span> <span class="hljs-string">&quot;two&quot;</span><span class="hljs-comment">;</span><br>const three <span class="hljs-operator">=</span> <span class="hljs-string">&quot;three&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+
+<p>用 <em>任意</em> 可视模式高亮显示前两行，然后运行替换命令<code>:s/const/let/g</code>：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs abnf">let one <span class="hljs-operator">=</span> <span class="hljs-string">&quot;one&quot;</span><span class="hljs-comment">;</span><br>let two <span class="hljs-operator">=</span> <span class="hljs-string">&quot;two&quot;</span><span class="hljs-comment">;</span><br>const three <span class="hljs-operator">=</span> <span class="hljs-string">&quot;three&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+
+<p>请注意，我说过您可以使用 <em>任何</em> 可视模式执行此操作。您不必高亮显示整个行即可在该行上运行Ex命令。只要您在每行上至少选择一个字符，就会应用Ex命令。</p>
+<h2 id="跨多行编辑"><a href="#跨多行编辑" class="headerlink" title="跨多行编辑"></a>跨多行编辑</h2><p>您可以使用逐块可视模式在Vim中跨多行编辑文本。如果需要在每行末尾添加分号：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">const</span> <span class="hljs-keyword">one</span> = <span class="hljs-string">&quot;one&quot;</span><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">two</span> = <span class="hljs-string">&quot;two&quot;</span><br><span class="hljs-keyword">const</span> three = <span class="hljs-string">&quot;three&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>将光标放在第一行上：</p>
+<ul>
+<li>进入逐块可视模式，并向下两行(<code>Ctrl-V jj</code>)。</li>
+<li>高亮显示到行尾(<code>$</code>)。</li>
+<li>按(<code>A</code>) ，然后键入”;”。</li>
+<li>退出可视模式(<code>esc</code>)。</li>
+</ul>
+<p>您应该看到在每一行后面附加的 “;”。666! 有两种方法可以从逐块可视模式进入输入模式：可以使用<code>A</code>在光标后输入文本，也可以使用<code>I</code>在光标前输入文本。请勿将它们与普通模式下的<code>A</code>和<code>I</code>混淆。(普通模式中，<code>A</code>表示在行尾添加内容，<code>I</code>表示在行尾非空字符前插入内容)。</p>
+<p>另外，您也可以使用<code>:normal</code>命令在多行添加内容：<br>-高亮显示所有3行(<code>vjj</code>)。<br>-输入<code>:normal! A;</code>。</p>
+<p>记住，<code>:normal</code>命令执行普通模式命令。您可以指示它运行<code>A;</code>在该行的末尾添加文本”;”。</p>
+<h2 id="递增数字"><a href="#递增数字" class="headerlink" title="递增数字"></a>递增数字</h2><p>Vim有<code>Ctrl-X</code>和<code>Ctrl-A</code>命令来减少和增加数字。与可视模式一起使用时，可以跨多行递增数字。</p>
+<p>如果您具有以下HTML元素：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-1&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-1&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-1&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-1&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-1&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p>有多个具有相同名称的id是一个不好的做法，因此让我们对其进行递增以使其唯一：</p>
+<ul>
+<li>将光标移动到 <strong>第二行</strong>的 “1”。</li>
+<li>启动逐块可视模式，并向下移动3行(<code>Ctrl-V 3j</code>)。这高亮显示剩余的”1”，现在除了第一行，所有的”1”应该已经高亮。</li>
+<li>运行<code>g Ctrl-A</code>。</li>
+</ul>
+<p>您应该看到以下结果：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-1&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-2&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-3&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-4&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-5&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p><code>g Ctrl-A</code>在多行上递增数字。 <code>Ctrl-X/Ctrl-A</code>也可以增加字母。如果您运行：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs processing">:<span class="hljs-built_in">set</span> nrformats+=<span class="hljs-built_in">alpha</span><br></code></pre></td></tr></table></figure>
+
+<p><code>nrformats</code>选项指示Vim将哪个基数视为<code>Ctrl-A</code>和<code>Ctrl-X</code>递增和递减的“数字”。通过添加<code>alpha</code>，现在将字母字符视为数字。如果您具有以下HTML元素：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-a&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-a&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-a&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-a&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-a&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p>将光标放在第二个”app-a”上。使用与上述相同的技术(<code>Ctrl-V 3j</code> 然后 <code>g Ctrl-A</code>)增加ID。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs applescript">&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-a&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-b&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-c&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-d&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br>&lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;app-e&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="选择最后一个可视模式区域"><a href="#选择最后一个可视模式区域" class="headerlink" title="选择最后一个可视模式区域"></a>选择最后一个可视模式区域</h2><p>前面章节中我提到了<code>gv</code>可以快速高亮显示上一个可视模式选择的内容。您还可以使用以下两个特殊标记转到最后一个可视模式的开始和结束位置：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs 1c">&#x27;&lt;    转到上一个可视模式高亮显示的第一个位置（行）(译者注，英文原版中&#x27;&lt;&#x27;前面的符号是`，但这应该是一个错误，应该是单引号&#x27;)<br>&#x27;&gt;    转到上一个可视模式高亮显示的最后位置（行）<br></code></pre></td></tr></table></figure>
+
+<p>之前，我提到过您可以在高亮显示的文本上有选择地执行Ex命令，例如：<code>:s/const/let/g</code>。当您这样做时，您应该看到以下内容：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:<span class="hljs-string">&#x27;&lt;,&#x27;</span>&gt;s/const/let/g</span><br></code></pre></td></tr></table></figure>
+
+<p>您实际上是在使用(<code>&#39;&lt;, &#39;&gt;</code>) 标记作为范围来执行 <code>s/const/let/g</code>命令。这太有趣了！</p>
+<p>您随时可以随时编辑这些标记。比如，如果您需要从高亮显示的文本的开头到文件的末尾进行替换，则只需将命令行更改为：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs julia">:&#x27;&lt;,$s/<span class="hljs-keyword">const</span>/<span class="hljs-keyword">let</span>/g<br></code></pre></td></tr></table></figure>
+
+<h2 id="从插入模式进入可视模式"><a href="#从插入模式进入可视模式" class="headerlink" title="从插入模式进入可视模式"></a>从插入模式进入可视模式</h2><p>您也可以从插入模式进入可视模式。在插入模式下进入字符可视模式：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Ctrl-O v</span><br></code></pre></td></tr></table></figure>
+
+<p>回想一下，在插入模式下运行<code>Ctrl-O</code>可以使您执行普通模式命令。在普通模式命令挂起模式下，运行<code>v</code>进入逐字可视模式。请注意，在屏幕的左下方，它显示为<code>--(insert) VISUAL--</code>。该技巧适用于任何可视模式运算符：<code>v</code>，<code>V</code>，和<code>Ctrl-V</code>。</p>
+<h2 id="选择模式"><a href="#选择模式" class="headerlink" title="选择模式"></a>选择模式</h2><p>Vim具有类似于可视模式的模式，称为<em>选择模式</em>。与可视模式一样，它也具有三种不同的模式：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">gh</span>         逐字符选择模式<br>gH         逐行选择模式<br>gCtrl-h    逐块选择模式<br></code></pre></td></tr></table></figure>
+
+<p>选择模式比Vim的可视模式更接近常规编辑器的文本高亮显示行为。</p>
+<p>在常规编辑器中，高亮显示文本块并键入字母（例如字母”y”）后，它将删除高亮显示的文本并插入字母”y”。如果您使用逐行选择模式(<code>gH</code>)高亮显示一行文本并键入”y”，它将删除高亮显示的文本并插入字母”y”，这与常规文本编辑器非常相似。</p>
+<p>将此行为与可视模式进行对比：如果您使用逐行可视模式(<code>V</code>)高亮显示一行文本并键入”y”，则高亮显示的文本不会被删除且被字母”y”代替，而是仅将其复制(yank)。在选择模式中，你不能执行对高亮文本执行普通模式的命令。</p>
+<p>我个人从未使用过选择模式，但是很高兴知道它的存在。</p>
+<h2 id="以聪明的方式学习可视模式"><a href="#以聪明的方式学习可视模式" class="headerlink" title="以聪明的方式学习可视模式"></a>以聪明的方式学习可视模式</h2><p>可视模式是Vim高亮显示文本的过程。</p>
+<p>如果发现使用可视模式操作的频率比正常模式操作的频率高得多，请当心。我认为这是一种反模式。运行可视模式操作所需的击键次数要多于普通模式下的击键次数。假设您需要删除一个内部单词(inner word，请回顾前面的文本对象)，如果可以只用三个按键(<code>diw</code>)，为什么要使用四个按键<code>viwd</code>（先<code>v</code>进入可视模式，然后<code>iw</code>高亮一个内部单词，最后<code>d</code>删除）呢？前者更为直接和简洁。当然，有时使用可视模式是合适的，但总的来说，更倾向于直接的方法。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/VIM/">VIM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/05/Learn-Vim_zh_cn/ch10_undo/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">VIM-撤销</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/05/Learn-Vim_zh_cn/ch12_search_and_substitute/">
+                        <span class="hidden-mobile">VIM-搜索和替换</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span>Life</span> <i class="iconfont icon-love"></i> <span>Kinda</span> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,546 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="description">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VIM-开始">
+<meta property="og:url" content="http://example.com/2022/04/05/Learn-Vim_zh_cn/ch01_starting_vim/index.html">
+<meta property="og:site_name" content="Kinda">
+<meta property="og:description" content="description">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-04T16:26:39.000Z">
+<meta property="article:modified_time" content="2022-04-04T16:56:19.949Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="VIM">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>VIM-开始 - Kinda</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Kinda</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Alndaly/imgsrc/img/202204050048495.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="VIM-开始">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-05 00:26" pubdate>
+        2022年4月5日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.8k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">VIM-开始</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：25 分钟前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="第1章-起步"><a href="#第1章-起步" class="headerlink" title="第1章 起步"></a>第1章 起步</h1><p>在本章，您将了解从终端启动Vim的几种不同方法。我写这本教程时使用的Vim版本是8.2。如果您使用Neovim或老版本的Vim，大部分情况下方法是通用的，但注意个别命令可能无效。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>我不会给出在某台特定机器上安装Vim的详细指令。好消息是，大部分Unix-based电脑应该预装了Vim。如果没有，大部分发行版也应该有关于如何安装Vim的指令。</p>
+<p>从Vim的官方网站或官方仓库可以获得下载链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.vim.org/download.php">Vim 官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/vim/vim">Vim 官方仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://hub.fastgit.org/vim/vim">Vim 官方仓库镜像</a></li>
+</ul>
+<h2 id="Vim命令"><a href="#Vim命令" class="headerlink" title="Vim命令"></a>Vim命令</h2><p>当您安装好Vim后，在终端运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">vim<br></code></pre></td></tr></table></figure>
+
+<p>您应该会看到一个介绍界面。这就是您用来处理文本的工作区。不像其它大部分文本编辑器和IDE，Vim是一个模式编辑器。如果您想输入”hello”，您需要使用’i’命令切换到插入模式。按下’ihello<Esc>‘可以在工作区插入文本”hello”。</p>
+<h2 id="退出Vim"><a href="#退出Vim" class="headerlink" title="退出Vim"></a>退出Vim</h2><p>有好几种不同的方法都可以退出Vim。（译者注：在stackflow论坛上，有个著名的问题“如何退出Vim”，五年来，有超过100万开发者遇到相同的问题。^_^，这件事已经成为了开发者中的一个梗）。最常用的退出方法是在Vim中输入：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:quit</span><br></code></pre></td></tr></table></figure>
+
+<p>您可以使用简写<code>:q</code>。这是一个命令行模式的命令(command-line mode：Vim的另一种模式)。如果您在普通模式输入<code>:</code>，光标将移动到屏幕底部，在这里您可以输入命令。在后面的第15章，您会学到关于命令行模式更多信息。如果您处于插入模式，按下<code>:</code>将会在屏幕上直接显示”:”(冒号)。因此，您需要按下<code>&lt;Esc&gt;</code>键切换回普通模式。顺带说一下，在命令行模式也可以通过按<code>&lt;Esc&gt;</code>键切换回普通模式。您将会注意到，在Vim的好几种模式下都可以通过按<code>&lt;Esc&gt;</code>键切回普通模式。</p>
+<h2 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h2><p>若要保存您的修改，在Vim中输入：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">:<span class="hljs-built_in">write</span><br></code></pre></td></tr></table></figure>
+
+<p>您也可以输入简写’:w’。如果这是一个新建的文件，您必须给出文件名才能保存。下面的命令使文件保存为名为’file.txt’的文件，在Vim命令行运行：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">:w <span class="hljs-built_in">file</span>.txt<br></code></pre></td></tr></table></figure>
+
+<p>如果想保存并退出，可以将’:w’和’:q’命令联起来，在Vim命令行中输入：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:wq</span><br></code></pre></td></tr></table></figure>
+
+<p>如果想不保存修改而强制退出，可以在’:q’命令后加’!’（叹号）,在Vim命令行中：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:q!</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h2><p>在本指南全文中，我将向您提及好几种Vim的帮助页面。您可以通过输入<code>:help &#123;命令&#125;</code>(<code>:h</code>是简写)进入相关命令的帮助文档。可以向<code>:h</code>命令传递主题、命令名作为参数。比如，如果想查询退出Vim的方法，在vim中输入：</p>
+<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cos">:<span class="hljs-keyword">h</span> <span class="hljs-keyword">write</span>-<span class="hljs-keyword">quit</span><br></code></pre></td></tr></table></figure>
+
+<p>我是怎么知道应该搜索”write-quit”这个关键词的呢？实际上我也不知道，我仅仅只是输入’:h quit’，然后按<code>&lt;Tab&gt;</code>。Vim会自动显示相关联的关键词供用户选择。如果您需要查询一些信息，只需要输入<code>:h</code>后接关键词，然后按<code>&lt;Tab&gt;</code>。</p>
+<h2 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h2><p>如果想在终端中使用Vim打开名为(‘hello1.txt’)，在终端中运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim hello1.txt<br></code></pre></td></tr></table></figure>
+
+<p>可以一次打开多个文件，在终端中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim hello1.txt hello2.txt hello3.txt<br></code></pre></td></tr></table></figure>
+
+<p>Vim会在不同的buffers中打开’hello1.txt’，’hello2.txt’，’hello3.txt’。在下一章您将学到关于buffers的知识。</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>您可以在终端中向<code>vim</code>命令传递参数。  </p>
+<p>如果想查看Vim的当前版本，在终端中运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim --version<br></code></pre></td></tr></table></figure>
+
+<p>终端中将显示您当前Vim的版本和所有支持的特性，’+’表示支持的特性，’-‘表示不支持的特性。本教程中的一些操作需要您的Vim支持特定的特性。比如，在后面的章节中提到可以使用<code>:history</code>查看Vim的命令行历史记录。您的Vim必须包含<code>+cmdline_history</code>这一特性，这条命令才能正常使用。一般情况下，如果您通过主流的安装源下载Vim的话，您安装的Vim是支持所有特性的，</p>
+<p>您在终端里做的很多事情都可以在Vim内部实现。比如，在Vim程序中也可以查看当前Vim版本，您可以运行下面的命令，在Vim中输入：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">:<span class="hljs-built_in">version</span><br></code></pre></td></tr></table></figure>
+
+<p>如果您想打开<code>hello.txt</code>文件后迅速执行一条命令，您可以向<code>vim</code>传递一个<code>+&#123;cmd&#125;</code>选项。</p>
+<p>在Vim中，您可以使用<code>:s</code>命令（<code>substitue</code>的缩写）替换文本。如果您想打开<code>hello.txt</code>后立即将所有的”pancake”替换成”bagel”，在终端中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim +%s/pancake/bagel/g hello.txt<br></code></pre></td></tr></table></figure>
+
+<p>该命令可以被叠加，在终端中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim +%s/pancake/bagel/g +%s/bagel/egg/g +%s/egg/donut/g hello.txt<br></code></pre></td></tr></table></figure>
+
+<p>Vim会将所有”pancake” 实例替换为”bagel”，然后将所有”bagel”替换为”egg”，然后将所有”egg”替换为”donut”（在后面的章节中您将学到如何替换）。</p>
+<p>您同样可以使用<code>c</code>标志来代替<code>+</code>语法，在终端中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim -c %s/pancake/bagel/g hello.txt<br>vim -c %s/pancake/bagel/g -c %s/bagel/egg/g -c %s/egg/donut/g hello.txt<br></code></pre></td></tr></table></figure>
+
+<h2 id="打开多个窗口"><a href="#打开多个窗口" class="headerlink" title="打开多个窗口"></a>打开多个窗口</h2><p>您可以使用<code>o</code>和<code>O</code>选项使Vim打开后分别显示为水平或垂直分割的窗口。</p>
+<p>若想将Vim打开为2个水平分割的窗口，在终端中运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim -o2<br></code></pre></td></tr></table></figure>
+
+<p>若想将Vim打开为5个水平分割的窗口，在终端中运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim -o5<br></code></pre></td></tr></table></figure>
+
+<p>若想将Vim打开为5个水平分割的窗口，并使前两个窗口显示<code>hello1.txt</code>和<code>hello2.txt</code>的内容，在终端中运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim -o5 hello1.txt hello2.txt<br></code></pre></td></tr></table></figure>
+
+<p>若想将Vim打开为2个垂直分割的窗口、5个垂直分割的窗口、5个垂直分割窗口并显示2个文件，在终端中分别运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim -O<br>vim -O5<br>vim -O5 hello1.txt hello2.txt<br></code></pre></td></tr></table></figure>
+
+<h2 id="挂起"><a href="#挂起" class="headerlink" title="挂起"></a>挂起</h2><p>如果您编辑时想将Vim挂起，您可以按下<code>Ctrl-z</code>。同样，您也可以使用<code>:stop</code>或<code>:suspend</code>命令达到相同的效果。若想从挂起状态返回，在终端中运行<code>fg</code>命令。</p>
+<h2 id="聪明的启动Vim"><a href="#聪明的启动Vim" class="headerlink" title="聪明的启动Vim"></a>聪明的启动Vim</h2><p>您可以向<code>vim</code>命令传递不同的选项(option)和标志(flag)，就像其他终端命令一样。其中一个选项是命令行命令（<code>+&#123;cmd&#125;</code>或<code>-c cmd</code>）。当您读完本教程学到更多命令后，看看您是否能将相应命令应用到Vim的启动中。同样，作为一个终端命令，您可以将<code>vim</code>命令和其他终端命令联合起来。比如，您可以将<code>ls</code>命令的输出重定向到Vim中编辑，命令是<code>ls -l | vim -</code>。</p>
+<p>若要了解更多Vim终端命令，查看<code>man vim</code>。若要了解更多关于Vim编辑器的知识，继续阅读本教程，多使用<code>:help</code>命令。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/VIM/">VIM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/05/Learn-Vim_zh_cn/ch02_buffers_windows_tabs/">
+                        <span class="hidden-mobile">VIM-缓冲区(Buffers)，窗口(Windows)和选项卡(Tabs)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span>Life</span> <i class="iconfont icon-love"></i> <span>Kinda</span> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

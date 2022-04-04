@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="VIM相关文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VIM-Git">
+<meta property="og:url" content="http://example.com/2022/04/05/Learn-Vim_zh_cn/ch18_git/index.html">
+<meta property="og:site_name" content="Kinda">
+<meta property="og:description" content="VIM相关文档">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/04/05/Learn-Vim_zh_cn/ch18_git/images/diffing-basic.png">
+<meta property="og:image" content="http://example.com/2022/04/05/Learn-Vim_zh_cn/ch18_git/images/diffing-apples.png">
+<meta property="og:image" content="http://example.com/2022/04/05/Learn-Vim_zh_cn/ch18_git/images/mergetool-initial.png">
+<meta property="og:image" content="http://example.com/2022/04/05/Learn-Vim_zh_cn/ch18_git/images/fugitive-git.png">
+<meta property="og:image" content="http://example.com/2022/04/05/Learn-Vim_zh_cn/ch18_git/images/fugitive-git-blame.png">
+<meta property="og:image" content="http://example.com/2022/04/05/Learn-Vim_zh_cn/ch18_git/images/fugitive-gdiffsplit.png">
+<meta property="og:image" content="http://example.com/2022/04/05/Learn-Vim_zh_cn/ch18_git/images/fugitive-git-log.png">
+<meta property="article:published_time" content="2022-04-04T16:26:39.000Z">
+<meta property="article:modified_time" content="2022-04-04T16:36:27.797Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="VIM">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/04/05/Learn-Vim_zh_cn/ch18_git/images/diffing-basic.png">
+  
+  
+  <title>VIM-Git - Kinda</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Kinda</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Alndaly/imgsrc/img/202204050048495.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="VIM-Git">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-05 00:26" pubdate>
+        2022年4月5日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      43 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">VIM-Git</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：44 分钟前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="第18章-Git"><a href="#第18章-Git" class="headerlink" title="第18章 Git"></a>第18章 Git</h1><p>Vim 和 Git 是两种实现不同功能的伟大工具。Vim 用于文本编辑，Git 用于版本控制。</p>
+<p>在本章中，您将学习如何将 Vim 和 Git 集成在一起。</p>
+<h2 id="差异比较"><a href="#差异比较" class="headerlink" title="差异比较"></a>差异比较</h2><p>在上一章中，您看到了如何运行 <code>vimdiff</code> 命令以显示多个文件之间的差异。</p>
+<p>假设您有两个文件，<code>file1.txt</code> 和 <code>file2.txt</code>。</p>
+<p><code>file1.txt</code> 的内容如下：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pancakes</span><br><span class="hljs-attribute">waffles</span><br><span class="hljs-attribute">apples</span><br><span class="hljs-attribute"></span><br><span class="hljs-attribute">milk</span><br><span class="hljs-attribute">apple juice</span><br><span class="hljs-attribute"></span><br><span class="hljs-attribute">yogurt</span><br></code></pre></td></tr></table></figure>
+
+<p><code>file2.txt</code> 的内容如下：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">pancakes<br>waffles<br><span class="hljs-keyword">oranges</span><br><span class="hljs-keyword"></span><br>milk<br><span class="hljs-keyword">orange </span><span class="hljs-keyword">juice</span><br><span class="hljs-keyword"></span><br>yogurt<br></code></pre></td></tr></table></figure>
+
+<p>若要查看两个文件之间的差异，请运行：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">vimdiff</span> file1.txt file2.txt<br></code></pre></td></tr></table></figure>
+
+<p>或者也可以运行：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">vim</span> -d file1.txt file2.txt<br></code></pre></td></tr></table></figure>
+
+<p align="center">
+  <img alt="Basic diffing with Vim" width="900" height="auto" src="images/diffing-basic.png" srcset="/img/loading.gif" lazyload>
+</p>
+
+<p><code>vimdiff</code> 并排显示两个缓冲区。左边是 <code>file1.txt</code>，右边是 <code>file2.txt</code>。不同的两行（apples 和 oranges）会被高亮显示。</p>
+<p>假设您要使第二个缓冲区相应位置变成 apples，而不是 oranges。若想从 <code>file1.txt</code> 传输您当前位置（当前您在 <code>file1.txt</code>）的内容到 <code>file2.txt</code>，首先使用 <code>]c</code> 跳转到下一处差异（使用 <code>[c</code> 可跳回上一处差异），现在光标应该在 apples 上了。接着运行 <code>:diffput</code>。此时，这两个文件都是 apples 了。</p>
+<p align="center">
+  <img alt="Finding files in FZF" width="900" height="auto" src="images/diffing-apples.png" srcset="/img/loading.gif" lazyload>
+</p>
+
+<p>如果您想从另一个缓冲区（orange juice，<code>file2.txt</code>）传输文本来替代当前缓冲区（apple juice，<code>file1.txt</code>），让您的光标仍然位于 <code>file1.txt</code> 的窗口中，首先使用 <code>]c</code> 跳转至下一处差异，此时光标应该在 apple juice 上。接着运行 <code>:diffget</code> 获取另一个缓冲区的 orange juice 来替代当前缓冲区中的 apple juice。</p>
+<p><code>:diffput</code> 将文本从当前缓冲区 <em>输出</em> 到另一个缓冲区。<code>:diffget</code> 从另一个缓冲区 <em>获取</em> 文本到当前缓冲区。</p>
+<p>如果有多个缓冲区，可以运行 <code>:diffput fileN.txt</code> 和 <code>:diffget fileN.txt</code> 来指定目标缓冲区 fileN。</p>
+<h2 id="使用-Vim-作为合并工具"><a href="#使用-Vim-作为合并工具" class="headerlink" title="使用 Vim 作为合并工具"></a>使用 Vim 作为合并工具</h2><blockquote>
+<p>“我非常喜欢解决合并冲突。” ——佚名</p>
+</blockquote>
+<p>我不知道有谁喜欢解决合并冲突，但总之，合并冲突是无法避免的。在本节中，您将学习如何利用 Vim 作为解决合并冲突的工具。</p>
+<p>首先，运行下列命令来将默认合并工具更改为 <code>vimdiff</code>：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arduino">git config merge.tool vimdiff<br>git config merge.conflictstyle diff3<br>git config mergetool.prompt <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<p>或者您也可以直接修改 <code>~/.gitconfig</code>（默认情况下，它应该处于根目录中，但您的可能在不同的位置）。上面的命令应该会将您的 <code>gitconfig</code> 改成如下设置的样子，如果您还没有运行上面的命令，您也可以手动更改您的 gitconfig。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[core]</span><br>  <span class="hljs-attr">editor</span> = vim<br><span class="hljs-section">[merge]</span><br>  <span class="hljs-attr">tool</span> = vimdiff<br>  <span class="hljs-attr">conflictstyle</span> = diff3<br><span class="hljs-section">[difftool]</span><br>  <span class="hljs-attr">prompt</span> = <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<p>让我们创建一个假的合并冲突来测试一下。首先创建一个目录 <code>/food</code>，并初始化 git 仓库：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">git <span class="hljs-keyword">init</span><br></code></pre></td></tr></table></figure>
+
+<p>添加 <code>breakfast.txt</code> 文件，内容为：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pancakes</span><br><span class="hljs-attribute">waffles</span><br><span class="hljs-attribute">oranges</span><br></code></pre></td></tr></table></figure>
+
+<p>添加文件并提交它：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> -m &quot;Initial breakfast commit&quot;<br></code></pre></td></tr></table></figure>
+
+<p>接着，创建一个新分支 apples：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">git</span> checkout -<span class="hljs-keyword">b</span> apples<br></code></pre></td></tr></table></figure>
+
+<p>更改 <code>breakfast.txt</code> 文件为：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pancakes</span><br><span class="hljs-attribute">waffles</span><br><span class="hljs-attribute">apples</span><br></code></pre></td></tr></table></figure>
+
+<p>保存文件，添加并提交更改：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> -m &quot;Apples not oranges&quot;<br></code></pre></td></tr></table></figure>
+
+<p>真棒！现在 master 分支有 oranges，而 apples 分支有 apples。接着回到 master 分支：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">git checkout <span class="hljs-literal">master</span><br></code></pre></td></tr></table></figure>
+
+<p>在 <code>breakfast.txt</code> 文件中，您应该能看到原来的文本 oranges。接着将它改成 grapes，因为它是现在的应季水果：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pancakes</span><br><span class="hljs-attribute">waffles</span><br><span class="hljs-attribute">grapes</span><br></code></pre></td></tr></table></figure>
+
+<p>保存、添加、提交：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> -m &quot;Grapes not oranges&quot;<br></code></pre></td></tr></table></figure>
+
+<p>嚯！这么多步骤！现在准备要将 apples 分支合并进 master 分支了：</p>
+<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cos">git <span class="hljs-keyword">merge</span> apples<br></code></pre></td></tr></table></figure>
+
+<p>您应该会看到如下错误：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">Auto-merging breakfast.txt<br><span class="hljs-keyword">CONFLICT</span> (content): Merge <span class="hljs-keyword">conflict</span> <span class="hljs-keyword">in</span> breakfast.txt<br>Automatic merge failed; fix conflicts <span class="hljs-keyword">and</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">commit</span> the result.<br></code></pre></td></tr></table></figure>
+
+<p>没错，一个冲突！现在一起来用一下新配置的 <code>mergetool</code> 来解决冲突吧！运行：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git mergetool</span><br></code></pre></td></tr></table></figure>
+
+<p align="center">
+  <img alt="Three-way mergetool with Vim" width="900" height="auto" src="images/mergetool-initial.png" srcset="/img/loading.gif" lazyload>
+</p>
+
+<p>Vim 显示了四个窗口。注意一下顶部三个：</p>
+<ul>
+<li><code>LOCAL</code> 包含了 <code>grapes</code>。这是“本地”中的变化，也是您要合并的内容。</li>
+<li><code>BASE</code> 包含了 <code>oranges</code>。这是 <code>LOCAL</code> 和 <code>REMOTE</code> 的共同祖先，用于比较它们之间的分歧。</li>
+<li><code>REMOTE</code> 包含了 <code>apples</code>。这是要被合并的内容。</li>
+</ul>
+<p>底部窗口（也即第四个窗口），您能看到：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">pancakes<br>waffles<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>grapes<br>||||||| db63958<br><span class="hljs-section">oranges</span><br><span class="hljs-section">=======</span><br>apples<br>&gt;&gt;&gt;&gt;&gt;&gt;&gt; apples<br></code></pre></td></tr></table></figure>
+
+<p>第四个窗口包含了合并冲突文本。有了这步设置，就能更轻松看到哪个环境发生了什么变化。您可以同时查看 <code>LOCAL</code>、<code>BASE</code> 和 <code>REMOTE</code> 的内容。</p>
+<p>您的光标应该在第四个窗口的高亮区域。再运行 <code>:diffget LOCAL</code>，就可以<em>获取</em>来自 <code>LOCAL</code> 的改变（grapes）。同样，运行 <code>:diffget BASE</code> 可以获取来自 <code>BASE</code> 的改变（oranges），而运行 <code>:diffget REMOTE</code> 可以获取来自 <code>REMOTE</code> 的改变（apples）。</p>
+<p>在这个例子中，我们试着获取来自 <code>LOCAL</code> 的改变。运行 <code>:diffget LO</code>（<code>LOCAL</code> 的简写），第四个窗口变成了 grapes。完成后，就可以保存并退出所有文件（<code>:wqall</code>）了。还不错吧？</p>
+<p>稍加留意您会发现，现在多了一个 <code>breakfast.txt.orig</code> 文件。这是 Git 防止事与愿违而创建的备份文件。如果您不希望 Git 在合并期间创建备份文件，可以运行：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">git config --global mergetool.keepBackup <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="在-Vim-中使用-Git"><a href="#在-Vim-中使用-Git" class="headerlink" title="在 Vim 中使用 Git"></a>在 Vim 中使用 Git</h2><p>Vim 本身没有集成 Git，要在 Vim 中执行 Git 命令，一种方法是在命令行模式中使用 <code>!</code> 叹号运算符。</p>
+<p>使用 <code>!</code> 可以运行任何 Git 命令：</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs erlang-repl">:!git status<br>:!git commit<br>:!git diff<br>:!git push origin master<br></code></pre></td></tr></table></figure>
+
+<p>您还可以使用 Vim 的特殊字符 <code>%</code> (当前缓冲区) 或 <code>#</code> (其他缓冲区)：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim">:!git <span class="hljs-built_in">add</span> %         <span class="hljs-comment">&quot; git add current file</span><br>:!git checkout #    <span class="hljs-comment">&quot; git checkout the other file</span><br></code></pre></td></tr></table></figure>
+
+<p>这里有一个Vim技巧，您可以用来添加不同Vim窗口中的多个文件，运行：</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs erlang-repl">windo !git add <span class="hljs-comment">%</span><br></code></pre></td></tr></table></figure>
+
+<p>然后提交：</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs erlang-repl">:!git commit <span class="hljs-string">&quot;添加了Vim窗口中的所有文件，酷&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>windo</code>命令是VIm的 “do” 命令其中之一，类似于您前面看到的 <code>argdo</code> 。<code>windo</code> 将命令执行在每一个窗口中。</p>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>这里有很多提供git支持的Vim插件。以下是 Vim 中较流行的 Git 相关插件列表（您读到这篇文章时可能又有更多）：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/airblade/vim-gitgutter">vim-gitgutter</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-signify">vim-signify</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tpope/vim-fugitive">vim-fugitive</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/junegunn/gv.vim">gv.vim</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jreybert/vimagit">vimagit</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sodapopcan/vim-twiggy">vim-twiggy</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tpope/vim-rhubarb">rhubarb</a></li>
+</ul>
+<p>其中最流行的是 vim-fugitive。本章的剩余部分，我将使用此插件来介绍几个 git 工作流。</p>
+<h2 id="Vim-Fugitive"><a href="#Vim-Fugitive" class="headerlink" title="Vim-Fugitive"></a>Vim-Fugitive</h2><p>vim-fugitive 插件允许您在不离开 Vim 编辑器的情况下运行 git 命令行界面。您会发现，有些命令在 Vim 内部执行时会更好。</p>
+<p>开始前，请先使用 Vim 插件管理器（<a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">vim-plug</a>、<a target="_blank" rel="noopener" href="https://github.com/VundleVim/Vundle.vim">vundle</a>、<a target="_blank" rel="noopener" href="https://github.com/Shougo/dein.vim">dein.vim</a> 等）安装 vim-fugitive。</p>
+<h2 id="Git-Status"><a href="#Git-Status" class="headerlink" title="Git Status"></a>Git Status</h2><p>当您不带参数地运行 <code>:Git</code> 命令时，vim-fugitive 将显示一个 git 概要窗口，它显示了未跟踪、未暂存和已暂存的文件。在此 “<code>git status</code>” 模式下，您可以做一些操作：</p>
+<ul>
+<li><code>Ctrl-n</code> &#x2F; <code>Ctrl-p</code> 转到下一个 &#x2F; 上一个文件。</li>
+<li><code>-</code> 暂存或取消暂存光标处的文件。</li>
+<li><code>s</code> 暂存光标处的文件。</li>
+<li><code>u</code> 取消暂存光标处的文件。</li>
+<li><code>&gt;</code> &#x2F; <code>&lt;</code> 内联显示或隐藏光标处文件的差异变化。</li>
+</ul>
+<p align="center">
+  <img alt="Finding files in FZF" width="900" height="auto" src="images/fugitive-git.png" srcset="/img/loading.gif" lazyload>
+</p>
+
+<p>查阅 <code>:h fugitive-staging-maps</code> 可获得更多信息。</p>
+<h2 id="Git-Blame"><a href="#Git-Blame" class="headerlink" title="Git Blame"></a>Git Blame</h2><p>在当前文件运行 <code>:Git blame</code> 命令，vim-fugitive 可以显示一个拆分的问责窗口。这有助于追踪那些 BUG 是谁写的，接着就可以冲他&#x2F;她怒吼（开个玩笑）。</p>
+<p>在  <code>&quot;git blame&quot;</code> 模式下您可以做：</p>
+<ul>
+<li><code>q</code> 关闭问责窗口。</li>
+<li><code>A</code> 调整作者列大小。</li>
+<li><code>C</code> 调整提交列大小。</li>
+<li><code>D</code> 调整日期&#x2F;时间列大小。</li>
+</ul>
+<p>查阅 <code>:h :Git_blame</code> 可获得更多信息。</p>
+<p align="center">
+  <img alt="Finding files in FZF" width="900" height="auto" src="images/fugitive-git-blame.png" srcset="/img/loading.gif" lazyload>
+</p>
+
+<h2 id="Gdiffsplit"><a href="#Gdiffsplit" class="headerlink" title="Gdiffsplit"></a>Gdiffsplit</h2><p>当您运行 <code>:Gdiffsplit</code> 命令后，vim-fugitive 会执行 <code>vimdiff</code>，比对索引或工作树中的版本与当前文件最新更改的区别。如果运行 <code>:Gdiffsplit &lt;commit&gt;</code>，vim-fugitive 则会根据 <code>&lt;commit&gt;</code> 中的版本来执行 <code>vimdiff</code>。</p>
+<p align="center">
+  <img alt="Finding files in FZF" width="900" height="auto" src="images/fugitive-gdiffsplit.png" srcset="/img/loading.gif" lazyload>
+</p>
+
+<p>由于您处于 <code>vimdiff</code> 模式中，因此您可以使用 <code>:diffput</code> 和 <code>:diffget</code> 来 <em>获取</em> 或 <em>输出</em> 差异。</p>
+<h2 id="Gwrite-和-Gread"><a href="#Gwrite-和-Gread" class="headerlink" title="Gwrite 和 Gread"></a>Gwrite 和 Gread</h2><p>当您在更改文件后运行 <code>:Gwrite</code> 命令，vim-fugitive 将暂存更改，就像运行 <code>git add &lt;current-file&gt;</code> 一样。</p>
+<p>当您在更改文件后运行 <code>:Gread</code> 命令，vim-fugitive 会将文件还原至更改前的状态，就像运行 <code>git checkout &lt;current-file&gt;</code> 一样。使用 <code>:Gread</code> 还有一个好处是操作可撤销。如果在运行 <code>:Gread</code> 后您改变主意，想要保留原来的更改，您只需要撤消（<code>u</code>），Vim 将撤回 <code>:Gread</code> 操作。要换作是在命令行中运行 <code>git checkout &lt;current-file&gt;</code>，就完成不了这种操作了。</p>
+<h2 id="Gclog"><a href="#Gclog" class="headerlink" title="Gclog"></a>Gclog</h2><p>当您运行 <code>:Gclog</code> 命令时，vim-fugitive 将显示提交历史记录，就像运行 <code>git log</code> 命令一样。Vim-fugitive 使用 Vim 的 quickfix 来完成此任务，因此您可以使用 <code>:cnext</code> 和 <code>:cprevious</code> 来遍历下一个或上一个日志信息。您还可以使用 <code>:copen</code> 和 <code>:cclose</code> 打开或关闭日志列表。</p>
+<p align="center">
+  <img alt="Finding files in FZF" width="900" height="auto" src="images/fugitive-git-log.png" srcset="/img/loading.gif" lazyload>
+</p>
+
+<p>在 <code>&quot;git log&quot;</code> 模式中，您可以做两件事：</p>
+<ul>
+<li>查看树。</li>
+<li>访问父级（上一个提交）。</li>
+</ul>
+<p>您可以像 <code>git log</code> 命令一样，传递参数给 <code>:Gclog</code> 命令。如果您项目的提交历史记录很长，只想看最后三个提交，则可以运行 <code>:Gclog -3</code>。如果需要根据提交日期来筛选记录，可以运行类似 <code>:Gclog --after=&quot;January 1&quot; --before=&quot;March 14&quot;</code> 的命令。</p>
+<h2 id="Vim-Fugitive-的更多功能"><a href="#Vim-Fugitive-的更多功能" class="headerlink" title="Vim-Fugitive 的更多功能"></a>Vim-Fugitive 的更多功能</h2><p>以上只是寥寥几个 vim-fugitive 功能的例子，您可以查阅 <code>:h fugitive.txt</code> 来了解更多有关 vim-fugitive 的信息。大多数流行的 git 命令可能都有 vim-fugitive 的优化版本，您只需在文档中查找它们。</p>
+<p>如果您处于 vim-fugitive 的“特殊模式”（如 <code>:Git</code> 或 <code>:Git blame</code> 模式）中，按下 <code>g?</code> 可以了解当前有哪些可用的快捷键，Vim-fugitive 将为您所处的模式显示相应的 <code>:help</code> 窗口。棒极了！</p>
+<h2 id="聪明地学习-Vim-和-Git"><a href="#聪明地学习-Vim-和-Git" class="headerlink" title="聪明地学习 Vim 和 Git"></a>聪明地学习 Vim 和 Git</h2><p>每个人都有不同的 git 工作流，可能 vim-fugitive 非常合适您的工作流（也可能不适合）。总之，我强烈建议您试试上面列出的所有插件。可能还有一些其他的我没有列出来，都可以去试一试。</p>
+<p>要让Vim-git的集成工作得更好，一个显而易见的办法就是去深入了解git。Git 本身是一个很庞大的主题，我只向您展示了它其中很小的一部分。好了，接下来谈谈如何使用 Vim 编译您的代码。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/VIM/">VIM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/05/Learn-Vim_zh_cn/ch17_fold/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">VIM-折叠</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/05/Learn-Vim_zh_cn/ch19_compile/">
+                        <span class="hidden-mobile">VIM-编译</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span>Life</span> <i class="iconfont icon-love"></i> <span>Kinda</span> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

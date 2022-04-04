@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="VIM相关文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VIM-命令行模式">
+<meta property="og:url" content="http://example.com/2022/04/05/Learn-Vim_zh_cn/ch15_command-line_mode/index.html">
+<meta property="og:site_name" content="Kinda">
+<meta property="og:description" content="VIM相关文档">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-04T16:26:39.000Z">
+<meta property="article:modified_time" content="2022-04-04T16:36:18.561Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="VIM">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>VIM-命令行模式 - Kinda</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Kinda</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Alndaly/imgsrc/img/202204050048495.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="VIM-命令行模式">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-05 00:26" pubdate>
+        2022年4月5日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      19 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">VIM-命令行模式</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：1 小时前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="第15章-命令行模式"><a href="#第15章-命令行模式" class="headerlink" title="第15章 命令行模式"></a>第15章 命令行模式</h1><p>在前三章中，您已经学习了如何使用搜索命令(<code>/</code>, <code>?</code>)、替换命令(<code>:s</code>)、全局命令(<code>:g</code>)，以及外部命令(<code>!</code>)。这些都是命令行模式命令的一些例子。</p>
+<p>在本章中，您将学习命令行模式的更多技巧。</p>
+<h2 id="进入和退出命令行模式"><a href="#进入和退出命令行模式" class="headerlink" title="进入和退出命令行模式"></a>进入和退出命令行模式</h2><p>命令行模式本身也是一种模式，就像普通模式、输入模式、可视模式一样。在这种模式中，光标将转到屏幕底部，此时您可以输入不同的命令。</p>
+<p>有 4 种进入命令行模式的方式：</p>
+<ul>
+<li>搜索命令 (<code>/</code>, <code>?</code>)</li>
+<li>命令行指令 (<code>:</code>)</li>
+<li>外部命令 (<code>!</code>)</li>
+</ul>
+<p>您可以从正常模式或可视模式进入命令行模式。</p>
+<p>若要离开命令行模式，您可以使用 <code>&lt;esc&gt;</code>、<code>Ctrl-c</code>、<code>Ctrl-[</code>。</p>
+<p><strong>有时其他资料可能会将”命令行指令”称为”Ex 命令”，将”外部命令”称为”过滤命令”或者”叹号运算符”。</strong></p>
+<h2 id="重复上一个命令"><a href="#重复上一个命令" class="headerlink" title="重复上一个命令"></a>重复上一个命令</h2><p>您可以用 <code>@:</code> 来重复上一个命令行指令或外部命令。</p>
+<p>如果您刚运行 <code>:s/foo/bar/g</code>，执行 <code>@:</code> 将重复该替换。如果您刚运行 <code>:.!tr &#39;[a-z]&#39; &#39;[A-Z]&#39;</code>，执行 <code>@:</code> 将重复上一次外部命令转换过滤。</p>
+<h2 id="命令行模式快捷键"><a href="#命令行模式快捷键" class="headerlink" title="命令行模式快捷键"></a>命令行模式快捷键</h2><p>在命令行模式中，您可以使用 <code>Left</code> 或 <code>Right</code> 方向键，来左右移动一个字符。</p>
+<p>如果需要移动一个单词，使用 <code>Shift-Left</code> 或 <code>Shift-Right</code> (在某些操作系统中，您需要使用 <code>Ctrl</code> 而不是 <code>Shift</code>)。</p>
+<p>使用 <code>Ctrl-b</code>移动到该行的开始，使用 <code>Ctrl-e</code>移动到该行的结束。</p>
+<p>和输入模式类似，在命令行模式中，有三种方法可以删除字符：</p>
+<figure class="highlight"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs">Ctrl-h    删除一个字符<br>Ctrl-w    删除一个单词<br>Ctrl-u    删除一整行<br></code></pre></td></tr></table></figure>
+<p>最后，如果您想像编辑文本文件一样来编辑命令，可以使用 <code>Ctrl-f</code>。</p>
+<p>这样还可以查看过往的命令，并在这种”命令行编辑的普通模式”中编辑它们，同时还能按下 <code>Enter</code> 来运行它们。</p>
+<h2 id="寄存器和自动补全"><a href="#寄存器和自动补全" class="headerlink" title="寄存器和自动补全"></a>寄存器和自动补全</h2><p>当处于命令行模式时，您可以像在插入模式中一样使用 <code>Ctrl-r</code> 从Vim寄存器中插入文本。如果您在寄存器 a 中存储了字符串 “foo” ，您可以执行 <code>Ctrl-r a</code> 从寄存器a中插入该文本。任何在插入模式中您可以从寄存器中获取的内容，在命令行模式中您也可以获取。</p>
+<p>另外，您也可以按 <code>Ctrl-r Ctrl-w</code> 获取当前光标下的单词（按 <code>Ctrl-r Ctrl-A</code> 获取当前光标下的词组）。还可以按 <code>Ctrl-r Ctlr-l</code> 获取当前光标所在行。按 <code>Ctrl-r Ctrl-f</code> 获取光标下的文件名。</p>
+<p>您也可以对已存在的命令使用自动补全。要自动补全 <code>echo</code> 命令，当处于命令行模式时，首先输入 “ec”，接着按下 <code>&lt;Tab&gt;</code>，此时您应该能在左下角看到一些 “ec” 开头的 Vim 命令（例如：<code>echo echoerr echohl echomsg econ</code>）。按下 <code>&lt;Tab&gt;</code> 或 <code>Ctrl-n</code> 可以跳到下一个选项。按下 <code>&lt;Shift-Tab&gt;</code> 或 <code>Ctrl-p</code> 可以回到上一个选项。</p>
+<p>一些命令行指令接受文件名作为参数。<code>edit</code> 就是一个例子，这时候您也可以使用自动补全。当输入 <code>:e </code> 后（不要忘记空格了），按下 <code>&lt;Tab&gt;</code>，Vim 将列出所有相关的文件名，这样您就可以进行选择而不必完整的输入它们。</p>
+<h2 id="历史记录窗口"><a href="#历史记录窗口" class="headerlink" title="历史记录窗口"></a>历史记录窗口</h2><p>您可以查看命令行指令和搜索项的历史记录（要确保在运行 <code>vim --version</code> 时，Vim 的编译选项中含有<code>+cmdline_hist</code>）。</p>
+<p>运行 <code>:his :</code> 来查看命令行指令的历史记录：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">##  cmd History</span><br><span class="hljs-number">2</span>  e file1.txt<br><span class="hljs-number">3</span>  g<span class="hljs-regexp">/foo/</span>d<br><span class="hljs-number">4</span>  s<span class="hljs-regexp">/foo/</span>bar/g<br></code></pre></td></tr></table></figure>
+
+<p>Vim 列出了您运行的所有 <code>:</code> 命令。默认情况下，Vim 存储最后 50 个命令。运行 <code>:set history=100</code> 可以将 Vim 记住的条目总数更改为 100。</p>
+<p>一个更有用的做法是使用命令行历史记录窗口，按<code>q:</code>将会打开一个可搜索、可编辑的历史记录窗口。假设按下<code>q:</code>后您有如下的表达式：</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">51 </span> s/verylongsubstitutionpattern/pancake/g<br><span class="hljs-symbol">52 </span> his :<br><span class="hljs-symbol">53 </span> wq<br></code></pre></td></tr></table></figure>
+
+<p>如果您当前任务是执行 <code>s/verylongsubstitutionpattern/donut/g</code>（”pancake”换成了”donut”），为什么不复用 <code>s/verylongsubstitutionpattern/pancake/g</code> 呢？毕竟，两条命令唯一不同的是替换的单词，”donut” vs “pancake” ，所有其他的内容都是相同的。</p>
+<p>当您运行 <code>q:</code>后，在历史记录中找到 <code>s/verylongsubstitutionpattern/pancake/g</code>（在这个环境中，您可以使用Vim导航），然后直接编辑它！ 在历史记录窗口中将 “pancake” 改为 “donut” ，然后按 <code>&lt;Enter</code>。Vim立刻执行 <code>s/verylongsubstitutionpattern/donut/g</code> 命令，超级方便！</p>
+<p>类似地，运行 <code>:his /</code> 或 <code>:his ?</code> 可以查看搜索记录。要想打开您可以直接搜索和编辑的搜索历史记录窗口，您可以运行 <code>q/</code> 和 <code>q?</code>。</p>
+<p>要退出这个窗口，按 <code>Ctrl-c</code>, <code>Ctrl-w c</code>, 或输入 <code>:quit</code>。</p>
+<h2 id="更多命令行指令"><a href="#更多命令行指令" class="headerlink" title="更多命令行指令"></a>更多命令行指令</h2><p>Vim有几百个内置指令，要查看Vim的所有指令，执行 <code>:h ex-cmd-index</code> 或 <code>:h :index</code>。</p>
+<h2 id="聪明地学习命令行模式"><a href="#聪明地学习命令行模式" class="headerlink" title="聪明地学习命令行模式"></a>聪明地学习命令行模式</h2><p>对比其他三种模式，命令行模式就像是文本编辑中的瑞士军刀。寥举几例，您可以编辑文本、修改文件和执行命令。本章是命令行模式的零碎知识的集合。同时，Vim 模式的介绍也走向尾声。现在，您已经知道如何使用普通、输入、可视以及命令行模式，您可以比以往更快地使用 Vim 来编辑文本了。</p>
+<p>是时候离开 Vim 模式，来了解如何使用 Vim 标记进行更快的导航了。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/VIM/">VIM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/05/Learn-Vim_zh_cn/ch14_external_commands/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">VIM-外部命令</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/05/Learn-Vim_zh_cn/ch16_tags/">
+                        <span class="hidden-mobile">VIM-标签</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span>Life</span> <i class="iconfont icon-love"></i> <span>Kinda</span> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
