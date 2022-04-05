@@ -102,7 +102,7 @@ fun_features:
     # Options: hover | always | touch
     visible: hover
     # Option：§ | # | ❡
-    icon: "#"
+    icon: ""
 
   # 加载进度条
   # Progress bar when loading
