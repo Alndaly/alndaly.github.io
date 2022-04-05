@@ -16,19 +16,26 @@
   <meta name="author" content="Kinda Hall">
   <meta name="keywords" content="个人博客, Personal Blog">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="Kinda">
+    <meta name="description" content="Python绘图相关文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="matplotlib">
 <meta property="og:url" content="http://alndaly.github.io/2022/04/05/Python%E7%BB%98%E5%9B%BE/matplotlib/index.html">
 <meta property="og:site_name" content="Kinda">
+<meta property="og:description" content="Python绘图相关文档">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-05T06:02:17.464Z">
-<meta property="article:modified_time" content="2022-04-05T06:02:17.464Z">
+<meta property="og:image" content="https://www.delftstack.com/img/Matplotlib/set%20figsize%20using%20figsize%20parameter.png">
+<meta property="og:image" content="https://www.delftstack.com/img/Matplotlib/set%20figsize%20using%20rc%20parameter.png">
+<meta property="og:image" content="https://www.delftstack.com/img/Matplotlib/set%20figsize%20using%20set%20figsize%20using%20set_figheight%20and%20set_figwidth.png">
+<meta property="og:image" content="https://www.delftstack.com/img/Matplotlib/set%20figsize%20using%20set%20figsize%20using%20set_size_inches.png">
+<meta property="article:published_time" content="2022-04-05T07:38:27.000Z">
+<meta property="article:modified_time" content="2022-04-05T07:38:27.000Z">
 <meta property="article:author" content="Kinda Hall">
-<meta property="article:tag" content="个人博客, Personal Blog">
+<meta property="article:tag" content="matplotlib">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.delftstack.com/img/Matplotlib/set%20figsize%20using%20figsize%20parameter.png">
   
   
-  <title>Kinda</title>
+  <title>matplotlib - Kinda</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -190,7 +197,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="">
+            <span class="h2" id="subtitle" title="matplotlib">
               
             </span>
 
@@ -200,7 +207,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-05 14:02" pubdate>
+      <time datetime="2022-04-05 15:38" pubdate>
         2022年4月5日 下午
       </time>
     </span>
@@ -211,7 +218,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      3.6k 字
     </span>
   
 
@@ -220,7 +227,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      30 分钟
     </span>
   
 
@@ -249,7 +256,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">matplotlib</h1>
             
               <p class="note note-info">
                 
@@ -258,12 +265,68 @@
               </p>
             
             <div class="markdown-body">
-              
+              <h1 id="bar绘图并且加上数字"><a href="#bar绘图并且加上数字" class="headerlink" title="bar绘图并且加上数字"></a>bar绘图并且加上数字</h1><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">plotBar</span>(<span class="hljs-params">name, y_label, title, file_name</span>):<br>	data_group = data.groupby([name, <span class="hljs-string">&#x27;emd_lable2&#x27;</span>]).size().unstack(level=<span class="hljs-number">1</span>)<br>	x = np.arange(<span class="hljs-built_in">len</span>(data_group.index))  <span class="hljs-comment"># the label locations</span><br>	width = <span class="hljs-number">0.35</span>  <span class="hljs-comment"># the width of the bars</span><br><br>	fig, ax = plt.subplots()<br>	rects1 = ax.bar(x - width/<span class="hljs-number">2</span>, data_group[<span class="hljs-number">0</span>], width, label=<span class="hljs-string">&#x27;未付费&#x27;</span>)<br>	rects2 = ax.bar(x + width/<span class="hljs-number">2</span>, data_group[<span class="hljs-number">1</span>], width, label=<span class="hljs-string">&#x27;付费&#x27;</span>)<br><br>	<span class="hljs-comment"># Add some text for labels, title and custom x-axis tick labels, etc.</span><br>  <span class="hljs-comment"># y_label正常情况下都是“人数”</span><br>	ax.set_ylabel(y_label)<br>	ax.set_title(<span class="hljs-string">&quot;不同&#123;&#125;付费情况&quot;</span>.<span class="hljs-built_in">format</span>(title))<br>	ax.set_xticks(x, data_group.index)<br><br>	ax.bar_label(rects1, padding=<span class="hljs-number">3</span>)<br>	ax.bar_label(rects2, padding=<span class="hljs-number">3</span>)<br><br>	fig.tight_layout()<br><br>	<span class="hljs-comment"># 显示label</span><br>	plt.legend()<br><br>	plt.show()<br>	fig.savefig(file_name)<br></code></pre></div></td></tr></table></figure>
+
+<h1 id="获取当前图片的画布并下载到本地"><a href="#获取当前图片的画布并下载到本地" class="headerlink" title="获取当前图片的画布并下载到本地"></a>获取当前图片的画布并下载到本地</h1><p>AxesSubplot如何保存成图片</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">fig = AxesSubplot.get_figure()<br>fig.savefig(<span class="hljs-string">&quot;output.png&quot;</span>)<br></code></pre></div></td></tr></table></figure>
+
+<h1 id="更改图片的大小以及格式"><a href="#更改图片的大小以及格式" class="headerlink" title="更改图片的大小以及格式"></a>更改图片的大小以及格式</h1><h2 id="比较方便的方法（开头统一处理）"><a href="#比较方便的方法（开头统一处理）" class="headerlink" title="比较方便的方法（开头统一处理）"></a>比较方便的方法（开头统一处理）</h2><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><br><span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>%matplotlib inline<br><span class="hljs-comment">#from matplotlib.font_manager import FontManager</span><br><br><span class="hljs-comment">#fm = FontManager()</span><br><span class="hljs-comment">#fonts = set(f.name for f in fm.ttflist)</span><br>config = &#123;<br>    <span class="hljs-string">&quot;font.family&quot;</span>: <span class="hljs-string">&#x27;serif&#x27;</span>,<br>    <span class="hljs-string">&quot;font.serif&quot;</span>: [<span class="hljs-string">&#x27;Songti SC&#x27;</span>],<br>    <span class="hljs-string">&quot;font.size&quot;</span>: <span class="hljs-number">18</span>,<br>    <span class="hljs-string">&quot;font.sans-serif&quot;</span>: [<span class="hljs-string">&#x27;&#x27;</span>],<br>    <span class="hljs-string">&quot;figure.figsize&quot;</span>: (<span class="hljs-number">16</span>,<span class="hljs-number">9</span>),<br>    <span class="hljs-string">&quot;mathtext.fontset&quot;</span>: <span class="hljs-string">&#x27;stix&#x27;</span>,<br>&#125;<br>plt.rcParams.update(config)<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ol>
+<li>初始化期间在 <code>figure()</code> 方法中设置 <code>figsize</code></li>
+<li>设置 <code>rcParams</code> 来更改 Matplotlib 中图形的大小</li>
+<li><code>set_figheight()</code> <a target="_blank" rel="noopener" href="https://www.delftstack.com/zh/howto/matplotlib/how-to-change-the-size-and-format-of-a-figure-in-matplotlib/#set_figheight-%E5%92%8C-set_figwidth-%E4%B8%80%E8%B5%B7%E8%AE%BE%E7%BD%AE-matplotlib-%E5%9B%BE%E5%BD%A2%E5%A4%A7%E5%B0%8F">和</a> <code>set_figwidth()</code> 一起设置 Matplotlib 图形大小</li>
+<li><code>set_size_inches()</code> 方法来更改 Matplotlib 图形大小</li>
+<li>在 Matplotlib 中更改图形格式</li>
+</ol>
+<p>我们可以使用 <code>set_figheight()</code> 和 <code>set_figwidth()</code> 和 <code>set_size_inches()</code> 方法来更改 Matplotlib 中的图形大小。我们也可以通过在 <code>figure()</code> 方法和 <code>rcParams</code> 中设置 <code>figsize</code> 来改变 Matplotlib 中的图形大小。同样，要更改图形格式，我们只需在 <code>savefig()</code> 方法中更改图像文件的扩展名。</p>
+<h2 id="初始化期间在-figure-方法中设置-figsize"><a href="#初始化期间在-figure-方法中设置-figsize" class="headerlink" title="初始化期间在 figure() 方法中设置 figsize"></a>初始化期间在 <code>figure()</code> 方法中设置 <code>figsize</code></h2><p>我们可以在初始化期间通过 <code>figure()</code> 方法设置 <code>figsize</code> 参数的值，该参数以英寸为单位指定图形的宽度和高度。</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>x = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">0.5</span>)<br>m = <span class="hljs-number">1</span><br>c = <span class="hljs-number">2</span><br>y = m*x + c<br><br>plt.figure(figsize=(<span class="hljs-number">6</span>,<span class="hljs-number">4</span>))<br>plt.plot(x, y)<br>plt.title(<span class="hljs-string">&quot;y=mx+c&quot;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;x-axis&#x27;</span>)<br>plt.ylabel(<span class="hljs-string">&#x27;y-axis&#x27;</span>)<br><br>plt.show()<br></code></pre></div></td></tr></table></figure>
+
+<p>输出：</p>
+<p><img src="https://www.delftstack.com/img/Matplotlib/set%20figsize%20using%20figsize%20parameter.png" srcset="/img/loading.gif" lazyload alt="https://www.delftstack.com/img/Matplotlib/set figsize using figsize parameter.png"></p>
+<p><code>figsize</code> 参数的默认值为 <code>[6.4，4.8]</code>。</p>
+<h2 id="设置-rcParams-来更改-Matplotlib-中图形的大小"><a href="#设置-rcParams-来更改-Matplotlib-中图形的大小" class="headerlink" title="设置 rcParams 来更改 Matplotlib 中图形的大小"></a>设置 <code>rcParams</code> 来更改 <code>Matplotlib</code> 中图形的大小</h2><p>我们可以更改存储在 <code>matplotlib.rcParams</code> 字典中的默认 <code>figure.figsize</code> 值，以更改 Matplotlib 中的图形大小。</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>x = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>,<span class="hljs-number">20</span>)<br>m = <span class="hljs-number">1</span><br>c = <span class="hljs-number">2</span><br>y = m*x + c<br><br>plt.rcParams[<span class="hljs-string">&quot;figure.figsize&quot;</span>] = (<span class="hljs-number">8</span>, <span class="hljs-number">6</span>)<br>plt.plot(x, y)<br>plt.title(<span class="hljs-string">&quot;y=mx+c&quot;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;x-axis&#x27;</span>)<br>plt.ylabel(<span class="hljs-string">&#x27;y-axis&#x27;</span>)<br><br>plt.show()<br></code></pre></div></td></tr></table></figure>
+
+<p>输出：</p>
+<p><img src="https://www.delftstack.com/img/Matplotlib/set%20figsize%20using%20rc%20parameter.png" srcset="/img/loading.gif" lazyload alt="https://www.delftstack.com/img/Matplotlib/set figsize using rc parameter.png"></p>
+<h2 id="set-figheight-和-set-figwidth-一起设置-Matplotlib-图形大小"><a href="#set-figheight-和-set-figwidth-一起设置-Matplotlib-图形大小" class="headerlink" title="set_figheight() 和 set_figwidth() 一起设置 Matplotlib 图形大小"></a><code>set_figheight()</code> 和 <code>set_figwidth()</code> 一起设置 Matplotlib 图形大小</h2><p>如果已经创建了图形，我们可以使用 <code>set_figheight()</code> 和 <code>set_figwidth()</code> 方法来确定图形的大小。</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>x = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>,<span class="hljs-number">20</span>)<br>m = <span class="hljs-number">1</span><br>c = <span class="hljs-number">2</span><br>y = m*x + c<br><br>fig = plt.figure()<br>plt.plot(x, y)<br>plt.title(<span class="hljs-string">&quot;y=mx+c&quot;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;x-axis&#x27;</span>)<br>plt.ylabel(<span class="hljs-string">&#x27;y-axis&#x27;</span>)<br>fig.set_figheight(<span class="hljs-number">6</span>)<br>fig.set_figwidth(<span class="hljs-number">8</span>)<br><br>plt.show()<br></code></pre></div></td></tr></table></figure>
+
+<p>输出：</p>
+<p><img src="https://www.delftstack.com/img/Matplotlib/set%20figsize%20using%20set%20figsize%20using%20set_figheight%20and%20set_figwidth.png" srcset="/img/loading.gif" lazyload alt="https://www.delftstack.com/img/Matplotlib/set figsize using set figsize using set_figheight and set_figwidth.png"></p>
+<p>这里，<code>set_figheight()</code> 方法设置图形的高度，而 <code>set_figwidth()</code> 方法设置图形的宽度。</p>
+<h2 id="set-size-inches-方法来更改-Matplotlib-图形大小"><a href="#set-size-inches-方法来更改-Matplotlib-图形大小" class="headerlink" title="set_size_inches() 方法来更改 Matplotlib 图形大小"></a><code>set_size_inches()</code> 方法来更改 Matplotlib 图形大小</h2><p>创建图形后，此方法还可以设置图形大小。</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>x = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>,<span class="hljs-number">20</span>)<br>m = <span class="hljs-number">1</span><br>c = <span class="hljs-number">2</span><br>y = m*x + c<br><br>fig = plt.figure()<br>plt.plot(x, y)<br>plt.title(<span class="hljs-string">&quot;y=mx+c&quot;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;x-axis&#x27;</span>)<br>plt.ylabel(<span class="hljs-string">&#x27;y-axis&#x27;</span>)<br>fig.set_size_inches(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>)<br><br>plt.show()<br></code></pre></div></td></tr></table></figure>
+
+<p>输出：</p>
+<p><img src="https://www.delftstack.com/img/Matplotlib/set%20figsize%20using%20set%20figsize%20using%20set_size_inches.png" srcset="/img/loading.gif" lazyload alt="https://www.delftstack.com/img/Matplotlib/set figsize using set figsize using set_size_inches.png"></p>
+<p>在这里，传递给 <code>set_size_inches()</code> 方法的参数分别表示图形的宽度和高度（以英寸为单位）。</p>
+<h2 id="在-Matplotlib-中更改图形格式"><a href="#在-Matplotlib-中更改图形格式" class="headerlink" title="在 Matplotlib 中更改图形格式"></a>在 Matplotlib 中更改图形格式</h2><p>要更改图形格式，我们可以使用 <code>savefig()</code> 方法更改图像文件的扩展名。我们可以将图保存为不同的格式，例如 png，jpg，svg，pdf 等。</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>x = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>,<span class="hljs-number">20</span>)<br>m = <span class="hljs-number">1</span><br>c = <span class="hljs-number">2</span><br>y = m*x + c<br><br>fig = plt.figure()<br>plt.plot(x, y)<br>plt.title(<span class="hljs-string">&quot;y=mx+c&quot;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;x-axis&#x27;</span>)<br>plt.ylabel(<span class="hljs-string">&#x27;y-axis&#x27;</span>)<br>fig.set_size_inches(<span class="hljs-number">5</span>, <span class="hljs-number">5</span>)<br><br>plt.savefig(<span class="hljs-string">&quot;Figure saved in jpg format.jpg&quot;</span>)<br></code></pre></div></td></tr></table></figure>
+
+<p>这会将图形保存为 jpg 格式。</p>
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/matplotlib/">matplotlib</a>
+                    
+                  </div>
                 
               </div>
               
@@ -278,18 +341,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">微信小程序</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/05/Server/Django/index/">
-                        <span class="hidden-mobile">Django</span>
+                      <a href="/2022/04/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                        <span class="hidden-mobile">微信小程序</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
