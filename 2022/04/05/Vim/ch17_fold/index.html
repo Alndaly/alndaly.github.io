@@ -1,0 +1,702 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Kinda Hall">
+  <meta name="keywords" content="个人博客, Personal Blog">
+  
+    <meta name="description" content="VIM相关文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VIM-折叠">
+<meta property="og:url" content="http://alndaly.github.io/2022/04/05/Vim/ch17_fold/index.html">
+<meta property="og:site_name" content="Kinda">
+<meta property="og:description" content="VIM相关文档">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-04T16:26:39.000Z">
+<meta property="article:modified_time" content="2022-04-04T16:26:39.000Z">
+<meta property="article:author" content="Kinda Hall">
+<meta property="article:tag" content="VIM">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>VIM-折叠 - Kinda</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Kinda</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Alndaly/imgsrc/img/202204050048495.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="VIM-折叠">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-05 00:26" pubdate>
+        2022年4月5日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      44 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">VIM-折叠</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：11 小时前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="第17章-折叠"><a href="#第17章-折叠" class="headerlink" title="第17章 折叠"></a>第17章 折叠</h1><p>在阅读文件时，经常会有一些不相关的文本会妨碍您理解。使用 Vim 折叠可以隐藏这些不必要的信息。</p>
+<p>本章中，您将学习如何使用不同的折叠方法。</p>
+<h2 id="手动折叠"><a href="#手动折叠" class="headerlink" title="手动折叠"></a>手动折叠</h2><p>想象您正在折叠一张纸来覆盖一些文本，实际的文本不会消失，它仍在那儿。Vim 折叠的工作方式与此相同，它<em>折叠</em>一段文本，在显示时会隐藏起来，但实际上并不会真的删除它。</p>
+<p>折叠操作符是<code>z</code>。（折叠纸张时，它看起来也像字母 “z”）。</p>
+<p>假设有如下文本：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><pre><code class="hljs applescript">Fold <span class="hljs-keyword">me</span><br>Hold <span class="hljs-keyword">me</span><br></code></pre></td></tr></table></figure>
+
+<p>把光标放在第一行，输入 <code>zfj</code>。Vim 将这两行折叠成一行，同时会看到类似消息：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">+<span class="hljs-comment">-- 2 lines: Fold me -----</span><br></code></pre></td></tr></table></figure>
+
+<p>上面的命令分解如下：</p>
+<ul>
+<li><code>zf</code> 是折叠操作符。</li>
+<li><code>j</code> 是用于折叠操作符的动作。</li>
+</ul>
+<p>您可以使用 <code>zo</code> 打开&#x2F;展开已折叠文本，使用 <code>zc</code> 关闭&#x2F;收缩文本。</p>
+<p>折叠是一个操作符，所以它遵循语法规则（<code>动词+名词</code>）。您可以在折叠运算符后，加上一个动作(motion)或文本对象。例如，使用 <code>zfip</code> 可以折叠内部段落；使用 <code>zfG</code> 可以折叠至文件末尾；使用 <code>zfa&#123;</code> 可以折叠 <code>&#123;</code> 和 <code>&#125;</code> 之间的文本。</p>
+<p>您可以在可视模式下进行折叠。高亮您想要折叠的区域后 (<code>v</code>, <code>V</code>, 或 <code>Ctrl-v</code>)，再输入 <code>zf</code> 即可。</p>
+<p>您也可以在命令行模式下，使用 <code>:fold</code> 命令执行一次折叠。若要折叠当前行及紧随其后的第二行，可以运行：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">:,+<span class="hljs-number">1</span><span class="hljs-built_in">fold</span><br></code></pre></td></tr></table></figure>
+
+<p><code>,+1</code> 是要折叠的范围。如果不传递范围参数，默认当前行。<code>+1</code> 是代表下一行的范围指示器。运行 <code>:5,10fold</code> 可以折叠第5至10行。运行 <code>:,$fold</code> 可以折叠当前行至文件末尾。</p>
+<p>还有许多其他折叠和展开的命令。我发现他们实在太多，以至于在刚起步时很难记住。最有用的一些命令是：</p>
+<ul>
+<li><code>zR</code> 展开所有折叠。</li>
+<li><code>zM</code> 收缩所有折叠。</li>
+<li><code>za</code> 切换折叠状态。</li>
+</ul>
+<p><code>zR</code> 和 <code>zM</code> 可用于任意行上，但 <code>za</code> 仅能用于已折叠&#x2F;未折叠的行上。输入 <code>:h fold-commands</code> 可查阅更多有关折叠的指令。</p>
+<h2 id="不同的折叠方法"><a href="#不同的折叠方法" class="headerlink" title="不同的折叠方法"></a>不同的折叠方法</h2><p>以上部分涵盖了 Vim 手动折叠的内容。实际上，Vim 有六种不同的折叠方法：</p>
+<ol>
+<li>手动折叠</li>
+<li>缩进折叠</li>
+<li>表达式折叠</li>
+<li>语法折叠</li>
+<li>差异折叠</li>
+<li>标志折叠</li>
+</ol>
+<p>运行 <code>:set foldmethod?</code> 可查看您当前正在使用哪一种折叠方式。默认情况下，Vim 使用手动方式。</p>
+<p>在本章的剩余部分，您将学习其他五种折叠方法。让我们从缩进折叠开始。</p>
+<h2 id="缩进折叠"><a href="#缩进折叠" class="headerlink" title="缩进折叠"></a>缩进折叠</h2><p>要使用缩进折叠，需要将 <code>&#39;foldmethod&#39;</code> 选项更改为缩进：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> <span class="hljs-attribute">foldmethod</span>=indent<br></code></pre></td></tr></table></figure>
+
+<p>假设有如下文本：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">One</span><br>  <span class="hljs-keyword">Two</span><br>  <span class="hljs-keyword">Two</span> again<br></code></pre></td></tr></table></figure>
+
+<p>运行 <code>:set foldmethod=indent</code> 后将看到：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">One</span><br><span class="hljs-operator">+</span><span class="hljs-comment">-- 2 lines: Two -----</span><br></code></pre></td></tr></table></figure>
+
+<p>使用缩进折叠后，Vim 将会查看每行的开头有多少空格，并将它与 <code>&#39;shiftwidth&#39;</code> 选项进行比较，以此来决定该行可折叠性。<code>&#39;shiftwidth&#39;</code> 返回每次缩进所需的空格数。如果运行：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> shiftwidth?<br></code></pre></td></tr></table></figure>
+
+<p>Vim 的默认 <code>&#39;shiftwidth&#39;</code> 值为2。对于上面的文本而言，”Two” 和 “Two again” 的开头都有两个空格。当 Vim 看到了空格数 <em>且</em> <code>&#39;shiftwidth&#39;</code>值都为2时，Vim 认为该行的缩进折叠级别为1。</p>
+<p>假设这次文本开头只有一个空格：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">One</span><br> <span class="hljs-keyword">Two</span><br> <span class="hljs-keyword">Two</span> again<br></code></pre></td></tr></table></figure>
+
+<p>运行 <code>:set foldmethod=indent</code> 后，Vim 不再折叠已缩进的行了，因为这些行没有足够的空格。1个空格不会被视作一个缩进。然而，当您改变 <code>&#39;shiftwidth&#39; </code> 的值为1后：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> <span class="hljs-attribute">shiftwidth</span>=1<br></code></pre></td></tr></table></figure>
+
+<p>文本现在可以折叠了！现在一个空格将被视为一个缩进。</p>
+<p>现在，我们将 <code>&#39;shiftwidth&#39; </code> 以及文本开头的空格数都重新恢复为2后，另外添加一些内容：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">One</span><br>  <span class="hljs-keyword">Two</span><br>  <span class="hljs-keyword">Two</span> again<br>    Three<br>    Three again<br></code></pre></td></tr></table></figure>
+
+<p>运行折叠命令 (<code>zM</code>) 后可以看到：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">One</span><br><span class="hljs-operator">+</span><span class="hljs-comment">-- 4 lines: Two -----</span><br></code></pre></td></tr></table></figure>
+
+<p>展开已折叠的行 (<code>zR</code>)，接着移动光标至 “Three”，然后切换文本的折叠状态 (<code>za</code>)：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">One</span><br>  <span class="hljs-keyword">Two</span><br>  <span class="hljs-keyword">Two</span> again<br>+-- 2 lines: Three -----<br></code></pre></td></tr></table></figure>
+
+<p>这是啥？叠中叠？</p>
+<p>是的，您可以嵌套折叠。文本 “Two” 和 “Two again” 的折叠级别都为1，文本 “Three” 和 “Three again” 的折叠级别都为2。如果在一段可折叠文本中，具有另一段折叠级别更高的可折叠文本，则可以具有多个折叠层。</p>
+<h2 id="表达式折叠"><a href="#表达式折叠" class="headerlink" title="表达式折叠"></a>表达式折叠</h2><p>表达式折叠允许您定义要匹配折叠的表达式。定义折叠表达式后，Vim 会计算每行的 <code>&#39;foldexpr&#39;</code> 值。这是必须配置的变量，它要返回适当的值。如果返回 0，则不折叠行。如果它返回 1，则该行的折叠级别为 1。如果它返回 2，则该线的折叠级别为 2。除了整数外还有其他的值，但我不打算介绍它们。如果你好奇，可以查阅<code>:h fold-expr</code>。</p>
+<p>首先，更改折叠方法：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> <span class="hljs-attribute">foldmethod</span>=expr<br></code></pre></td></tr></table></figure>
+
+<p>假设您有一份早餐食品列表，并且想要折叠所有以 “p” 开头的早餐项：</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs gauss">donut<br>pancake<br><span class="hljs-keyword">pop</span>-tarts<br>protein <span class="hljs-built_in">bar</span><br>salmon<br>scrambled eggs<br></code></pre></td></tr></table></figure>
+
+<p>其次，更改 <code>foldexpr</code> 为捕获以 “p” 开头的表达式：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> <span class="hljs-attribute">foldexpr</span>=getline(v:lnum)[0]==\\<span class="hljs-string">&quot;p\\&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>这表达式看起来有点吓人。我们来分解下：</p>
+<ul>
+<li><code>:set foldexpr</code> 设置 <code>&#39;foldexpr&#39;</code> 为自定义表达式。</li>
+<li><code>getline()</code> 是 Vim 脚本的一个函数，它返回指定行的内容。如运行 <code>:echo getline(5)</code> 可以获取第5行的内容。</li>
+<li><code>v:lnum</code> 是 Vim <code>&#39;foldexpr&#39;</code> 表达式的特殊变量。Vim 在扫描每一行时，都会将行号存储至 <code>v:lnum</code> 变量。在第5行，<code>v:lnum</code> 值为5。在第10行，<code>v:lnum</code>值为10。</li>
+<li><code>[0]</code> 处于 <code>getline(v:lnum)[0]</code> 语境时，代表每一行的第一个字符。Vim 在扫描某一行时，<code>getline(v:lnum)</code> 返回该行的内容，而 <code>getline(v:lnum)[0]</code> 则返回这一行的第一个字符。例如，我们早餐食品列表的第一行是 “donut”，则 <code>getline(v:lnum)[0]</code> 返回 “d”；列表的第二行是 “pancake”，则 <code>getline(v:lnum)[0]</code> 返回 “p”。</li>
+<li><code>==\\&quot;p\\&quot;</code> 是等式表达式的后半部分，它检查刚才表达式的计算结果是否等于 “p”。如果是，则返回1，否则返回0。在 Vim 的世界里，1代表真，0代表假。所以，那些以 “p” 开头的行，表达式都会返回1。回想一下本节的开始，如果 <code>&#39;foldexpr&#39;</code> 的值为1，则折叠级别为1。</li>
+</ul>
+<p>在运行这个表达式后，您将看到：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ada">donut<br>+<span class="hljs-comment">-- 3 lines: pancake -----</span><br>salmon<br>scrambled eggs<br></code></pre></td></tr></table></figure>
+
+<h2 id="语法折叠"><a href="#语法折叠" class="headerlink" title="语法折叠"></a>语法折叠</h2><p>语法折叠是由Vim的语法高亮决定的。如果您使用了语法高亮插件，比如<a target="_blank" rel="noopener" href="https://github.com/sheerun/vim-polyglot">vim-polyglot</a>，那么装上插件就可以直接使用语法折叠。仅仅需要将<code>foldmethod</code>选项改为 <code>syntax</code>。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> <span class="hljs-attribute">foldmethod</span>=syntax<br></code></pre></td></tr></table></figure>
+
+<p>假设您正在编辑一个JavaScript文件，而且您已经装好了 vim-polyglot 插件。如果您有以下文本：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">const nums = [<br>  <span class="hljs-literal">one</span>,<br>  <span class="hljs-literal">two</span>,<br>  <span class="hljs-literal">three</span>,<br>  <span class="hljs-literal">four</span><br>]<br></code></pre></td></tr></table></figure>
+
+<p>上述文本将会使用语法折叠折起来。当您为某个特定语言（位于 <code>syntax/</code> 目录中的语言即是典型例子）定义了语法高亮，您可以添加一个 <code>fold</code> 属性，使它支持折叠。下面是 vim-polyglot 中JavaScript语法文件中的一个片段。注意最后的 <code>fold</code> 关键字。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">syntax region  jsBracket                      <span class="hljs-attribute">matchgroup</span>=jsBrackets            <span class="hljs-attribute">start</span>=/\[/ <span class="hljs-attribute">end</span>=/\]/ <span class="hljs-attribute">contains</span>=@jsExpression,jsSpreadExpression extend fold<br></code></pre></td></tr></table></figure>
+
+<p>本书不会详细介绍 <code>syntax</code> 功能。如果您感兴趣，可以查阅 <code>:h syntax.txt</code>。</p>
+<h2 id="差异折叠"><a href="#差异折叠" class="headerlink" title="差异折叠"></a>差异折叠</h2><p>Vim 可以对多个文件进行差异比较。</p>
+<p>如果您有 <code>file1.txt</code>：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br></code></pre></td></tr></table></figure>
+
+<p>以及 <code>file2.txt</code>：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br>emacs <span class="hljs-keyword">is</span> ok<br></code></pre></td></tr></table></figure>
+
+<p>运行 <code>vimdiff file1.txt file2.txt</code>：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs vim">+-- <span class="hljs-number">3</span> lines: <span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome -----<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br><span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome<br>[<span class="hljs-keyword">vim</span> <span class="hljs-keyword">is</span> awesome] / [emacs <span class="hljs-keyword">is</span> ok]<br></code></pre></td></tr></table></figure>
+
+<p>Vim 会自动折叠一些相同的行。运行 <code>vimdiff</code> 命令时，Vim 会自动使用 <code>foldmethod=diff</code>。此时如果运行 <code>:set foldmethod?</code>，它将返回 <code>diff</code>。</p>
+<h2 id="标志折叠"><a href="#标志折叠" class="headerlink" title="标志折叠"></a>标志折叠</h2><p>要使用标志折叠，请运行：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> <span class="hljs-attribute">foldmethod</span>=marker<br></code></pre></td></tr></table></figure>
+
+<p>假设有如下文本：</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="language-xml">Hello</span><br><span class="language-xml"></span><br><span class="language-xml"></span><span class="hljs-template-variable">&#123;&#123;&#123;</span><br><span class="hljs-template-variable"><span class="hljs-name">world</span></span><br><span class="hljs-template-variable">vim</span><br><span class="hljs-template-variable">&#125;&#125;&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>输入 <code>zM</code> 后会看到：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ada">hello<br><br>+<span class="hljs-comment">-- 4 lines: -----</span><br></code></pre></td></tr></table></figure>
+
+<p>Vim 将 <code>&#123;&#123;&#123;` 和 `&#125;&#125;&#125;</code> 视为折叠指示器，并折叠其中的内容。使用标志折叠时，Vim 会寻找由 <code>&#39;foldmarker&#39;</code> 选项定义的特殊标志，并标记折叠区域。要查看 Vim 使用的标志，请运行：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> foldmarker?<br></code></pre></td></tr></table></figure>
+
+<p>默认情况下，Vim 把 <code>&#123;&#123;&#123;` 和 `&#125;&#125;&#125;</code> 作为指示器。如果您想将指示器更改为其他诸如 “coffee1” 和 “coffee2” 的字符串，可以运行：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> <span class="hljs-attribute">foldmarker</span>=coffee1,coffee2<br></code></pre></td></tr></table></figure>
+
+<p>假设有如下文本：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">hello</span><br><br>coffee1<br>world<br>vim<br>coffee2<br></code></pre></td></tr></table></figure>
+
+<p>现在，Vim 将使用 <code>coffee1</code> 和 <code>coffee2</code> 作为新折叠标志。注意，指示器必须是文本字符串，不能是正则表达式。</p>
+<h2 id="持久化折叠"><a href="#持久化折叠" class="headerlink" title="持久化折叠"></a>持久化折叠</h2><p>当关闭 Vim 会话后，您将失去所有的折叠信息。假设您有 <code>count.txt</code> 文件：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-literal">one</span><br><span class="hljs-literal">two</span><br><span class="hljs-literal">three</span><br><span class="hljs-literal">four</span><br><span class="hljs-literal">five</span><br></code></pre></td></tr></table></figure>
+
+<p>手动从第三行开始往下折叠 (<code>:3,$fold</code>)：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-literal">one</span><br><span class="hljs-literal">two</span><br>+<span class="hljs-comment">-- 3 lines: three ---</span><br></code></pre></td></tr></table></figure>
+
+<p>当您退出 Vim 再重新打开 <code>count.txt</code> 后，这些折叠都不见了！</p>
+<p>要在折叠后保留它们，可以运行：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:mkview</span><br></code></pre></td></tr></table></figure>
+
+<p>当打开 <code>count.txt</code> 后，运行：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:loadview</span><br></code></pre></td></tr></table></figure>
+
+<p>您的折叠信息都被保留下来了。然而，您需要手动运行 <code>mkview</code> 和 <code>loadview</code>。我知道，终有一日，我会忘记运行 <code>mkview</code> 就关闭文件了，接着便会丢失所有折叠信息。能不能自动实现这个呢？</p>
+<p>当然能！要在关闭 <code>.txt</code> 文件时自动运行 <code>mkview</code>，以及在打开 <code>.txt</code> 文件后自动运行 <code>loadview</code>，将下列内容添加至您的 vimrc：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">autocmd</span> BufWinLeave *.txt <span class="hljs-keyword">mkview</span><br><span class="hljs-keyword">autocmd</span> BufWinEnter *.txt <span class="hljs-keyword">silent</span> <span class="hljs-keyword">loadview</span><br></code></pre></td></tr></table></figure>
+
+<p>在上一章您已经见过 <code>autocmd</code> 了，它用于在事件触发时执行一条命令。这里的两个事件是：</p>
+<ul>
+<li><code>BufWinLeave</code> 从窗口中删除缓冲时。</li>
+<li><code>BufWinEnter</code> 在窗口中加载缓冲时。</li>
+</ul>
+<p>现在，即使您在 <code>.txt</code> 文件内折叠内容后直接退出 Vim，下次再打开该文件时，您的折叠信息都能自动恢复。</p>
+<p>默认情况下，当运行 <code>mkview</code> 时，Vim将折叠信息保存在<code>~/.vim/view</code> (Unix 系统)。您可以查阅 <code>:h &#39;viewdir&#39;</code> 来了解更多信息。</p>
+<h2 id="聪明地学习折叠"><a href="#聪明地学习折叠" class="headerlink" title="聪明地学习折叠"></a>聪明地学习折叠</h2><p>当我刚开始使用 Vim 时， 我会跳过学习 Vim 折叠，因为我觉得它不太实用。然而，随着我码龄的增长，我越发觉得折叠功能大有用处。得当地使用折叠功能，文本结构可以更加清晰，犹如一本书籍的目录。</p>
+<p>当您学习折叠时，请从手动折叠开始，因为它可以随学随用。然后逐渐学习不同的技巧来使用缩进和标志折叠。最后，学习如何使用语法和表达式折叠。您甚至可以使用后两个来编写您自己的 Vim 插件。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/VIM/">VIM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/05/Vim/ch16_tags/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">VIM-标签</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/05/Vim/ch18_git/">
+                        <span class="hidden-mobile">VIM-Git</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Alndaly/alndaly.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span>Life</span> <i class="iconfont icon-love"></i> <span>Kinda</span> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', '3386895327', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Q63MSHL4Z"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0Q63MSHL4Z');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

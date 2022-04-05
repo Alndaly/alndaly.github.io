@@ -1,0 +1,668 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Kinda Hall">
+  <meta name="keywords" content="个人博客, Personal Blog">
+  
+    <meta name="description" content="VIM相关文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VIM-编译">
+<meta property="og:url" content="http://alndaly.github.io/2022/04/05/Vim/ch19_compile/index.html">
+<meta property="og:site_name" content="Kinda">
+<meta property="og:description" content="VIM相关文档">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-04T16:26:39.000Z">
+<meta property="article:modified_time" content="2022-04-04T16:26:39.000Z">
+<meta property="article:author" content="Kinda Hall">
+<meta property="article:tag" content="VIM">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>VIM-编译 - Kinda</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Kinda</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Alndaly/imgsrc/img/202204050048495.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="VIM-编译">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-05 00:26" pubdate>
+        2022年4月5日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      38 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">VIM-编译</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：11 小时前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="第19章-编译"><a href="#第19章-编译" class="headerlink" title="第19章 编译"></a>第19章 编译</h1><p>编译是许多编程语言的重要主题。在本章中，您将学习如何在 Vim 中编译。此外，您将看到如何利用好 Vim 的 <code>:make</code> 命令。</p>
+<h2 id="从命令行编译"><a href="#从命令行编译" class="headerlink" title="从命令行编译"></a>从命令行编译</h2><p>您可以使用叹号运算符（<code>!</code>）进行编译。如果您需要使用 <code>g++</code> 来编译 <code>.cpp</code> 文件，可以运行：</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">:!g</span><span class="hljs-literal">++</span> <span class="hljs-comment">hello</span><span class="hljs-string">.</span><span class="hljs-comment">cpp</span> <span class="hljs-literal">-</span><span class="hljs-comment">o hello</span><br></code></pre></td></tr></table></figure>
+
+<p>但要每次手动指定文件名和输出文件名会非常繁琐和容易出错。而 makefile 是条可行之路。</p>
+<h2 id="Make命令"><a href="#Make命令" class="headerlink" title="Make命令"></a>Make命令</h2><p>Vim 有运行 makefile 的 <code>:make</code> 命令。当您运行它时，Vim 会在当前目录查找 makefile 并执行它。</p>
+<p>在当前目录创建一个文件名为 <code>makefile</code> ，然后添加下列内容：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">all</span>:<br>	<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Hello all&quot;</span><br>foo:<br>	<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Hello foo&quot;</span><br>list_pls:<br>	<span class="hljs-keyword">ls</span><br></code></pre></td></tr></table></figure>
+
+<p>在 Vim 中运行：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:make</span><br></code></pre></td></tr></table></figure>
+
+<p>Vim 执行它的方式与从终端运行它的方式相同。<code>:make</code> 命令也接受终端中 <code>make</code> 命令的参数。运行：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vim">:<span class="hljs-keyword">make</span> foo<br><span class="hljs-string">&quot; Outputs &quot;</span>Hello foo<span class="hljs-comment">&quot;</span><br><br>:<span class="hljs-keyword">make</span> list_pls<br><span class="hljs-comment">&quot; Outputs the ls command result</span><br></code></pre></td></tr></table></figure>
+
+<p>如果命令执行异常，<code>:make</code> 命令将使用 Vim 的 <code>quickfix</code> 来存储这些错误。现在试着运行一个不存在的目标：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:make</span> dontexist<br></code></pre></td></tr></table></figure>
+
+<p>您应该会看到该命令执行错误。运行 <code>quickfix</code> 命令 <code>:copen</code> 可以打开 <code>quickfix</code> 窗口来查看该错误：</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gauss">|| <span class="hljs-built_in">make</span>: *** No rule to <span class="hljs-built_in">make</span> target `dontexist&#x27;.  <span class="hljs-keyword">Stop</span>.<br></code></pre></td></tr></table></figure>
+
+<h2 id="使用-Make-编译"><a href="#使用-Make-编译" class="headerlink" title="使用 Make 编译"></a>使用 Make 编译</h2><p>让我们使用 makefile 来编译一个基本的 <code>.cpp</code> 程序。首先创建一个 <code>hello.cpp</code> 文件：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    std::cout &lt;&lt; <span class="hljs-string">&quot;Hello!\n&quot;</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后，更新 <code>makefile</code> 来编译和运行 <code>.cpp</code> 文件：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">all:</span><br>	echo <span class="hljs-string">&quot;build, run&quot;</span><br><span class="hljs-symbol">build:</span><br>	g++ hello.cpp -o hello<br><span class="hljs-symbol">run:</span><br>	./hello<br></code></pre></td></tr></table></figure>
+
+<p>现在运行：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:make</span> build<br></code></pre></td></tr></table></figure>
+
+<p><code>g++</code> 将编译 <code>./hello.cpp</code> 并且生成 <code>./hello</code>。接着运行：</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gauss">:<span class="hljs-built_in">make</span> <span class="hljs-keyword">run</span><br></code></pre></td></tr></table></figure>
+
+<p>您应该会看到终端上打印出了 <code>&quot;Hello!&quot;</code>。</p>
+<h2 id="不同的Make程序"><a href="#不同的Make程序" class="headerlink" title="不同的Make程序"></a>不同的Make程序</h2><p>当您运行 <code>:make</code> 时，Vim 实际上会执行 <code>makeprg</code> 选项所设置的任何命令，您可以运行 <code>:set makeprg?</code> 来查看它：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">makeprg</span><span class="hljs-operator">=</span>make<br></code></pre></td></tr></table></figure>
+
+<p><code>:make</code> 的默认命令是外部的 <code>make</code> 命令。若想修改 <code>:make</code> 命令，使每次运行它时执行 <code>g++ &lt;your-file-name&gt;</code>，请运行：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> <span class="hljs-attribute">makeprg</span>=g++\ %<br></code></pre></td></tr></table></figure>
+
+<p><code>\</code> 用于转义 <code>g++</code> 后的空格。Vim 中 <code>%</code> 符号代表当前文件。因此，<code>g++\ %</code> 命令等于运行 <code>g++ hello.cpp</code>。</p>
+<p>转到 <code>./hello.cpp</code> 然后运行 <code>:make</code>，Vim 将编译 <code>hello.cpp</code> 并输出 <code>a.out</code>（因为您没有指定输出）。让我们重构一下，使用去掉扩展名的原始文件名来命名编译后的输出。运行下面的命令（或将它们添加到vimrc）：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> <span class="hljs-attribute">makeprg</span>=g++\ %\ -o\ %&lt;<br></code></pre></td></tr></table></figure>
+
+<p>上面的命令分解如下：</p>
+<ul>
+<li><code>g++\\ %</code> 如上所述，等同于运行 <code>g++ &lt;your-file&gt;</code>。</li>
+<li><code>-o</code> 输出选项。</li>
+<li><code>%&lt;</code> 在 Vim 中代表了没有扩展名的当前文件名（如 <code>hello.cpp</code> 变成 <code>hello</code>）。</li>
+</ul>
+<p>当您在 <code>./hello.cpp</code> 中运行 <code>:make</code> 时，它将编译为 <code>./hello</code>。要在 <code>./hello.cpp</code> 中快速地执行 <code>./hello</code>，可以运行 <code>:!./%&lt;</code>。同样，它等同于运行 <code>:!./&lt;无后缀的当前文件名&gt;</code>。</p>
+<p>查阅 <code>:h :compiler</code> 和 <code>:h write-compiler-plugin</code> 可以了解更多信息。</p>
+<h2 id="保存时自动编译"><a href="#保存时自动编译" class="headerlink" title="保存时自动编译"></a>保存时自动编译</h2><p>有了自动化编译，您可以让生活更加轻松。回想一下，您可以使用 Vim 的 <code>autocmd</code> 来根据某些事件自动执行操作。例如，要自动在每次保存后编译 <code>.cpp</code> 文件，您可以将下面内容添加到vimrc：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">:<span class="hljs-keyword">autocmd</span> BufWritePost *.cpp <span class="hljs-keyword">make</span><br></code></pre></td></tr></table></figure>
+
+<p>现在您每次保存 <code>.cpp</code> 文件后，Vim 都将自动执行 <code>make</code> 命令。</p>
+<h2 id="切换编译器"><a href="#切换编译器" class="headerlink" title="切换编译器"></a>切换编译器</h2><p>Vim 有一个 <code>:compiler</code> 命令可以快速切换编译器。您的 Vim 可能附带了一些预构建的编译配置。要检查您拥有哪些编译器，请运行：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">:e <span class="hljs-variable">$VIMRUNTIME</span><span class="hljs-regexp">/compilers/</span>&lt;tab&gt;<br></code></pre></td></tr></table></figure>
+
+<p>您应该会看到一个不同编程语言的编译器列表。</p>
+<p>若要使用 <code>:compiler</code> 命令，假设您有一个 ruby 文件 <code>hello.rb</code>，内容是：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">puts</span> <span class="hljs-string">&quot;Hello ruby&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>回想一下，如果运行 <code>:make</code>，Vim 将执行赋值给 <code>makeprg</code> 的任何命令（默认是 <code>make</code>）。如果您运行：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">:<span class="hljs-keyword">compiler</span> <span class="hljs-keyword">ruby</span><br></code></pre></td></tr></table></figure>
+
+<p>Vim 执行 <code>$VIMRUNTIME/compiler/ruby.vim</code> 脚本，并将 <code>makeprg</code> 更改为使用 <code>ruby</code> 命令。现在如果您运行 <code>:set makeprg?</code>，它会显示 <code>makeprg=ruby</code>（这取决于您 <code>$VIMRUNTIME/compiler/ruby.vim</code> 里的内容，如果您有其他自定义的 ruby 编译器，您的结果可能会有不同）。<code>:compiler &lt;your-lang&gt;</code> 命令允许您快速切换至其他编译器。如果您的项目使用多种语言，这会非常有用。</p>
+<p>您不必使用 <code>:compiler</code> 或 <code>makeprg</code> 来编译程序。您可以运行测试脚本、分析文件、发送信号或任何您想要的内容。</p>
+<h2 id="创建自定义编译器"><a href="#创建自定义编译器" class="headerlink" title="创建自定义编译器"></a>创建自定义编译器</h2><p>让我们来创建一个简单的 Typescript 编译器。先在您的设备上安装 Typescript（<code>npm install -g typescript</code>），安装完后您将有 <code>tsc</code> 命令。如果您之前没有尝试过 typescript，<code>tsc</code> 将 Typescript 文件编译成 Javascript 文件。假设您有一个 <code>hello.ts</code> 文件：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf">const hello <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hello&quot;</span><span class="hljs-comment">;</span><br>console.log(hello)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+
+<p>运行 <code>tsc hello.ts</code> 后，它将被编译成 <code>hello.js</code>。然而，如果您的 <code>hello.ts</code> 文件中有如下内容：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs abnf">const hello <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hello&quot;</span><span class="hljs-comment">;</span><br><span class="hljs-attribute">hello</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hello again&quot;</span><span class="hljs-comment">;</span><br>console.log(hello)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+
+<p>这会抛出错误，因为不能更改一个 <code>const</code> 变量。运行 <code>tsc hello.ts</code> 的错误如下：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs applescript">hello.ts:<span class="hljs-number">2</span>:<span class="hljs-number">1</span> - <span class="hljs-keyword">error</span> TS2588: Cannot assign <span class="hljs-keyword">to</span> &#x27;person&#x27; because <span class="hljs-keyword">it</span> <span class="hljs-keyword">is</span> a <span class="hljs-built_in">constant</span>.<br><br><span class="hljs-number">2</span> person = <span class="hljs-string">&quot;hello again&quot;</span>;<br>  ~~~~~~<br><br><br>Found <span class="hljs-number">1</span> <span class="hljs-keyword">error</span>.<br></code></pre></td></tr></table></figure>
+
+<p>要创建一个简单的 Typescript 编译器，请在您的 <code>~/.vim/</code> 目录中新添加一个 <code>compiler</code> 目录（即 <code>~/.vim/compiler/</code>），接着创建 <code>typescript.vim</code> 文件（即 <code>~/.vim/compiler/typescript.vim</code>），并添加如下内容：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">CompilerSet <span class="hljs-attribute">makeprg</span>=tsc<br>CompilerSet <span class="hljs-attribute">errorformat</span>=%f:\ %m<br></code></pre></td></tr></table></figure>
+
+<p>第一行将 <code>makeprg</code> 设置为运行 <code>tsc</code> 命令。第二行将错误格式设置为显示文件（<code>%f</code>），后跟冒号（<code>:</code>）和转义的空格（<code>\ </code>），最后是错误消息（<code>%m</code>）。查阅 <code>:h errorformat</code> 可了解更多关于错误格式的信息。</p>
+<p>您还可以阅读一些预制的编译器，看看它们是如何实现的。输入 <code>:e $VIMRUNTIME/compiler/&lt;some-language&gt;.vim</code> 查看。</p>
+<p>有些插件可能会干扰 Typescript 文件，可以使用 <code>--noplugin</code> 标志以零插件的形式打开<code>hello.ts</code> 文件：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">vim</span> --noplugin hello.<span class="hljs-keyword">ts</span><br></code></pre></td></tr></table></figure>
+
+<p>检查 <code>makeprg</code>：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> makeprg?<br></code></pre></td></tr></table></figure>
+
+<p>它应该会显示默认的 <code>make</code> 程序。要使用新的 Typescript 编译器，请运行：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:compiler</span> typescript<br></code></pre></td></tr></table></figure>
+
+<p>当您运行 <code>:set makeprg?</code> 时，它应该会显示 <code>tsc</code> 了。我们来测试一下：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:make</span> %<br></code></pre></td></tr></table></figure>
+
+<p>回想一下，<code>%</code> 代表当前文件。看看您的 Typescript 编译器是否如预期一样工作。运行 <code>:copen</code> 可以查看错误列表。</p>
+<h2 id="异步编译器"><a href="#异步编译器" class="headerlink" title="异步编译器"></a>异步编译器</h2><p>有时编译可能需要很长时间。在等待编译时，您不会想眼睁睁盯着已冻结的 Vim 的。如果可以异步编译，就可以在编译期间继续使用 Vim 了，岂不美哉？</p>
+<p>幸运的是，有插件来运行异步进程。有两个比较好的是：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/tpope/vim-dispatch">vim-dispatch</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/skywind3000/asyncrun.vim">asyncrun.vim</a></li>
+</ul>
+<p>在这一章中，我将介绍 vim-dispatch，但我强烈建议您尝试上述列表中所有插件。</p>
+<p><em>Vim 和 NeoVim 实际上都支持异步作业，但它们超出了本章的范围。如果您好奇，可以查阅 <code>:h job-channel-overview.txt</code>。</em></p>
+<h2 id="插件：Vim-dispatch"><a href="#插件：Vim-dispatch" class="headerlink" title="插件：Vim-dispatch"></a>插件：Vim-dispatch</h2><p>Vim-dispatch 有几个命令，最主要的两个是 <code>:Make</code> 和 <code>:Dispatch</code>。</p>
+<h3 id="异步Make"><a href="#异步Make" class="headerlink" title="异步Make"></a>异步Make</h3><p>Vim-dispatch 的 <code>:Make</code> 命令与 Vim 的 <code>:make</code> 相似，但它以异步方式运行。如果您正处于 Javascript 项目中，并且需要运行 <code>npm t</code>，可以将 <code>makeprg</code> 设置为：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">:<span class="hljs-built_in">set</span> <span class="hljs-attribute">makeprg</span>=npm\\ t<br></code></pre></td></tr></table></figure>
+
+<p>如果运行：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:make</span><br></code></pre></td></tr></table></figure>
+
+<p>Vim 将执行 <code>npm t</code>。但同时，您只能盯着冻结了的屏幕。有了 vim-dispatch，您只需要运行：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:Make</span><br></code></pre></td></tr></table></figure>
+
+<p>Vim 将启用后台进程异步运行 <code>npm t</code>，同时您还能在 Vim 中继续编辑您的文本。棒极了！</p>
+<h3 id="异步调度（Dispatch）"><a href="#异步调度（Dispatch）" class="headerlink" title="异步调度（Dispatch）"></a>异步调度（Dispatch）</h3><p><code>:Dispatch</code> 命令的工作方式和 <code>:compiler</code> 及 <code>:!</code> 类似，它可以在Vim中运行任意外部命令。</p>
+<p>假设您在 ruby spec 文件中，需要执行测试，可以运行：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:Dispatch</span> rspec %<br></code></pre></td></tr></table></figure>
+
+<p>Vim 将对当前文件异步运行 <code>rspec</code> 命令。</p>
+<h3 id="自动调度"><a href="#自动调度" class="headerlink" title="自动调度"></a>自动调度</h3><p>Vim-dispatch 有一个缓冲区变量<code>b:dispatch</code>，您可以配置它来自动执行特定命令，您可以利用 <code>autocmd</code>和它一起工作。如果在您的 vimrc 中添加如下内容：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">autocmd</span> BufEnter *_spec.rb <span class="hljs-keyword">let</span> <span class="hljs-variable">b:dispatch</span> = <span class="hljs-string">&#x27;bundle exec rspec %&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>现在每当您进入（<code>BufEnter</code>）一个以 <code>_spec.rb</code> 结尾的文件，运行<code>:Dispatch</code> 将自动执行 <code>bundle exec rspec &lt;your-current-ruby-spec-file&gt;</code>。</p>
+<h2 id="聪明地学习编译"><a href="#聪明地学习编译" class="headerlink" title="聪明地学习编译"></a>聪明地学习编译</h2><p>在本章中，您了解到可以使用 <code>make</code> 和 <code>compiler</code> 命令从Vim内部异步运行 <em>任何</em> 进程，以完善您的编程工作流程。Vim 拥有通过其他程序来扩展自身的能力，这使其变得强大。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/VIM/">VIM</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/05/Vim/ch18_git/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">VIM-Git</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/05/Vim/ch20_views_sessions_viminfo/">
+                        <span class="hidden-mobile">VIM-视图、会话和 Viminfo</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Alndaly/alndaly.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span>Life</span> <i class="iconfont icon-love"></i> <span>Kinda</span> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', '3386895327', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Q63MSHL4Z"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0Q63MSHL4Z');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
