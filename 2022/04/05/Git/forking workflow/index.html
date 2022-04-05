@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Kinda Hall">
+  <meta name="keywords" content="个人博客, Personal Blog">
+  
+    <meta name="description" content="Git相关文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Forking Workflow">
+<meta property="og:url" content="http://alndaly.github.io/2022/04/05/Git/forking%20workflow/index.html">
+<meta property="og:site_name" content="Kinda">
+<meta property="og:description" content="Git相关文档">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wac-cdn.atlassian.com/dam/jcr:642c56e3-ddc6-43ff-ab86-c5cd845afd05/03.svg?cdnVersion=116">
+<meta property="og:image" content="https://wac-cdn.atlassian.com/dam/jcr:0de71551-5c08-4fc4-ab6d-dc8a51bfcc5a/05.svg?cdnVersion=116">
+<meta property="article:published_time" content="2022-04-05T09:16:27.000Z">
+<meta property="article:modified_time" content="2022-04-05T09:16:27.000Z">
+<meta property="article:author" content="Kinda Hall">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wac-cdn.atlassian.com/dam/jcr:642c56e3-ddc6-43ff-ab86-c5cd845afd05/03.svg?cdnVersion=116">
+  
+  
+  <title>Forking Workflow - Kinda</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Kinda</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Alndaly/imgsrc/img/202204050048495.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Forking Workflow">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-05 17:16" pubdate>
+        2022年4月5日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      8.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      68 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Forking Workflow</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年4月5日 下午
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="Forking-Workflow"><a href="#Forking-Workflow" class="headerlink" title="Forking Workflow"></a>Forking Workflow</h1><p>The Forking Workflow is fundamentally different than other popular Git workflows. Instead of using a single server-side repository to act as the “central” codebase, it gives every developer their own server-side repository. This means that each contributor has not one, but two Git repositories: a private local one and a public server-side one. The Forking Workflow is most often seen in public open source projects.</p>
+<p>The main advantage of the Forking Workflow is that contributions can be integrated without the need for everybody to push to a single central repository. Developers push to their own server-side repositories, and only the project maintainer can push to the official repository. This allows the maintainer to accept commits from any developer without giving them write access to the official codebase.</p>
+<p>The Forking Workflow typically follows a branching model based on the <a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow Workflow</a>. This means that complete feature branches will be purposed for merge into the original project maintainer’s repository. The result is a distributed workflow that provides a flexible way for large, organic teams (including untrusted third-parties) to collaborate securely. This also makes it an ideal workflow for open source projects.  </p>
+<h2 id="How-it-works"><a href="#How-it-works" class="headerlink" title="How it works"></a>How it works</h2><p>As in the other <a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/comparing-workflows">Git workflows</a>, the Forking Workflow begins with an official public repository stored on a server. But when a new developer wants to start working on the project, they do not directly clone the official repository.</p>
+<p>Instead, they fork the official repository to create a copy of it on the server. This new copy serves as their personal public repository—no other developers are allowed to push to it, but they can pull changes from it (we’ll see why this is important in a moment). After they have created their server-side copy, the developer performs a <code>[git clone](https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone)</code> to get a copy of it onto their local machine. This serves as their private development environment, just like in the other workflows.</p>
+<p>When they’re ready to publish a local commit, they push the commit to their own public repository—not the official one. Then, they file a pull request with the main repository, which lets the project maintainer know that an update is ready to be integrated. The pull request also serves as a convenient discussion thread if there are issues with the contributed code. The following is a step-by-step example of this workflow.</p>
+<ol>
+<li>A developer ‘forks’ an ‘official’ server-side repository. This creates their own server-side copy.</li>
+<li>The new server-side copy is cloned to their local system.</li>
+<li>A Git remote path for the ‘official’ repository is added to the local clone.</li>
+<li>A new local feature branch is created.</li>
+<li>The developer makes changes on the new branch.</li>
+<li>New commits are created for the changes.</li>
+<li>The branch gets pushed to the developer’s own server-side copy.</li>
+<li>The developer opens a pull request from the new branch to the ‘official’ repository.</li>
+<li>The pull request gets approved for merge and is merged into the original server-side repository</li>
+</ol>
+<p>To integrate the feature into the official codebase, the maintainer pulls the contributor’s changes into their local repository, checks to make sure it doesn’t break the project, merges it into their local <code>main</code> branch, then pushes the <code>main</code> branch to the official repository on the server. The contribution is now part of the project, and other developers should pull from the official repository to synchronize their local repositories.</p>
+<p>It’s important to understand that the notion of an “official” repository in the Forking Workflow is merely a convention. In fact, the only thing that makes the official repository so official is that it’s the public repository of the project maintainer.</p>
+<h2 id="Forking-vs-cloning"><a href="#Forking-vs-cloning" class="headerlink" title="Forking vs cloning"></a>Forking vs cloning</h2><p>It’s important to note that “forked” repositories and “forking” are not special operations. Forked repositories are created using the standard <code>[git clone](https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone)</code> command. Forked repositories are generally “server-side clones” and usually managed and hosted by a 3rd party Git service like <a target="_blank" rel="noopener" href="https://bitbucket.org/product">Bitbucket</a>. There is no unique Git command to create forked repositories. A clone operation is essentially a copy of a repository and its history. </p>
+<h2 id="Branching-in-the-Forking-Workflow"><a href="#Branching-in-the-Forking-Workflow" class="headerlink" title="Branching in the Forking Workflow"></a>Branching in the Forking Workflow</h2><p>All of these personal public repositories are really just a convenient way to share branches with other developers. Everybody should still be using branches to isolate individual features, just like in the <a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow">Feature Branch Workflow</a> and the <a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow Workflow.</a> The only difference is how those branches get shared. In the Forking Workflow, they are pulled into another developer’s local repository, while in the Feature Branch and Gitflow Workflows they are pushed to the official repository.</p>
+<h2 id="Fork-a-repository"><a href="#Fork-a-repository" class="headerlink" title="Fork a repository"></a>Fork a repository</h2><p><img src="https://wac-cdn.atlassian.com/dam/jcr:642c56e3-ddc6-43ff-ab86-c5cd845afd05/03.svg?cdnVersion=116" srcset="/img/loading.gif" lazyload alt="git fork workflow - fork a repositiory"></p>
+<p>All new developers to a Forking Workflow project need to fork the official repository. As previously stated, forking is just a standard <code>git clone</code> operation. It’s possible to do this by SSH’ing into the server and running <code>git clone</code> to copy it to another location on the server. Popular Git hosting services like Bitbucket, offer repo forking features that automate this step.</p>
+<h2 id="Clone-your-fork"><a href="#Clone-your-fork" class="headerlink" title="Clone your fork"></a>Clone your fork</h2><p>Next each developer needs to clone their own public forked repository. They can do this with the familiar <code>git clone</code>command.</p>
+<p>Assuming the use of Bitbucket to host these repositories, developers on a project should have their own Bitbucket account and they should clone their forked copy of the repository with:</p>
+<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">git <span class="hljs-built_in">clone</span> https://user@bitbucket.org/user/repo.git<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="Adding-a-remote"><a href="#Adding-a-remote" class="headerlink" title="Adding a remote"></a>Adding a remote</h2><p>Whereas other Git workflows use a single origin remote that points to the central repository, the Forking Workflow requires two remotes—one for the official repository, and one for the developer’s personal server-side repository. While you can call these remotes anything you want, a common convention is to use origin as the remote for your forked repository (this will be created automatically when you run <code>git clone</code>) and upstream for the official repository.</p>
+<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">git remote add upstream https://bitbucket.org/maintainer/repo<br></code></pre></div></td></tr></table></figure>
+
+<p>You’ll need to create the upstream remote yourself using the above command. This will let you easily keep your local repository up-to-date as the official project progresses. Note that if your upstream repository has authentication enabled (i.e., it’s not open source), you’ll need to supply a username, like so:</p>
+<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">git remote add upstream https://user@bitbucket.org/maintainer/repo.git<br></code></pre></div></td></tr></table></figure>
+
+<p>This requires users to supply a valid password before cloning or pulling from the official codebase.</p>
+<h2 id="Working-in-a-branch-making-amp-pushing-changes"><a href="#Working-in-a-branch-making-amp-pushing-changes" class="headerlink" title="Working in a branch: making &amp; pushing changes"></a>Working in a branch: making &amp; pushing changes</h2><p>In the developer’s local copy of the forked repository they can edit code, commit changes, and create branches just like in other Git workflows:</p>
+<p> <code>git checkout -b some-feature # Edit some code git commit -a -m &quot;Add first draft of some feature&quot;</code></p>
+<p>All of their changes will be entirely private until they push it to their public repository. And, if the official project has moved forward, they can access new commits with <code>git pull</code>:</p>
+<p> <code>git pull upstream main</code></p>
+<p>Since developers should be working in a dedicated feature branch, this should generally result in a fast-forward merge.</p>
+<h2 id="Making-a-Pull-Request"><a href="#Making-a-Pull-Request" class="headerlink" title="Making a Pull Request"></a>Making a Pull Request</h2><p><img src="https://wac-cdn.atlassian.com/dam/jcr:0de71551-5c08-4fc4-ab6d-dc8a51bfcc5a/05.svg?cdnVersion=116" srcset="/img/loading.gif" lazyload alt="Git Fork Workflow - Making a pull request"></p>
+<p>Once a developer is ready to share their new feature, they need to do two things. First, they have to make their contribution accessible to other developers by pushing it to their public repository. Their origin remote should already be set up, so all they should have to do is the following:</p>
+<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">git push origin feature-branch<br></code></pre></div></td></tr></table></figure>
+
+<p>This diverges from the other workflows in that the origin remote points to the developer’s personal server-side repository, not the main codebase.</p>
+<p>Second, they need to notify the project maintainer that they want to merge their feature into the official codebase. Bitbucket provides a “pull request” button that leads to a form asking you to specify which branch you want to merge into the official repository. Typically, you’ll want to integrate your <code>feature</code> branch into the upstream remote’s <code>main</code> branch.</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>To recap, the Forking Workflow is commonly used in public open-source projects. Forking is a <code>git clone</code> operation executed on a server copy of a projects repo. A Forking Workflow is often used in conjunction with a Git hosting service like Bitbucket. A high-level example of a Forking Workflow is:</p>
+<ol>
+<li>You want to contribute to an open source library hosted at bitbucket.org&#x2F;userA&#x2F;open-project</li>
+<li>Using Bitbucket you create a fork of the repo to bitbucket.org&#x2F;YourName&#x2F;open-project</li>
+<li>On your local system you execute <code>git clone</code> on <a target="_blank" rel="noopener" href="https://bitbucket.org/YourName/open-project">https://bitbucket.org/YourName/open-project</a> to get a local copy of the repo</li>
+<li>You create a new <code>feature</code> branch in your local repo</li>
+<li>Work is done to complete the new feature and <code>git commit</code>is executed to save the changes</li>
+<li>You then push the new <code>feature</code> branch to your remote forked repo</li>
+<li>Using Bitbucket you open up a pull request for the new branch against the original repo at bitbucket.org&#x2F;userA&#x2F;open-project</li>
+</ol>
+<p>The Forking Workflow helps a maintainer of a project open up the repository to contributions from any developer without having to manually manage authorization settings for each individual contributor. This gives the maintainer more of a “pull” style workflow. Most commonly used in open-source projects, the Forking Workflow can also be applied to private business workflows to give more authoritative control over what is merged into a release. This can be useful in teams that have Deploy Managers or strict release cycles.</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Git/">Git</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/05/Git/Git/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Git基本操作</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/05/Git/gitflow%20workflow/">
+                        <span class="hidden-mobile">Gitflow Workflow</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Alndaly/alndaly.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <span>Life</span> <i class="iconfont icon-love"></i> <span>Kinda</span> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', '3386895327', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Q63MSHL4Z"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0Q63MSHL4Z');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
