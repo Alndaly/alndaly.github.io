@@ -16,21 +16,21 @@
   <meta name="author" content="Kinda Hall">
   <meta name="keywords" content="个人博客, Personal Blog">
   
-    <meta name="description" content="VIM相关文档">
+    <meta name="description" content="Django相关文档">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VIM-Vim软件包">
-<meta property="og:url" content="http://alndaly.github.io/2022/04/05/Vim/ch23_vim_packages/index.html">
+<meta property="og:title" content="Django">
+<meta property="og:url" content="http://alndaly.github.io/2022/04/05/Server/Django/index/index.html">
 <meta property="og:site_name" content="Kinda">
-<meta property="og:description" content="VIM相关文档">
+<meta property="og:description" content="Django相关文档">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-04T16:26:39.000Z">
-<meta property="article:modified_time" content="2022-04-04T16:26:39.000Z">
+<meta property="article:published_time" content="2022-04-05T05:17:27.000Z">
+<meta property="article:modified_time" content="2022-04-05T05:17:27.000Z">
 <meta property="article:author" content="Kinda Hall">
-<meta property="article:tag" content="VIM">
+<meta property="article:tag" content="django">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>VIM-Vim软件包 - Kinda</title>
+  <title>Django - Kinda</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -192,7 +192,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="VIM-Vim软件包">
+            <span class="h2" id="subtitle" title="Django">
               
             </span>
 
@@ -202,8 +202,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-05 00:26" pubdate>
-        2022年4月5日 凌晨
+      <time datetime="2022-04-05 13:17" pubdate>
+        2022年4月5日 下午
       </time>
     </span>
   
@@ -213,7 +213,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.3k 字
+      2.1k 字
     </span>
   
 
@@ -222,7 +222,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19 分钟
+      18 分钟
     </span>
   
 
@@ -251,69 +251,48 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">VIM-Vim软件包</h1>
+            <h1 style="display: none">Django</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年4月5日 凌晨
+                  本文最后更新于：2022年4月5日 下午
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="第22章-Vim软件包"><a href="#第22章-Vim软件包" class="headerlink" title="第22章 Vim软件包"></a>第22章 Vim软件包</h1><p>在前面的章节中，我提到使用第三方插件管理器来安装插件。从Vim 8开始，Vim自带了一个内置的插件管理器，名叫 <em>软件包（packages）</em>。在本章，您将学习如何使用Vim软件包来安装插件。</p>
-<p>要看您的Vim编译版本是否能够使用软件包，运行 <code>:version</code>。然后查看是否有 <code>+packages</code>属性。另外，您也可以运行 <code>:echo has(&#39;packages&#39;)</code>（如果返回1，表示可以使用软件包）。</p>
-<h2 id="包目录"><a href="#包目录" class="headerlink" title="包目录"></a>包目录</h2><p>在根目录下查看您是否有一个 <code>~/.vim</code> 文件夹。如果没有就新建一个。在文件夹里面，创建一个子文件夹取名 <code>pack</code>(<code>~/.vim/pack/</code>)。Vim会在这个子文件夹内自动搜索插件。</p>
-<h2 id="两种加载方式"><a href="#两种加载方式" class="headerlink" title="两种加载方式"></a>两种加载方式</h2><p>Vim软件包有两种加载机制：自动加载和手动加载。</p>
-<h3 id="自动加载"><a href="#自动加载" class="headerlink" title="自动加载"></a>自动加载</h3><p>要想让Vim启动时自动加载插件，你需要将它们放置在 <code>start/</code>子目录中。路径看起来像这样：</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/*/</span>start/<br></code></pre></div></td></tr></table></figure>
+              <h2 id="官方文档（含教程）"><a href="#官方文档（含教程）" class="headerlink" title="官方文档（含教程）"></a>官方文档（含教程）</h2><p><a target="_blank" rel="noopener" href="https://www.djangoproject.com/">Django</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.django-rest-framework.org/">Home - Django REST framework</a></p>
+<h2 id="基本操作（终端中执行）"><a href="#基本操作（终端中执行）" class="headerlink" title="基本操作（终端中执行）"></a>基本操作（终端中执行）</h2><p>新建一个Django项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">django-admin startproject mysite<br></code></pre></div></td></tr></table></figure>
 
-<p>现在您可能会问，为什么在<code>pack/</code> 和 <code>start/</code> 之间有一个 <code>*</code> ？这个星号可以是任意名字。让我们将它取为<code>packdemo/</code>：</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/packdemo/</span>start/<br></code></pre></div></td></tr></table></figure>
+<p>新建一个接口组</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">django-admin startapp test_app<br></code></pre></div></td></tr></table></figure>
 
-<p>记住，如果您忽略这一点，用下面的路径代替的话：</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/start/</span><br></code></pre></div></td></tr></table></figure>
+<p>启动Django项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">python manage.py runserver<br></code></pre></div></td></tr></table></figure>
 
-<p>软件包系统是不会正常工作的。 必须在<code>pack/</code> 和 <code>start/</code>之间添加一个名字才能正常运行。</p>
-<p>在这个示例中，让我们尝试安装 [NERDTree](<a target="_blank" rel="noopener" href="https://github.com/preservim/nThe">https://github.com/preservim/nThe</a> package system won’t work. It is imperative to put a name between <code>pack/</code> and <code>start/</code>.erdtree) 插件。用任意方法进入 <code>start/</code> 目录（<code>cd ~/.vim/pack/packdemo/start/</code>），然后将NERDTree的仓库克隆下来：</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/preservim/</span>nerdtree.git<br></code></pre></div></td></tr></table></figure>
+<p>创建管理员账户</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">python manage.py createsuperuser<br></code></pre></div></td></tr></table></figure>
 
-<p>完成了！您已经完成了安装。下一次您启动Vim，您可以立即执行 NERDTree 命令 <code>:NERDTreeToggle</code>。</p>
-<p>在 <code>~/.vim/pack/*/start/</code> 目录中，您想克隆多少插件仓库就克隆多少。Vim将会自动加载每一个插件。如果您删除了克隆的仓库（<code>rm -rf nerdtree</code>），那么插件就失效了。</p>
-<h3 id="手动加载"><a href="#手动加载" class="headerlink" title="手动加载"></a>手动加载</h3><p>要想在Vim启动时手动加载插件，您得将相关插件放置在 <code>opt/</code> 目录中，类似于自动加载，这个路径看起来像这样：</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/*/</span>opt/<br></code></pre></div></td></tr></table></figure>
+<h2 id="rest-framework"><a href="#rest-framework" class="headerlink" title="rest_framework"></a>rest_framework</h2><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">INSTALLED_APPS = [<br>		<span class="hljs-string">&#x27;rest_framework&#x27;</span>, <span class="hljs-comment">#增加这一行</span><br>    <span class="hljs-string">&#x27;django.contrib.admin&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.auth&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.contenttypes&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.sessions&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.messages&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.staticfiles&#x27;</span>,<br>]<br></code></pre></div></td></tr></table></figure>
 
-<p>让我们继续使用前面的 <code>packdemo/</code> 这个名字：</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/packdemo/</span>opt/<br></code></pre></div></td></tr></table></figure>
+<h2 id="解决时区问题"><a href="#解决时区问题" class="headerlink" title="解决时区问题"></a>解决时区问题</h2><p>在<code>settings.py</code>中修改</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">TIME_ZONE = <span class="hljs-string">&#x27;Asia/Shanghai&#x27;</span> <span class="hljs-comment">#时区改成上海</span><br><span class="hljs-comment"># USE_TZ = True #这行注释</span><br></code></pre></div></td></tr></table></figure>
 
-<p>这一次，让我们安装<a target="_blank" rel="noopener" href="https://github.com/vim/killersheep">killersheep</a> 游戏（需要Vim8.2以上版本）。进入<code>opt/</code> 目录(<code>cd ~/.vim/pack/packdemo/opt/</code>) 然后克隆仓库：</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/vim/</span>killersheep.git<br></code></pre></div></td></tr></table></figure>
+<h2 id="解决跨域"><a href="#解决跨域" class="headerlink" title="解决跨域"></a>解决跨域</h2><p>在<code>settings.py</code>中修改</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">INSTALLED_APPS = [<br>    <span class="hljs-string">&#x27;django.contrib.admin&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.auth&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.contenttypes&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.sessions&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.messages&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.staticfiles&#x27;</span>,<br>    <span class="hljs-string">&#x27;corsheaders&#x27;</span>,  <span class="hljs-comment"># 这里增加允许跨域请求头配置</span><br>]<br><br>MIDDLEWARE = [<br>		<span class="hljs-comment">#中间件修改成如下</span><br>    <span class="hljs-string">&#x27;django.middleware.security.SecurityMiddleware&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;</span>,<br>    <span class="hljs-string">&#x27;corsheaders.middleware.CorsMiddleware&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.middleware.common.CommonMiddleware&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;</span>,<br>]<br></code></pre></div></td></tr></table></figure>
 
-<p>启动Vim。执行游戏的命令是 <code>:KillKillKill</code>。试着运行一下。Vim将会提示这不是一个有效的编辑命令。您需要首先 <em>手动</em> 加载插件，运行：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-symbol">:packadd</span> killersheep<br></code></pre></div></td></tr></table></figure>
+<h2 id="Django默认样式不好看"><a href="#Django默认样式不好看" class="headerlink" title="Django默认样式不好看"></a>Django默认样式不好看</h2><p>在<code>settings.py</code>中修改</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">INSTALLED_APPS = [<br>    <span class="hljs-string">&#x27;simpleui&#x27;</span>, <span class="hljs-comment">#增加这一行</span><br>    <span class="hljs-string">&#x27;mall.apps.MallConfig&#x27;</span>,<br>    <span class="hljs-string">&#x27;rest_framework&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.admin&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.auth&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.contenttypes&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.sessions&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.messages&#x27;</span>,<br>    <span class="hljs-string">&#x27;django.contrib.staticfiles&#x27;</span>,<br>    <span class="hljs-string">&#x27;corsheaders&#x27;</span>,  <span class="hljs-comment"># 这里增加允许跨域请求头配置</span><br>]<br></code></pre></div></td></tr></table></figure>
 
-<p>现在再运行一下 <code>:KillKillKill</code> 。命令已经可以使用了。</p>
-<p>您可能好奇，“为什么我需要手动加载插件？启动时自动加载岂不是更好？”</p>
-<p>很好的问题。有时候有些插件我们并不是所有的时候都在用，比如 KillerSheep 游戏。您可能不会想要加载10个不同的游戏导致Vim启动变慢。但是偶尔当您觉得乏味的时候，您可能想要玩几个游戏，使用手动加载一些非必须的插件。</p>
-<p>您也可以使用这个方法有条件的加载插件。可能您同时使用了Neovim和Vim，有一些插件是为NeoVim优化过的。您可以添加类似下列的内容到您的vimrc中：</p>
-<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim"><span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">&#x27;nvim&#x27;</span>)<br>  packadd! neovim-<span class="hljs-keyword">only</span>-plugin<br><span class="hljs-keyword">else</span><br>  packadd! generic-<span class="hljs-keyword">vim</span>-plugin<br><span class="hljs-keyword">endif</span><br></code></pre></div></td></tr></table></figure>
+<aside> 💡 simpleui的一些基本配置⬇️，在`settings.py`中增加
 
-<h2 id="组织管理软件包"><a href="#组织管理软件包" class="headerlink" title="组织管理软件包"></a>组织管理软件包</h2><p>回想一下，要使用Vim的软件包系统必须有以下需求：</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/*/</span>start/<br></code></pre></div></td></tr></table></figure>
+</aside>
 
-<p>或者:</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/*/</span>opt/<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># 去掉默认Logo或换成自己Logo链接</span><br>SIMPLEUI_LOGO = <span class="hljs-string">&#x27;&lt;https://cdn.jsdelivr.net/gh/Alndaly/imgsrc/img/202109211712667.png&gt;&#x27;</span><br><span class="hljs-comment"># 默认语言换成中文</span><br>LANGUAGE_CODE = <span class="hljs-string">&#x27;zh-hans&#x27;</span><br></code></pre></div></td></tr></table></figure>
 
-<p>实际上，<code>*</code>星号可以使 <em>任意</em> 名字，这个名字就可以用来管理您的插件。假设您想将您的插件根据类型（颜色、语法、游戏）分组：</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/colors/</span><br>~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/syntax/</span><br>~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/games/</span><br></code></pre></div></td></tr></table></figure>
-
-<p>您仍然可以使用各个目录下的 <code>start/</code> 和 <code>opt/</code> 。</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/colors/</span>start/<br>~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/colors/</span>opt/<br><br>~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/syntax/</span>start/<br>~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/syntax/</span>opt/<br><br>~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/games/</span>start/<br>~<span class="hljs-regexp">/.vim/</span>pack<span class="hljs-regexp">/games/</span>opt/<br></code></pre></div></td></tr></table></figure>
-
-<h2 id="聪明地添加插件"><a href="#聪明地添加插件" class="headerlink" title="聪明地添加插件"></a>聪明地添加插件</h2><p>您可能好奇，Vim软件包是否让一些流行的插件管理器，比如 vim-pathogen, vundle.vim, dein.vim, a还有vim-plug面临淘汰？</p>
-<p>答案永远是：“看情况而定。”</p>
-<p>我仍然使用vim-plug，因为使用它添加、删除、更新插件很容易。如果您使用了很多插件，插件管理器的好处更加明显，因为使用它可以对很多插件进行同时更新。有些插件管理器同时也提供了一些异步功能。</p>
-<p>如果您是极简主义者，可以尝试一下Vim软件包。如果您是一名插件重度使用者，您可能需要一个插件管理器。</p>
-
+<h2 id="Django的时间返回中间带T"><a href="#Django的时间返回中间带T" class="headerlink" title="Django的时间返回中间带T"></a>Django的时间返回中间带<code>T</code></h2><p><code>settings.py</code>中增加如下配置</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">REST_FRAMEWORK = &#123;<br>    <span class="hljs-string">&#x27;DATETIME_FORMAT&#x27;</span>: <span class="hljs-string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>,<br>&#125;<br></code></pre></div></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -321,8 +300,6 @@
                 
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
                     
                       <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
                     
@@ -332,7 +309,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/VIM/">VIM</a>
+                      <a class="hover-with-bg" href="/tags/django/">django</a>
                     
                   </div>
                 
@@ -349,18 +326,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/05/Vim/ch22_vimrc/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">VIM-Vimrc</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/05/Vim/ch24_vim_runtime/">
-                        <span class="hidden-mobile">VIM-Vim Rumtime</span>
+                      <a href="/2022/04/05/Server/Nginx/Nginx%E8%BD%AC%E5%8F%91/">
+                        <span class="hidden-mobile">Nginx转发</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

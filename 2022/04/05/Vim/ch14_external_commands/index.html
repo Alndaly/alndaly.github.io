@@ -67,7 +67,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -255,7 +255,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：11 小时前
+                  本文最后更新于：2022年4月5日 凌晨
                 
               </p>
             
@@ -266,58 +266,58 @@
 <p>1.将外部命令的STDOUT读入当前缓冲区。<br>2.将缓冲区的内容作为STDIN写入外部命令。<br>3.从Vim内部执行外部命令。</p>
 <p>让我们一个个认真看一下。</p>
 <h2 id="将外部命令的标准输出STDOUT读入Vim"><a href="#将外部命令的标准输出STDOUT读入Vim" class="headerlink" title="将外部命令的标准输出STDOUT读入Vim"></a>将外部命令的标准输出STDOUT读入Vim</h2><p>将外部命令的STDOUT读入当前缓冲区的语法为：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs css">:r !&#123;cmd&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">:r !&#123;cmd&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p><code>:r</code>是Vim的读命令。如果不带<code>!</code>使用它，则可以使用它来获取文件的内容。如果当前目录中有文件<code>file1.txt</code>，运行：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:r</span> file1.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-symbol">:r</span> file1.txt<br></code></pre></div></td></tr></table></figure>
 
 <p>Vim会将<code>file1.txt</code>的内容放入当前缓冲区。</p>
 <p>如果您运行的<code>:r</code>命令后面跟一个<code>!</code>和外部命令，则该命令的输出将插入到当前缓冲区中。要获取<code>ls</code>命令的结果，请运行：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">:<span class="hljs-built_in">r</span> !<span class="hljs-built_in">ls</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">:<span class="hljs-built_in">r</span> !<span class="hljs-built_in">ls</span><br></code></pre></div></td></tr></table></figure>
 
 <p>它返回类似下列的文本：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">file1<span class="hljs-selector-class">.txt</span><br>file2<span class="hljs-selector-class">.txt</span><br>file3.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">file1<span class="hljs-selector-class">.txt</span><br>file2<span class="hljs-selector-class">.txt</span><br>file3.txt<br></code></pre></div></td></tr></table></figure>
 
 <p>您可以从<code>curl</code>命令读取数据：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">:<span class="hljs-built_in">r</span> !<span class="hljs-built_in">curl</span> <span class="hljs-literal">-s</span> <span class="hljs-string">&#x27;https://jsonplaceholder.typicode.com/todos/1&#x27;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">:<span class="hljs-built_in">r</span> !<span class="hljs-built_in">curl</span> <span class="hljs-literal">-s</span> <span class="hljs-string">&#x27;https://jsonplaceholder.typicode.com/todos/1&#x27;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>r命令也接受一个地址：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">:<span class="hljs-number">10</span><span class="hljs-built_in">r</span> !<span class="hljs-built_in">cat</span> file1.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">:<span class="hljs-number">10</span><span class="hljs-built_in">r</span> !<span class="hljs-built_in">cat</span> file1.txt<br></code></pre></div></td></tr></table></figure>
 
 <p>现在，将在第10行之后插入来自运行<code>cat file.txt</code>的STDOUT。</p>
 <h2 id="将缓冲区内容写入外部命令"><a href="#将缓冲区内容写入外部命令" class="headerlink" title="将缓冲区内容写入外部命令"></a>将缓冲区内容写入外部命令</h2><p><code>:w</code>命令除了保存文件，还可以用来将当前缓冲区中的文本作为作为STDIN传递给外部命令。语法为：</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">:w !<span class="hljs-keyword">cmd</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dockerfile">:w !<span class="hljs-keyword">cmd</span><br></code></pre></div></td></tr></table></figure>
 
 <p>如果您具有以下表达式：</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&quot;Hello Vim&quot;</span>);<br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&quot;Vim is awesome&quot;</span>);<br></code></pre></td></tr></table></figure>
+<figure class="highlight arcade"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs arcade"><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&quot;Hello Vim&quot;</span>);<br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&quot;Vim is awesome&quot;</span>);<br></code></pre></div></td></tr></table></figure>
 
 <p>确保在计算机中安装了<a target="_blank" rel="noopener" href="https://nodejs.org/en/">node</a>，然后运行：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">:w !<span class="hljs-keyword">node</span><span class="hljs-title"></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs crmsh">:w !<span class="hljs-keyword">node</span><span class="hljs-title"></span><br></code></pre></div></td></tr></table></figure>
 
 <p>Vim将使用<code>node</code>执行Javascript表达式来打印”Hello Vim”和”Vim is awesome”。</p>
 <p>当使用<code>：w</code>命令时，Vim使用当前缓冲区中的所有文本，与global命令类似（大多数命令行命令，如果不给它传递范围，则仅对当前行执行该命令）。如果您通过<code>：w</code>来指定地址：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">:<span class="hljs-number">2</span>w !<span class="hljs-keyword">node</span><span class="hljs-title"></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs crmsh">:<span class="hljs-number">2</span>w !<span class="hljs-keyword">node</span><span class="hljs-title"></span><br></code></pre></div></td></tr></table></figure>
 
 <p>“Vim”只使用第二行中的文本到<code>node</code>解释器中。</p>
 <p><code>:w !node</code>和<code>:w! node</code>形式上区别很小，但功能上相隔千里。使用<code>:w !node</code>，您是将当前缓冲区中的文本”写入”到外部命令<code>node</code>中。用<code>:w! node</code>，则您将强制保存文件并将其命名为”node”。</p>
 <h2 id="执行外部命令"><a href="#执行外部命令" class="headerlink" title="执行外部命令"></a>执行外部命令</h2><p>您可以使用bang命令从Vim内部执行外部命令。语法为：</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:!cmd</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight clojure"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs clojure"><span class="hljs-symbol">:!cmd</span><br></code></pre></div></td></tr></table></figure>
 
 <p>要以长格式查看当前目录的内容，请运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">:!<span class="hljs-built_in">ls</span> -<span class="hljs-built_in">ls</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">:!<span class="hljs-built_in">ls</span> -<span class="hljs-built_in">ls</span><br></code></pre></div></td></tr></table></figure>
 
 <p>要终止在PID 3456上运行的进程，可以运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">:!<span class="hljs-built_in">kill</span> -9 3456<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">:!<span class="hljs-built_in">kill</span> -9 3456<br></code></pre></div></td></tr></table></figure>
 
 <p>您可以在不离开Vim的情况下运行任何外部命令，因此您可以专注于自己的任务。</p>
 <h2 id="过滤文本"><a href="#过滤文本" class="headerlink" title="过滤文本"></a>过滤文本</h2><p>如果给<code>!</code>范围，则可用于过滤文本。假设您有：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim">hello <span class="hljs-keyword">vim</span><br>hello <span class="hljs-keyword">vim</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">hello <span class="hljs-keyword">vim</span><br>hello <span class="hljs-keyword">vim</span><br></code></pre></div></td></tr></table></figure>
 
 <p>让我们使用<code>tr</code> (translate)命令将当前行大写。运行：</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-meta">:.!tr &#x27;[:lower:]&#x27;</span> <span class="hljs-emphasis">&#x27;[:upper:]&#x27;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight asciidoc"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs asciidoc"><span class="hljs-meta">:.!tr &#x27;[:lower:]&#x27;</span> <span class="hljs-emphasis">&#x27;[:upper:]&#x27;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>结果：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">HELLO VIM</span><br><span class="hljs-attribute">hello vim</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">HELLO VIM</span><br><span class="hljs-attribute">hello vim</span><br></code></pre></div></td></tr></table></figure>
 
 <p>命令分解：</p>
 <ul>
@@ -326,10 +326,10 @@
 </ul>
 <p>必须传递范围以运行外部命令作为过滤器。如果您尝试在没有<code>.</code>的情况下运行上述命令(<code>:!tr &#39;[:lower:]&#39; &#39;[:upper:]&#39;</code>)，则会看到错误。</p>
 <p>假设您需要使用awk命令删除两行的第二列：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">:%!awk <span class="hljs-string">&quot;&#123;print <span class="hljs-variable">$1</span>&#125;&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">:%!awk <span class="hljs-string">&quot;&#123;print <span class="hljs-variable">$1</span>&#125;&quot;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>结果：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hello</span><br><span class="hljs-attribute">hello</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">hello</span><br><span class="hljs-attribute">hello</span><br></code></pre></div></td></tr></table></figure>
 
 <p>命令分解：</p>
 <ul>
@@ -337,13 +337,13 @@
 <li><code>awk &quot;&#123;print $1&#125;&quot;</code> 仅打印匹配项的第一列。</li>
 </ul>
 <p>您可以使用管道运算符（<code>|</code>）链接多个命令，就像在终端中一样。假设您有一个包含这些美味早餐的文件：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">name</span> price<br><span class="hljs-attribute">chocolate</span> pancake <span class="hljs-number">10</span><br><span class="hljs-attribute">buttermilk</span> pancake <span class="hljs-number">9</span><br><span class="hljs-attribute">blueberry</span> pancake <span class="hljs-number">12</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">name</span> price<br><span class="hljs-attribute">chocolate</span> pancake <span class="hljs-number">10</span><br><span class="hljs-attribute">buttermilk</span> pancake <span class="hljs-number">9</span><br><span class="hljs-attribute">blueberry</span> pancake <span class="hljs-number">12</span><br></code></pre></div></td></tr></table></figure>
 
 <p>如果您需要根据价格对它们进行排序，并且仅以均匀的间距显示菜单，则可以运行：</p>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mel">:%!awk <span class="hljs-string">&#x27;NR &gt; 1&#x27;</span> | <span class="hljs-keyword">sort</span> -nk <span class="hljs-number">3</span> | column -t<br></code></pre></td></tr></table></figure>
+<figure class="highlight mel"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mel">:%!awk <span class="hljs-string">&#x27;NR &gt; 1&#x27;</span> | <span class="hljs-keyword">sort</span> -nk <span class="hljs-number">3</span> | column -t<br></code></pre></div></td></tr></table></figure>
 
 <p>结果：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">buttermilk</span> pancake <span class="hljs-number">9</span><br><span class="hljs-attribute">chocolate</span> pancake <span class="hljs-number">10</span><br><span class="hljs-attribute">blueberry</span> pancake <span class="hljs-number">12</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">buttermilk</span> pancake <span class="hljs-number">9</span><br><span class="hljs-attribute">chocolate</span> pancake <span class="hljs-number">10</span><br><span class="hljs-attribute">blueberry</span> pancake <span class="hljs-number">12</span><br></code></pre></div></td></tr></table></figure>
 
 <p>命令分解：</p>
 <ul>
@@ -354,10 +354,10 @@
 <li><code>column -t</code>以均匀的间距组织文本。</li>
 </ul>
 <h2 id="普通模式命令"><a href="#普通模式命令" class="headerlink" title="普通模式命令"></a>普通模式命令</h2><p>在普通模式下，Vim有一个过滤运算符（<code>!</code>）。如果您有以下问候：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim">hello <span class="hljs-keyword">vim</span><br>hola <span class="hljs-keyword">vim</span><br>bonjour <span class="hljs-keyword">vim</span><br>salve <span class="hljs-keyword">vim</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">hello <span class="hljs-keyword">vim</span><br>hola <span class="hljs-keyword">vim</span><br>bonjour <span class="hljs-keyword">vim</span><br>salve <span class="hljs-keyword">vim</span><br></code></pre></div></td></tr></table></figure>
 
 <p>要大写当前行和下面的行，可以运行：</p>
-<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs erlang-repl">!jtr <span class="hljs-string">&#x27;[a-z]&#x27;</span> <span class="hljs-string">&#x27;[A-Z]&#x27;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs erlang-repl">!jtr <span class="hljs-string">&#x27;[a-z]&#x27;</span> <span class="hljs-string">&#x27;[A-Z]&#x27;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>命令分解：</p>
 <ul>
@@ -376,9 +376,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-                    
                       <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
                     
                   </div>
                 

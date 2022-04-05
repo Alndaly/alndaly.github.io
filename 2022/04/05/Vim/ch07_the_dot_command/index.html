@@ -67,7 +67,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -255,7 +255,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：11 小时前
+                  本文最后更新于：2022年4月5日 凌晨
                 
               </p>
             
@@ -263,7 +263,7 @@
               <h1 id="点命令"><a href="#点命令" class="headerlink" title="点命令"></a>点命令</h1><p>在编辑文本时，我们应该尽可能地避免重复的动作。在这一章节中，你将会学习如何使用点命令来重放上一个修改操作。点命令是最简单的命令，然而又是减少重复操作最为有用的命令。</p>
 <h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>正如这个命令的名字一样，你可以通过按下<code>.</code>键来使用点命令。</p>
 <p>比如，如果你想将下面文本中的所有”let“替换为”const”：</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs abnf">let one <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span><span class="hljs-comment">;</span><br>let two <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2&quot;</span><span class="hljs-comment">;</span><br>let three <span class="hljs-operator">=</span> <span class="hljs-string">&quot;3&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight abnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs abnf">let one <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span><span class="hljs-comment">;</span><br>let two <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2&quot;</span><span class="hljs-comment">;</span><br>let three <span class="hljs-operator">=</span> <span class="hljs-string">&quot;3&quot;</span><span class="hljs-comment">;</span><br></code></pre></div></td></tr></table></figure>
 
 <ul>
 <li>首先，使用<code>/let</code>来进行匹配。</li>
@@ -276,32 +276,32 @@
 <h2 id="什么才算是修改操作？"><a href="#什么才算是修改操作？" class="headerlink" title="什么才算是修改操作？"></a>什么才算是修改操作？</h2><p>如果你查看点命令的定义的话(<code>:h .</code>),文档中说点命令会重复上一个修改操作，那么什么才算是一个修改操作呢？</p>
 <p>当你使用普通模式下的命令来更新（添加，修改或者删除）当前缓冲区中的内容时，你就是在执行一个修改操作了。其中的例外是使用命令行命令进行的修改（以<code>：</code>开头的命令），这些命令不算作修改操作。</p>
 <p>在第一个例子中，你看到的<code>cwconst&lt;esc&gt;</code>就是一个修改操作。现在假设你有以下这么一个句子：</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><span class="hljs-built_in">pancake,</span> potatoes, fruit-juice,<br></code></pre></td></tr></table></figure>
+<figure class="highlight autohotkey"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs autohotkey"><span class="hljs-built_in">pancake,</span> potatoes, fruit-juice,<br></code></pre></div></td></tr></table></figure>
 
 <p>我们来删除从这行开始的位置到第一个逗号出现的位置。你可以使用<code>df,</code>来完成这个操作,使用<code>.</code>来重复两次直到你将整个句子删除。</p>
 <p>让我们再来试试另一个例子：</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><span class="hljs-built_in">pancake,</span> potatoes, fruit-juice,<br></code></pre></td></tr></table></figure>
+<figure class="highlight autohotkey"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs autohotkey"><span class="hljs-built_in">pancake,</span> potatoes, fruit-juice,<br></code></pre></div></td></tr></table></figure>
 
 <p>这一次你只需要删除所有的逗号，不包括逗号前面的词。我们可以使用<code>f,</code>来找到第一个逗号，再使用<code>x</code>来删除光标下的字符。然后使用用<code>.</code>来重复两次，很简单对不对？等等！这样做行不通(只会重复删除光标下的一个字符，而不是删除逗号)！为什么会这样呢？</p>
 <p>在Vim里，修改操作是不包括移动（motions）的，因为移动(motions)不会更新缓冲区的内容。当你运行<code>f,x</code>，你实际上是在执行两个独立的操作：<code>f,</code>命令只移动光标，而<code>x</code>更新缓冲区的内容，只有后者算作修改动作。和之前例子中的<code>df,</code>进行一下对比的话，你会发现<code>df,</code>中的<code>f,</code>告诉删除操作<code>d</code>哪里需要删除，是整个删除命令<code>df,</code>的一部分。</p>
 <p>让我们想想办法完成这个任务。在你运行<code>f,</code>并执行<code>x</code>来删除第一个逗号后，使用<code>;</code>来继续匹配<code>f</code>的下一个目标（下一个逗号）。之后再使用<code>.</code>来重复修改操作，删除光标下的字符。重复<code>; . ; .</code>直到所有的逗号都被删除。完整的命令即为<code>f,x;.;.</code>。</p>
 <p>再来试试下一个例子：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pancake</span><br><span class="hljs-attribute">potatoes</span><br><span class="hljs-attribute">fruit-juice</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">pancake</span><br><span class="hljs-attribute">potatoes</span><br><span class="hljs-attribute">fruit-juice</span><br></code></pre></div></td></tr></table></figure>
 
 <p>我们的目标是给每一行的结尾加上逗号。从第一行开始，我们执行命令<code>A,&lt;esc&gt;j</code>来给结尾加上逗号并移动到下一行。现在我们知道了<code>j</code>是不算作修改操作的，只有<code>A,</code>算作修改操作。你可以使用<code>j . j . </code>来移动并重复修改操作。完整的命令是<code>A,&lt;esc&gt;j</code>。</p>
 <p>从你按下输入命令（A）开始到你退出输入模式（<esc>）之间的所有输入都算作是一整个修改操作。</p>
 <h2 id="重复多行修改操作"><a href="#重复多行修改操作" class="headerlink" title="重复多行修改操作"></a>重复多行修改操作</h2><p>假设你有如下的文本：</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs abnf">let one <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span><span class="hljs-comment">;</span><br>let two <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2&quot;</span><span class="hljs-comment">;</span><br>let three <span class="hljs-operator">=</span> <span class="hljs-string">&quot;3&quot;</span><span class="hljs-comment">;</span><br>const foo <span class="hljs-operator">=</span> <span class="hljs-string">&quot;bar&quot;</span><span class="hljs-comment">;</span><br>let four <span class="hljs-operator">=</span> <span class="hljs-string">&quot;4&quot;</span><span class="hljs-comment">;</span><br>let five <span class="hljs-operator">=</span> <span class="hljs-string">&quot;5&quot;</span><span class="hljs-comment">;</span><br>let six <span class="hljs-operator">=</span> <span class="hljs-string">&quot;6&quot;</span><span class="hljs-comment">;</span><br>let seven <span class="hljs-operator">=</span> <span class="hljs-string">&quot;7&quot;</span><span class="hljs-comment">;</span><br>let eight <span class="hljs-operator">=</span> <span class="hljs-string">&quot;8&quot;</span><span class="hljs-comment">;</span><br>let nine <span class="hljs-operator">=</span> <span class="hljs-string">&quot;9&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight abnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs abnf">let one <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span><span class="hljs-comment">;</span><br>let two <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2&quot;</span><span class="hljs-comment">;</span><br>let three <span class="hljs-operator">=</span> <span class="hljs-string">&quot;3&quot;</span><span class="hljs-comment">;</span><br>const foo <span class="hljs-operator">=</span> <span class="hljs-string">&quot;bar&quot;</span><span class="hljs-comment">;</span><br>let four <span class="hljs-operator">=</span> <span class="hljs-string">&quot;4&quot;</span><span class="hljs-comment">;</span><br>let five <span class="hljs-operator">=</span> <span class="hljs-string">&quot;5&quot;</span><span class="hljs-comment">;</span><br>let six <span class="hljs-operator">=</span> <span class="hljs-string">&quot;6&quot;</span><span class="hljs-comment">;</span><br>let seven <span class="hljs-operator">=</span> <span class="hljs-string">&quot;7&quot;</span><span class="hljs-comment">;</span><br>let eight <span class="hljs-operator">=</span> <span class="hljs-string">&quot;8&quot;</span><span class="hljs-comment">;</span><br>let nine <span class="hljs-operator">=</span> <span class="hljs-string">&quot;9&quot;</span><span class="hljs-comment">;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>你的目标是删除除了含有”foo”那一行以外的所有行。首先，使用<code>d2j</code>删除前三行。之后跳过”foo”这一行，在其下一行使用点命令两次来删除剩下的六行。完整的命令是<code>d2jj..</code>。</p>
 <p>这里的修改操作是<code>d2j</code>，<code>2j</code>不是一个移动(motion)操作，而是整个删除命令的一部分。</p>
 <p>我们再来看看下一个例子：</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf">zlet zzone <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span><span class="hljs-comment">;</span><br>zlet zztwo <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2&quot;</span><span class="hljs-comment">;</span><br>zlet zzthree <span class="hljs-operator">=</span> <span class="hljs-string">&quot;3&quot;</span><span class="hljs-comment">;</span><br>let four <span class="hljs-operator">=</span> <span class="hljs-string">&quot;4&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight abnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs abnf">zlet zzone <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span><span class="hljs-comment">;</span><br>zlet zztwo <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2&quot;</span><span class="hljs-comment">;</span><br>zlet zzthree <span class="hljs-operator">=</span> <span class="hljs-string">&quot;3&quot;</span><span class="hljs-comment">;</span><br>let four <span class="hljs-operator">=</span> <span class="hljs-string">&quot;4&quot;</span><span class="hljs-comment">;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>我们的目标是删除所有的’z’。从第一行第一个字符开始，首先，在块可视化模式下使用<code>Ctrl-vjj</code>来选中前三行的第一个’z’字母。如果你对块可视化模式不熟悉的话也不用担心，我会在下一章节中进行介绍。在选中前三行的第一个’z’后，使用<code>d</code>来删除它们。接着用<code>w</code>移动到下一个z字母上，使用<code>..</code>重复两次之前选中加删除的动作。完整的命令为<code>Ctrl-vjjdw..</code>。</p>
 <p>你删除一列上的三个’z‘的操作(<code>Ctrl-vjjd</code>)被看做一整个修改操作。可视化模式中的选择操作可以用来选中多行，作为修改动作的一部分。</p>
 <h2 id="在修改中包含移动操作"><a href="#在修改中包含移动操作" class="headerlink" title="在修改中包含移动操作"></a>在修改中包含移动操作</h2><p>让我们来重新回顾一下本章中的第一个例子。这个例子中我们使用了<code>/letcwconst&lt;esc&gt;</code>紧接着<code>n . n .</code>将下面的文本中的’let’都替换成了’const’。</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs abnf">let one <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span><span class="hljs-comment">;</span><br>let two <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2&quot;</span><span class="hljs-comment">;</span><br>let three <span class="hljs-operator">=</span> <span class="hljs-string">&quot;3&quot;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight abnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs abnf">let one <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span><span class="hljs-comment">;</span><br>let two <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2&quot;</span><span class="hljs-comment">;</span><br>let three <span class="hljs-operator">=</span> <span class="hljs-string">&quot;3&quot;</span><span class="hljs-comment">;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>其实还有更快的方法来完成整个操作。当你使用<code>/let</code>搜索后，执行<code>cgnconst&lt;Esc&gt;</code>，然后<code>. . .</code>。</p>
 <p><code>gn</code>是一个移动并选择的动作，它向前搜索和上一个搜索的模式（本例中为<code>/let</code>）匹配的位置，并且 <strong>自动对匹配的文本进行可视化模式下的选取</strong>。想要对下一个匹配的位置进行替换的话，你不再需要先移动在重复修改操作（<code>n . n .</code>），而是简单地使用<code>. .</code>就能完成。你不需要再进行移动操作了，因为找到下一个匹配的位置并进行选中成为了修改操作的一部分了。</p>
@@ -309,7 +309,7 @@
 <blockquote>
 <p>（译者在这里研究了一会，并做了不少实验，总结规律是：单独的motion(第4章中所说的名词)不算修改操作，而opeartor(动词)+motion(名词)时(请回顾第4章)，motion被视为一个完整的修改操作中的一部分。再看一个例子，看看<code>/</code>命令是如何被包含在一个修改操作中的：</p>
 </blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span><br><span class="hljs-selector-tag">b</span><br>foo<br>c<br>d<br>foo<br>e<br>f<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span><br><span class="hljs-selector-tag">b</span><br>foo<br>c<br>d<br>foo<br>e<br>f<br></code></pre></div></td></tr></table></figure>
 
 <blockquote>
 <p>假设你的光标在第一行的a上，执行命令<code>d/foo&lt;Esc&gt;</code>，Vim会删除a,b。然后<code>.</code>，Vim会删除foo, c, d，再按<code>.</code>，Vim什么也不做，因为后面没有”foo”了。在这个例子中，<code>/foo</code>是一个motion（名词），是Vim语法(动词+名词：operator + motion)的一部分，前面的<code>d</code>则是动词。<code>d/foo&lt;Esc&gt;</code>这条命令的功能是：从当前光标所在位置开始删除，直到遇到”foo”为止。后面的点命令就重复这个功能，第二次按<code>.</code>之所以Vim什么也不做，是因为找不到下一个匹配了，所以这条命令就失效了。</p>
@@ -326,9 +326,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-                    
                       <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
                     
                   </div>
                 
@@ -363,8 +363,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/05/Vim/ch08_registers/">
-                        <span class="hidden-mobile">VIM-寄存器</span>
+                      <a href="/2022/04/05/Vim/ch09_macros/">
+                        <span class="hidden-mobile">VIM-宏命令</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

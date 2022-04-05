@@ -67,7 +67,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -255,7 +255,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：11 小时前
+                  本文最后更新于：2022年4月5日 凌晨
                 
               </p>
             
@@ -275,28 +275,28 @@
 <p>实际上，大部分时间您可能只会用到1种或2种（就我个人而言，我使用 <code>cdo</code> 和 <code>argdo</code>比其他的多得多），但了解所有可行方法还是很有用的，这样您就可以选择一个最符合您个人编辑风格的方法。</p>
 <p>学习所有8个命令可能听起来让人有点打退堂鼓。但实际上，这些命令工作方式很相似。学习了其中一个后，再学习剩余的将容易的多。它们的运行方式都大体相同：分别创建一个列表(列表中的元素根据命令有所不同)，然后向列表传递一个您想执行的命令。</p>
 <h2 id="参数列表"><a href="#参数列表" class="headerlink" title="参数列表"></a>参数列表</h2><p>参数列表是最基础的列表。它创建一个文件列表。要想为 file1, file2, file3创建文件列表，您可以执行：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:args</span> file1 file2 file3<br></code></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-symbol">:args</span> file1 file2 file3<br></code></pre></div></td></tr></table></figure>
 
 <p>您也可以传递一个通配符（<code>*</code>），所以如果您想为当前目录下所有的 <code>.js</code> 文件创建一个列表，运行：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:args</span> *.js<br></code></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-symbol">:args</span> *.js<br></code></pre></div></td></tr></table></figure>
 
 <p>如果您想为当前目录下所有以 “a” 开头的Javascript文件创建列表，运行：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:args</span> a*.js<br></code></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-symbol">:args</span> a*.js<br></code></pre></div></td></tr></table></figure>
 
 <p>（<code>*</code>）通配符匹配当前目录下的1个或多个任意文件名中的字符。但如果您想在某个目录下进行递归搜索怎么办呢？您可以使用双通配符（<code>**</code>）。要得到您当前位置下所有子目录中的Javascript文件，运行：</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">:args <span class="hljs-strong">**/*</span>.js<br></code></pre></td></tr></table></figure>
+<figure class="highlight asciidoc"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs asciidoc">:args <span class="hljs-strong">**/*</span>.js<br></code></pre></div></td></tr></table></figure>
 
 <p>您运行了 <code>args</code> 命令后，您的当前buffer将会切换到列表中的第一个文件。运行 <code>:args</code>可以查看您刚才创建的文件列表。当您创建好了您的列表后，您就可以遍历它们了。<code>:first</code> 将让您跳至列表中的第一个文件。<code>:last</code> 将跳到最后一个文件。运行<code>:next</code>可以在列表中一次向前移动一个文件。运行 <code>:prev</code>可以在列表中一次向后移动一个文件。运行<code>:wnext</code> 和 <code>:wprev</code>命令，在向前&#x2F;向后移动文件的同时还会保存修改。查阅 <code>: arglist</code> 了解更多导航命令。</p>
 <p>参数列表在定位某个特定类型的文件或少量文件时特别有用。假如您需要将所有 <code>yml</code> 文件中的<code>donut</code> 更新为 <code>pancake</code>。运行：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vim">:<span class="hljs-keyword">args</span> **/*.yml<br>:<span class="hljs-keyword">argdo</span> %s/donut/pancake/g | <span class="hljs-keyword">update</span><br><br></code></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">:<span class="hljs-keyword">args</span> **/*.yml<br>:<span class="hljs-keyword">argdo</span> %s/donut/pancake/g | <span class="hljs-keyword">update</span><br><br></code></pre></div></td></tr></table></figure>
 <p>注意如果您再次执行 <code>args</code> 命令，它将覆盖先前的列表。比如，如果您先前运行了：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:args</span> file1 file2 file3<br></code></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-symbol">:args</span> file1 file2 file3<br></code></pre></div></td></tr></table></figure>
 
 <p>假设这些文件都是存在的，那么现在您的列表为 <code>file1</code>, <code>file2</code>,以及 <code>file3</code>。然后再运行：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:args</span> file4 file5<br></code></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-symbol">:args</span> file4 file5<br></code></pre></div></td></tr></table></figure>
 
 <p>您的初始列表 <code>file1</code>, <code>file2</code>, <code>file3</code>将被覆盖为 <code>file4</code>, <code>file5</code>。如果您的参数列表中已经有了 <code>file1</code>, <code>file2</code>, <code>file3</code> ，而您想将 <code>file4</code>, <code>file5</code> 添加到初始列表中，请使用 <code>:arga</code>命令。运行</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-symbol">:arga</span> file4 file5<br></code></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-symbol">:arga</span> file4 file5<br></code></pre></div></td></tr></table></figure>
 
 <p>现在您的列表为<code>file1</code>, <code>file2</code>, <code>file3</code>, <code>file4</code>, <code>file5</code>。</p>
 <p>如果您运行 <code>:arga</code> 时没有给任何参数，Vim会添加当前buffer到参数列表中。例如，如果您的参数列表中已经有了 <code>file1</code>, <code>file2</code>, <code>file3</code>，而您当前buffer是 <code>file5</code>，运行 <code>:arga</code> 将添加 <code>file5</code> 到您的列表中。</p>
@@ -318,19 +318,19 @@
 <p>如果您是Vim新手，快速修复对于您可能是个新概念。回想以前您执行代码编译的时候，编译期间您可能遇到过错误，而这些错误都显示在一个特殊的窗口。这就是快速修复(quickfix)的由来。当您编译您的代码的时候，Vim会在快速修复窗口显示错误信息，您可以稍后去解决。许多现代语言已经不再需要进行显式地编译，但快速修复并没有被淘汰。现在，人们使用快速修复来做各种各样的事，比如显示虚拟终端的输入、存储搜索结果等。我们重点研究后者，存储搜索结果。</p>
 <p>除编译命令外，某些特定的Vim命令也依赖快速修复接口。其中一种就是搜索命令，其使用过程中大量的使用了快速修复窗口，<code>:vimgrep</code> 和 <code>:grep</code> 都默认使用快速修复。</p>
 <p>比如，如果您需要在所有的Javascript文件中递归地搜索 “donut”，您可以运行：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">:vimgrep <span class="hljs-regexp">/donut/</span> **/*.js<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">:vimgrep <span class="hljs-regexp">/donut/</span> **/*.js<br></code></pre></div></td></tr></table></figure>
 
 <p>“donut”的搜索结果存储在快速修复窗口中。要查看快速修复窗口的结果，运行：</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:copen</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight clojure"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs clojure"><span class="hljs-symbol">:copen</span><br></code></pre></div></td></tr></table></figure>
 
 <p>要关闭快速修复窗口，运行：</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:cclose</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight clojure"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs clojure"><span class="hljs-symbol">:cclose</span><br></code></pre></div></td></tr></table></figure>
 
 <p>在快速修复列表中向前或向后遍历，运行：</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:cnext</span><br><span class="hljs-symbol">:cprev</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight clojure"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs clojure"><span class="hljs-symbol">:cnext</span><br><span class="hljs-symbol">:cprev</span><br></code></pre></div></td></tr></table></figure>
 
 <p>跳至第一个或最后一个匹配的元素，运行：</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:cfirst</span><br><span class="hljs-symbol">:clast</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight clojure"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs clojure"><span class="hljs-symbol">:cfirst</span><br><span class="hljs-symbol">:clast</span><br></code></pre></div></td></tr></table></figure>
 
 <p>在前面我提到过，有两种快速修复命令：<code>cdo</code> 和 <code>cfdo</code> 。它们有什么区别？<code>cdo</code> 在修复列表中的每一个元素上执行命令，而 <code>cfdo</code> 在修复列表中的每一个文件上执行命令。</p>
 <p>让我讲清楚一点，假设运行完上面的 <code>vimgrep</code> 命令后，您找到以下结果：</p>
@@ -344,10 +344,10 @@
 <p>那到底什么时候该用 <code>cfdo</code>？什么时候该用 <code>cdo</code>？    这应当想一想您要传递的命令的作用域，要看命令作用域是整个文件（比如 <code>:%s</code> 或 <code>:g</code>）？还是某一行（比如 <code>:s</code> 或 <code>:!</code>）？</p>
 <h2 id="位置列表"><a href="#位置列表" class="headerlink" title="位置列表"></a>位置列表</h2><p>位置列表在某种意义上和快速修复列表很像。Vim也使用一个特殊的窗口来显示位置列表的信息。区别在于：您任何时候都只能有1个快速修复列表，而位置列表则是，有多少个窗口就可以有多少个位置列表。</p>
 <p>假设您打开了两个窗口，其中一个窗口显示 <code>food.txt</code> ，而另一个显示 <code>drinks.txt</code>。在 <code>food.txt</code>里面，运行一个位置列表搜索命令 <code>:lvimgrep</code> （<code>:vimgrep</code>命令关于位置列表的一个变体）。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">:lvim <span class="hljs-regexp">/bagel/</span> **/*.md<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">:lvim <span class="hljs-regexp">/bagel/</span> **/*.md<br></code></pre></div></td></tr></table></figure>
 
 <p>Vim将为 <code>food.txt</code>所在 <em>窗口</em>创建一个位置列表，用于存储所有的bagel搜索结果。用 <code>:lopen</code>命令可以查看位置列表。现在转到另一个窗口 <code>drinks.txt</code>，运行：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">:lvimgrep <span class="hljs-regexp">/milk/</span> **/*.md<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">:lvimgrep <span class="hljs-regexp">/milk/</span> **/*.md<br></code></pre></div></td></tr></table></figure>
 
 <p>Vim将为 <code>drinks.txt</code>所在 <em>窗口</em>再创建一个 <em>单独</em>的位置列表，用于存储所有关于milk的搜索结果。</p>
 <p>对于每个不同的窗口中您运行的位置命令，Vim都会单独创建一个位置列表。如果您有10个不同的窗口，您就可以有最多10个不同的位置列表。对比前面介绍的快速修复列表，快速修复列表任何时候都只能有1个。就算您有10个不同的窗口，您也只能有1个快速修复列表。</p>
@@ -365,9 +365,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-                    
                       <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
                     
                   </div>
                 

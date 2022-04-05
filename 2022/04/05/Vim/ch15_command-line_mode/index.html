@@ -67,7 +67,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -255,7 +255,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：11 小时前
+                  本文最后更新于：2022年4月5日 凌晨
                 
               </p>
             
@@ -278,7 +278,7 @@
 <p>如果需要移动一个单词，使用 <code>Shift-Left</code> 或 <code>Shift-Right</code> (在某些操作系统中，您需要使用 <code>Ctrl</code> 而不是 <code>Shift</code>)。</p>
 <p>使用 <code>Ctrl-b</code>移动到该行的开始，使用 <code>Ctrl-e</code>移动到该行的结束。</p>
 <p>和输入模式类似，在命令行模式中，有三种方法可以删除字符：</p>
-<figure class="highlight"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs">Ctrl-h    删除一个字符<br>Ctrl-w    删除一个单词<br>Ctrl-u    删除一整行<br></code></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs">Ctrl-h    删除一个字符<br>Ctrl-w    删除一个单词<br>Ctrl-u    删除一整行<br></code></pre></div></td></tr></table></figure>
 <p>最后，如果您想像编辑文本文件一样来编辑命令，可以使用 <code>Ctrl-f</code>。</p>
 <p>这样还可以查看过往的命令，并在这种”命令行编辑的普通模式”中编辑它们，同时还能按下 <code>Enter</code> 来运行它们。</p>
 <h2 id="寄存器和自动补全"><a href="#寄存器和自动补全" class="headerlink" title="寄存器和自动补全"></a>寄存器和自动补全</h2><p>当处于命令行模式时，您可以像在插入模式中一样使用 <code>Ctrl-r</code> 从Vim寄存器中插入文本。如果您在寄存器 a 中存储了字符串 “foo” ，您可以执行 <code>Ctrl-r a</code> 从寄存器a中插入该文本。任何在插入模式中您可以从寄存器中获取的内容，在命令行模式中您也可以获取。</p>
@@ -287,11 +287,11 @@
 <p>一些命令行指令接受文件名作为参数。<code>edit</code> 就是一个例子，这时候您也可以使用自动补全。当输入 <code>:e </code> 后（不要忘记空格了），按下 <code>&lt;Tab&gt;</code>，Vim 将列出所有相关的文件名，这样您就可以进行选择而不必完整的输入它们。</p>
 <h2 id="历史记录窗口"><a href="#历史记录窗口" class="headerlink" title="历史记录窗口"></a>历史记录窗口</h2><p>您可以查看命令行指令和搜索项的历史记录（要确保在运行 <code>vim --version</code> 时，Vim 的编译选项中含有<code>+cmdline_hist</code>）。</p>
 <p>运行 <code>:his :</code> 来查看命令行指令的历史记录：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">##  cmd History</span><br><span class="hljs-number">2</span>  e file1.txt<br><span class="hljs-number">3</span>  g<span class="hljs-regexp">/foo/</span>d<br><span class="hljs-number">4</span>  s<span class="hljs-regexp">/foo/</span>bar/g<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk"><span class="hljs-comment">##  cmd History</span><br><span class="hljs-number">2</span>  e file1.txt<br><span class="hljs-number">3</span>  g<span class="hljs-regexp">/foo/</span>d<br><span class="hljs-number">4</span>  s<span class="hljs-regexp">/foo/</span>bar/g<br></code></pre></div></td></tr></table></figure>
 
 <p>Vim 列出了您运行的所有 <code>:</code> 命令。默认情况下，Vim 存储最后 50 个命令。运行 <code>:set history=100</code> 可以将 Vim 记住的条目总数更改为 100。</p>
 <p>一个更有用的做法是使用命令行历史记录窗口，按<code>q:</code>将会打开一个可搜索、可编辑的历史记录窗口。假设按下<code>q:</code>后您有如下的表达式：</p>
-<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">51 </span> s/verylongsubstitutionpattern/pancake/g<br><span class="hljs-symbol">52 </span> his :<br><span class="hljs-symbol">53 </span> wq<br></code></pre></td></tr></table></figure>
+<figure class="highlight basic"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs basic"><span class="hljs-symbol">51 </span> s/verylongsubstitutionpattern/pancake/g<br><span class="hljs-symbol">52 </span> his :<br><span class="hljs-symbol">53 </span> wq<br></code></pre></div></td></tr></table></figure>
 
 <p>如果您当前任务是执行 <code>s/verylongsubstitutionpattern/donut/g</code>（”pancake”换成了”donut”），为什么不复用 <code>s/verylongsubstitutionpattern/pancake/g</code> 呢？毕竟，两条命令唯一不同的是替换的单词，”donut” vs “pancake” ，所有其他的内容都是相同的。</p>
 <p>当您运行 <code>q:</code>后，在历史记录中找到 <code>s/verylongsubstitutionpattern/pancake/g</code>（在这个环境中，您可以使用Vim导航），然后直接编辑它！ 在历史记录窗口中将 “pancake” 改为 “donut” ，然后按 <code>&lt;Enter</code>。Vim立刻执行 <code>s/verylongsubstitutionpattern/donut/g</code> 命令，超级方便！</p>
@@ -309,9 +309,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-                    
                       <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
                     
                   </div>
                 

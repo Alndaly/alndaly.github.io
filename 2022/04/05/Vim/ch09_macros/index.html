@@ -67,7 +67,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -255,7 +255,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：11 小时前
+                  本文最后更新于：2022年4月5日 凌晨
                 
               </p>
             
@@ -263,16 +263,16 @@
               <h1 id="第09章-宏命令"><a href="#第09章-宏命令" class="headerlink" title="第09章 宏命令"></a>第09章 宏命令</h1><p>在编辑文件的时候，你会发现有时候你在反复地做一些相同的动作。如果你仅做一次，并在需要的时候调用这些动作岂不是会更好吗。通过 Vim 的宏命令，你可以将一些动作记录到 Vim 寄存器。</p>
 <p>在本章中，你将会学习到如何通过宏命令自动完成一些普通的任务（另外，看你的文件在自动编辑是一件很酷的事情）。</p>
 <h2 id="基本宏命令"><a href="#基本宏命令" class="headerlink" title="基本宏命令"></a>基本宏命令</h2><p>宏命令的基本语法如下：</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><pre><code class="hljs perl">qa                     开始记录动作到寄存器 a<br><span class="hljs-string">q (while recording)</span>    停止记录<br></code></pre></td></tr></table></figure>
+<figure class="highlight perl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs perl">qa                     开始记录动作到寄存器 a<br><span class="hljs-string">q (while recording)</span>    停止记录<br></code></pre></div></td></tr></table></figure>
 
 <p>你可以使用小写字母 （a-z）去存储宏命令。并通过如下的命令去调用：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">@<span class="hljs-keyword">a</span>    Execute macro <span class="hljs-built_in">from</span> register <span class="hljs-keyword">a</span><br>@@    Execute <span class="hljs-keyword">the</span> <span class="hljs-keyword">last</span> executed macros<br></code></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs livecodeserver">@<span class="hljs-keyword">a</span>    Execute macro <span class="hljs-built_in">from</span> register <span class="hljs-keyword">a</span><br>@@    Execute <span class="hljs-keyword">the</span> <span class="hljs-keyword">last</span> executed macros<br></code></pre></div></td></tr></table></figure>
 
 <p>假设你有如下的文本，你打算将每一行中的所有字母都变为大写。</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hello</span><br><span class="hljs-attribute">vim</span><br><span class="hljs-attribute">macros</span><br><span class="hljs-attribute">are</span><br><span class="hljs-attribute">awesome</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">hello</span><br><span class="hljs-attribute">vim</span><br><span class="hljs-attribute">macros</span><br><span class="hljs-attribute">are</span><br><span class="hljs-attribute">awesome</span><br></code></pre></div></td></tr></table></figure>
 
 <p>将你的光标移动到 “hello” 栏的行首，并执行：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">qa0<span class="hljs-built_in">gU</span><span class="hljs-variable">$jq</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">qa0<span class="hljs-built_in">gU</span><span class="hljs-variable">$jq</span><br></code></pre></div></td></tr></table></figure>
 
 <p>上面命令的分解如下：</p>
 <ul>
@@ -284,10 +284,10 @@
 </ul>
 <p>调用 <code>@a</code> 去执行该宏命令。就像其他的宏命令一样，你也可以为该命令加一个计数。例如，你可以通过 <code>3@a</code> 去执行 <code>a</code> 命令3次。你也可以执行 <code>3@@</code> 去执行上一次执行过的宏命令3次。</p>
 <h2 id="安全保护"><a href="#安全保护" class="headerlink" title="安全保护"></a>安全保护</h2><p>在执行遇到错误的时候，宏命令会自动停止。假如你有如下文本：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span>. chocolate donut<br><span class="hljs-selector-tag">b</span>. mochi donut<br>c. powdered sugar donut<br>d. plain donut<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span>. chocolate donut<br><span class="hljs-selector-tag">b</span>. mochi donut<br>c. powdered sugar donut<br>d. plain donut<br></code></pre></div></td></tr></table></figure>
 
 <p>你想将每一行的第一个词变为大写，你可以使用如下的宏命令：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">qa0W~jq<br></code></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs">qa0W~jq<br></code></pre></div></td></tr></table></figure>
 
 <p>上面命令的分解如下：</p>
 <ul>
@@ -304,13 +304,13 @@
 <p><code>:normal</code> 命令也支持范围参数。你可以在选择的范围内去执行宏命令。如果你只想在第二行和第三行执行宏命令，你可以执行 <code>：2,3 normal @a</code>。</p>
 <h2 id="在多个文件中执行宏命令"><a href="#在多个文件中执行宏命令" class="headerlink" title="在多个文件中执行宏命令"></a>在多个文件中执行宏命令</h2><p>假如你有多个 <code>.txt</code> 文件，每一个文件包含不同的内容。并且你只想将包含有 “donut” 单词的行的第一个单词变为大写。假设，您的寄存器a中存储的内容是<code>0W~j</code>(就是前面例子中用到的宏命令),那么，您该如何快速完成这个操作呢？</p>
 <p>第一个文件:</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-comment">## savory.txt</span><br>a. cheddar <span class="hljs-keyword">jalapeno </span>donut<br><span class="hljs-keyword">b. </span>mac n cheese donut<br>c. fried dumpling<br></code></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mipsasm"><span class="hljs-comment">## savory.txt</span><br>a. cheddar <span class="hljs-keyword">jalapeno </span>donut<br><span class="hljs-keyword">b. </span>mac n cheese donut<br>c. fried dumpling<br></code></pre></div></td></tr></table></figure>
 
 <p>第二个文件:</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs clean">## sweet.txt<br>a. chocolate donut<br>b. chocolate pancake<br>c. powdered sugar donut<br></code></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs clean">## sweet.txt<br>a. chocolate donut<br>b. chocolate pancake<br>c. powdered sugar donut<br></code></pre></div></td></tr></table></figure>
 
 <p>第三个文件:</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-comment">## plain.txt</span><br>a. wheat <span class="hljs-keyword">bread</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">b. </span>plain donut<br></code></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mipsasm"><span class="hljs-comment">## plain.txt</span><br>a. wheat <span class="hljs-keyword">bread</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">b. </span>plain donut<br></code></pre></div></td></tr></table></figure>
 
 <p>你可以这么做:</p>
 <ul>
@@ -320,10 +320,10 @@
 </ul>
 <p>也许你对全局命令 <code>:g/donut/normal @a</code> 不是很了解，该命令会执行 <code>/donut/</code>搜索命令，然后在所有匹配的行中执行<code>normal @a</code> 命令。我会在后面的章节中介绍全局命令。</p>
 <h2 id="递归执行宏命令"><a href="#递归执行宏命令" class="headerlink" title="递归执行宏命令"></a>递归执行宏命令</h2><p>你可以递归地执行宏命令，通过在记录宏命令时调用相同的宏寄存器来实现。假如你有如下文本，你希望改变第一个单词的大小写：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span>. chocolate donut<br><span class="hljs-selector-tag">b</span>. mochi donut<br>c. powdered sugar donut<br>d. plain donut<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span>. chocolate donut<br><span class="hljs-selector-tag">b</span>. mochi donut<br>c. powdered sugar donut<br>d. plain donut<br></code></pre></div></td></tr></table></figure>
 
 <p>如下命令会递归地执行:</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">qaqqa0W~<span class="hljs-symbol">j@</span>aq<br></code></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs angelscript">qaqqa0W~<span class="hljs-symbol">j@</span>aq<br></code></pre></div></td></tr></table></figure>
 
 <p>上面命令的分解如下：</p>
 <ul>
@@ -340,7 +340,7 @@
 <p>宏命令是如何知道何时停止呢？当宏执行到最后一行并尝试 <code>j</code> 命令时，发现已经没有下一行了，就会停止执行。</p>
 <h2 id="增添一个已知宏"><a href="#增添一个已知宏" class="headerlink" title="增添一个已知宏"></a>增添一个已知宏</h2><p>如果你想在一个已经录制好的宏定义中添加更多的操作，与其重新录入它，不如选择修改它。在寄存器一章中，你学习了如何使用一个已知寄存器的大写字母来想该寄存器中添加内容。同样的，为了在寄存器”a”中添加更多的操作，你也可以使用大写字母”A”。</p>
 <p>假设寄存器a中已经存储了这个宏命令:<code>qa0W~q</code>(该宏命令将某行的第二个词组的头一个字母执行改变大小写操作)，假设你想在这个基础上添加一些操作命令序列，使得每一行末尾添加一个句点，运行：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">qAA.<span class="hljs-tag">&lt;<span class="hljs-name">esc</span>&gt;</span>q<br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml">qAA.<span class="hljs-tag">&lt;<span class="hljs-name">esc</span>&gt;</span>q<br></code></pre></div></td></tr></table></figure>
 
 <p>分解如下:</p>
 <ul>
@@ -352,18 +352,18 @@
 <h2 id="修改一个已知宏"><a href="#修改一个已知宏" class="headerlink" title="修改一个已知宏"></a>修改一个已知宏</h2><p>如果想在一个宏的中间添加新的操作该怎么办呢？</p>
 <p>假设您在寄存器a中已经存有一个宏命令<code>0W~A.&lt;Esc&gt;</code>，即改变首字母大小写，并在行尾添加句号。如果您想在改变首字母大小写和行尾添加句号之间，在单词”dount”前面加入”deep fried”。（因为唯一比甜甜圈好的东西就是炸甜甜圈）。</p>
 <p>我会重新使用上一节使用过的文本:</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span>. chocolate donut<br><span class="hljs-selector-tag">b</span>. mochi donut<br>c. powdered sugar donut<br>d. plain donut<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span>. chocolate donut<br><span class="hljs-selector-tag">b</span>. mochi donut<br>c. powdered sugar donut<br>d. plain donut<br></code></pre></div></td></tr></table></figure>
 
 <p>首先，让我们通过 <code>:put a</code> 调用一个已经录制好的宏命令（假设你上一节中保存在寄存器a中的宏命令还在）：</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dns"><span class="hljs-number">0</span>W~<span class="hljs-keyword">A</span>.^[<br></code></pre></td></tr></table></figure>
+<figure class="highlight dns"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dns"><span class="hljs-number">0</span>W~<span class="hljs-keyword">A</span>.^[<br></code></pre></div></td></tr></table></figure>
 
 <p><code>^[</code> 是什么意思呢？不记得了吗，你之前执行过 <code>0W~A.&lt;esc&gt;</code>。 <code>^[</code> 是 Vim 的 <strong>内部指令</strong>，表示 <code>&lt;esc&gt;</code>。通过这些指定的特殊键值组合，Vim 知道这些是内部代码的一些替代。一些常见的内部指令具有类似的替代，例如 <code>&lt;esc&gt;</code>，<code>&lt;backspace&gt;</code>，<code>&lt;enter&gt;</code>。还有一些其他的键值组合，但这不是本章的内容。</p>
 <p>回到宏命令，在改变大小写之后的键后面（<code>~</code>），让我们添加（<code>$</code>）来移动光标到行末，回退一个单词（<code>b</code>），进入插入模式（<code>i</code>），输入”deep fried “ （别忽略”fried “后面的这个空格），之后退出插入模式（<code>&lt;esc&gt;</code>）。</p>
 <p>完整的命令如下:</p>
-<figure class="highlight tp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tp"><span class="hljs-number">0</span><span class="hljs-keyword">W</span>~<span class="hljs-variable">$bideep</span> fried &lt;esc&gt;A.^[<br></code></pre></td></tr></table></figure>
+<figure class="highlight tp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs tp"><span class="hljs-number">0</span><span class="hljs-keyword">W</span>~<span class="hljs-variable">$bideep</span> fried &lt;esc&gt;A.^[<br></code></pre></div></td></tr></table></figure>
 
 <p>这里有一个问题，Vim 不能理解 <code>&lt;esc&gt;</code>。您不能依葫芦画瓢输入”<Esc>“，所以你需要将<code>&lt;Esc&gt;</code>写成内部代码的形式。在插入模式，在按下<code>&lt;esc&gt;</code>后按下 <code>Ctrl-v</code>，Vim 会打印 <code>^[</code>。 <code>Ctrl-v</code> 是一个插入模式的操作符，可以逐字地插入一个非数字字符。你的宏命令应该如下:</p>
-<figure class="highlight tp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tp"><span class="hljs-number">0</span><span class="hljs-keyword">W</span>~<span class="hljs-variable">$bideep</span> fried ^[A.^[<br></code></pre></td></tr></table></figure>
+<figure class="highlight tp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs tp"><span class="hljs-number">0</span><span class="hljs-keyword">W</span>~<span class="hljs-variable">$bideep</span> fried ^[A.^[<br></code></pre></div></td></tr></table></figure>
 
 <p>为了在寄存器“a”中添加修改后的指令，你可以通过在一个已知命名寄存器中添加一个新条目的方式来实现。在一行的行首，执行 <code>&quot;ay$</code>，使用寄存器 “a”来存储复制的文本。</p>
 <p>现在，但你执行 <code>@a</code> 时，你的宏命令会自动改变第一个单词的大小写，在”donut”前面添加”deep fried “，之后在行末添加“.”。</p>
@@ -371,10 +371,10 @@
 <h2 id="拷贝宏"><a href="#拷贝宏" class="headerlink" title="拷贝宏"></a>拷贝宏</h2><p>你可以很轻松的将一个寄存器的内容拷贝到另一个寄存器。例如，你可以使用 <code>:let @z = @a</code> 将寄存器”a” 中的命令拷贝到寄存器”z”。 <code>@a</code> 表示寄存器“a”中存储的内容，你现在执行 <code>@z</code>，将会执行和 <code>@a</code> 一样的指令。</p>
 <p>我发现对常用的宏命令创建冗余是很有用的。在我的工作流程中，我通常在前7个字母（a-g）上创建宏命令，并且我经常不加思索地把它们替换了。因此，如果我将很有用的宏命令移动到了字母表的末尾，就不用担心我在无意间把他们替换了。</p>
 <h2 id="串行宏和并行宏"><a href="#串行宏和并行宏" class="headerlink" title="串行宏和并行宏"></a>串行宏和并行宏</h2><p>Vim 可以连续和同时运行宏命令，假设你有如下的文本：</p>
-<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs capnproto"><span class="hljs-keyword">import</span> &#123; FUNC1 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library1&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC2 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library2&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC3 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library3&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC4 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library4&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC5 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library5&quot;</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight capnproto"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs capnproto"><span class="hljs-keyword">import</span> &#123; FUNC1 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library1&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC2 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library2&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC3 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library3&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC4 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library4&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC5 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library5&quot;</span>;<br></code></pre></div></td></tr></table></figure>
 
 <p>假如你希望把所有的 “FUNC” 字符变为小写，那么宏命令为如下：</p>
-<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fsharp"><span class="hljs-keyword">qa0f</span>&#123;<span class="hljs-keyword">gui</span>&#123;jq<br></code></pre></td></tr></table></figure>
+<figure class="highlight fsharp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs fsharp"><span class="hljs-keyword">qa0f</span>&#123;<span class="hljs-keyword">gui</span>&#123;jq<br></code></pre></div></td></tr></table></figure>
 
 <p>分解如下：</p>
 <ul>
@@ -386,7 +386,7 @@
 <li><code>q</code> 停止记录宏命令。</li>
 </ul>
 <p>现在，执行 <code>99@a</code> 在剩余的行修改。然而，假如在你的文本里有如下 import 语句会怎么样呢？</p>
-<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs capnproto"><span class="hljs-keyword">import</span> &#123; FUNC1 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library1&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC2 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library2&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC3 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library3&quot;</span>;<br><span class="hljs-keyword">import</span> foo <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;bar&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC4 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library4&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC5 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library5&quot;</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight capnproto"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs capnproto"><span class="hljs-keyword">import</span> &#123; FUNC1 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library1&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC2 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library2&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC3 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library3&quot;</span>;<br><span class="hljs-keyword">import</span> foo <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;bar&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC4 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library4&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; FUNC5 &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;library5&quot;</span>;<br></code></pre></div></td></tr></table></figure>
 
 <p>执行 <code>99@a</code>，会只在前三行执行。而最后两行不会被执行，因为在执行第四行（包含“foo”）时<code>f&#123;</code>命令会遇到错误而停止，当宏串行执行时就会发生这样的情况。当然，你仍然可以移动到包含（“FUNC4”）的一行，并重新调用该命令。但是假如你希望仅调用一次命令就完成所有操作呢？</p>
 <p>你可以并行地执行宏命令。</p>
@@ -405,9 +405,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-                    
                       <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
                     
                   </div>
                 
@@ -432,9 +432,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/05/Vim/ch08_registers/">
+                      <a href="/2022/04/05/Vim/ch07_the_dot_command/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">VIM-寄存器</span>
+                        <span class="hidden-mobile">VIM-点命令</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -442,8 +442,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/05/Vim/ch10_undo/">
-                        <span class="hidden-mobile">VIM-撤销</span>
+                      <a href="/2022/04/05/Vim/ch08_registers/">
+                        <span class="hidden-mobile">VIM-寄存器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

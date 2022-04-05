@@ -67,7 +67,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -255,7 +255,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：11 小时前
+                  本文最后更新于：2022年4月5日 凌晨
                 
               </p>
             
@@ -270,7 +270,7 @@
 </ol>
 <p>同样的，为了说好Vim语言，你需要学习语法规则，增加词汇量，并且不断练习直到你可以把执行命令变成肌肉记忆。</p>
 <h2 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h2><p>你只需要知道一个Vim语言的语法规则：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">verb</span> + noun <span class="hljs-comment"># 动词 + 名词</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">verb</span> + noun <span class="hljs-comment"># 动词 + 名词</span><br></code></pre></div></td></tr></table></figure>
 
 <p>这就类似与在英语中的祈使句：</p>
 <ul>
@@ -280,15 +280,15 @@
 </ul>
 <p>现在你需要的就是用Vim中基本的动词和名字来建立你的词汇表</p>
 <h2 id="名词-动作-Motion"><a href="#名词-动作-Motion" class="headerlink" title="名词(动作 Motion)"></a>名词(动作 Motion)</h2><p>我们这里将 <strong>动作 Motion</strong> 作为名词， <strong>动作Motion</strong>用来在Vim中到处移动。下面列出了一些常见的<strong>动作</strong>的例子：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">h</span>	左<br>j	下<br>k	上<br>l	右<br>w	向前移动到下一个单词的开头<br>&#125;	跳转到下一个段落<br><span class="hljs-variable">$</span>	跳转到当前行的末尾<br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-built_in">h</span>	左<br>j	下<br>k	上<br>l	右<br>w	向前移动到下一个单词的开头<br>&#125;	跳转到下一个段落<br><span class="hljs-variable">$</span>	跳转到当前行的末尾<br></code></pre></div></td></tr></table></figure>
 
 <p>在之后的章节你将学习更多的关于<strong>动作</strong>的内容，所以如果你不理解上面这些<strong>动作</strong>也不必担心。</p>
 <h2 id="动词-操作符-Operator"><a href="#动词-操作符-Operator" class="headerlink" title="动词(操作符 Operator)"></a>动词(操作符 Operator)</h2><p>根据<code>:h operator</code>，Vim共有16个<strong>操作符</strong>，然而根据我的经验，学习这3个<strong>操作符</strong>在80%的情况下就已经够用了</p>
-<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">y</span>	<span class="hljs-function"><span class="hljs-title">yank</span>(复制)</span><br><span class="hljs-variable">d</span>	<span class="hljs-function"><span class="hljs-title">delete</span>(删除)</span><br><span class="hljs-variable">c</span>	<span class="hljs-variable">change</span> 删除文本，将删除的文本存到寄存器中，进入插入模式<br></code></pre></td></tr></table></figure>
+<figure class="highlight isbl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs isbl"><span class="hljs-variable">y</span>	<span class="hljs-function"><span class="hljs-title">yank</span>(复制)</span><br><span class="hljs-variable">d</span>	<span class="hljs-function"><span class="hljs-title">delete</span>(删除)</span><br><span class="hljs-variable">c</span>	<span class="hljs-variable">change</span> 删除文本，将删除的文本存到寄存器中，进入插入模式<br></code></pre></div></td></tr></table></figure>
 
 <p>顺带说一句，当你yank一段文本后，您可以使用<code>p</code>将它粘贴到光标后，或使用<code>P</code>粘贴到光标前。</p>
 <h2 id="动词（操作符-Operator）和名词（动作-motions）的结合"><a href="#动词（操作符-Operator）和名词（动作-motions）的结合" class="headerlink" title="动词（操作符 Operator）和名词（动作 motions）的结合"></a>动词（操作符 Operator）和名词（动作 motions）的结合</h2><p>现在你已经知道了基本的动词和名词，我们来用一下我们的语法规则，动词和名词的结合！假设你有下面这段文本：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> learn = <span class="hljs-string">&quot;Vim&quot;</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> learn = <span class="hljs-string">&quot;Vim&quot;</span>;<br></code></pre></div></td></tr></table></figure>
 
 <ul>
 <li>复制当前位置到行尾的所有内容：<code>y$</code></li>
@@ -307,7 +307,7 @@
 <h2 id="更多名词-文本对象-Text-Objects"><a href="#更多名词-文本对象-Text-Objects" class="headerlink" title="更多名词(文本对象 Text Objects)"></a>更多名词(文本对象 Text Objects)</h2><p>想象一下你现在正在某个被括号包围的文本中例如<code>(hello Vim)</code>，你现在想要删掉括号中的所有内容，你会怎样快速的完成它？是否有一种方法能够把括号中内容作为整体删除呢？</p>
 <p>答案是有的。文本通常是结构化的，特别是代码中，文本经常被放置在小括号、中括号、大括号、引号等当中。Vim提供了一种处理这种结构的文本对象的方法。</p>
 <p>文本对象可以被 <strong>操作符 operations</strong> 使用，这里有两类文本对象：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">i</span> + <span class="hljs-selector-tag">object</span>  内部文本对象<br><span class="hljs-selector-tag">a</span> + <span class="hljs-selector-tag">object</span>  外部文本对象<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">i</span> + <span class="hljs-selector-tag">object</span>  内部文本对象<br><span class="hljs-selector-tag">a</span> + <span class="hljs-selector-tag">object</span>  外部文本对象<br></code></pre></div></td></tr></table></figure>
 
 <p><strong>内部文本对象</strong>选中的部分不包含包围文本对象的空白或括号等，<strong>外部文本对象</strong>则包括了包围内容的空白或括号等对象。外部对象总是比内部对象选中的内容更多。如果你的光标位于一对括号内部，例如<code>(hello Vim)</code>中：</p>
 <ul>
@@ -315,7 +315,7 @@
 <li>删除括号以及内部的内容：<code>da(</code></li>
 </ul>
 <p>让我们看一些别的例子，假设你有这样一段Javascript的函数，你的光标停留在”Hello”中的”H”上：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> hello = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Hello Vim&quot;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> hello = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Hello Vim&quot;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <ul>
 <li>删除整个”Hello Vim”：<code>di(</code></li>
@@ -324,7 +324,7 @@
 </ul>
 <p>文本对象很强大因为你可以在同一个位置指向不同的内容，可以删除一对小括号中的文本，也可以是当前大括号中的函数体，也可以是当前单词。这一点也很好记忆，当你看到<code>di(</code>，<code>di&#123;</code>和<code>diw</code>时，你也可以很好的意识到他们表示的是什么：小括号，大括号，单词。</p>
 <p>让我们来看最后一个例子。假设你有这样一些html的标签的文本：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Header1<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Paragraph1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Paragraph2<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Header1<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Paragraph1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Paragraph2<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>如果你的光标位于”Header1”文本上：</p>
 <ul>
@@ -338,23 +338,23 @@
 <li>删除”div”：<code>di&lt;</code></li>
 </ul>
 <p>下面列举的一些通常见到的文本对象：</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs 1c">w     一个单词<br>p     一个段落<br>s     一个句子<br>(或)  一对()<br>&#123;或&#125;  一对&#123;&#125;<br>[或]  一对[]<br>&lt;或&gt;  一对&lt;&gt;<br>t     XML标签<br><span class="hljs-string">&quot;     一对&quot;&quot;</span><br>&#x27;     一对&#x27;&#x27;<br>`     一对``<br></code></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs 1c">w     一个单词<br>p     一个段落<br>s     一个句子<br>(或)  一对()<br>&#123;或&#125;  一对&#123;&#125;<br>[或]  一对[]<br>&lt;或&gt;  一对&lt;&gt;<br>t     XML标签<br><span class="hljs-string">&quot;     一对&quot;&quot;</span><br>&#x27;     一对&#x27;&#x27;<br>`     一对``<br></code></pre></div></td></tr></table></figure>
 
 <p>你可以通过<code>:h text-objects</code>了解更多</p>
 <h2 id="结合性和语法"><a href="#结合性和语法" class="headerlink" title="结合性和语法"></a>结合性和语法</h2><p>在学习Vim的语法之后，让我们来讨论一下Vim中的结合性以及为什么在文本编辑器中这是一个强大的功能。</p>
 <p>结合性意味着你有很多可以组合起来完成更复杂命令的普通命令，就像你在编程中可以通过一些简单的抽象建立更复杂的抽象，在Vim中你可以通过简单的命令的组合执行更复杂的命令。Vim语法正是Vim中命令的可结合性的体现。</p>
 <p>Vim的结合性最强大之处体现在它和外部程序结合时，Vim有一个 <strong>过滤操作符</strong><code>!</code>可以用外部程序过滤我们的文本。假设你有下面这段混乱的文本并且你想把它用tab格式化的更好看的一些：</p>
-<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs coq">Id|<span class="hljs-type">Name</span>|<span class="hljs-type">Cuteness</span><br><span class="hljs-number">01</span>|<span class="hljs-type">Puppy</span>|<span class="hljs-type">Very</span><br><span class="hljs-number">02</span>|<span class="hljs-type">Kitten</span>|<span class="hljs-type">Ok</span><br><span class="hljs-number">03</span>|<span class="hljs-type">Bunny</span>|<span class="hljs-type">Ok</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight coq"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs coq">Id|<span class="hljs-type">Name</span>|<span class="hljs-type">Cuteness</span><br><span class="hljs-number">01</span>|<span class="hljs-type">Puppy</span>|<span class="hljs-type">Very</span><br><span class="hljs-number">02</span>|<span class="hljs-type">Kitten</span>|<span class="hljs-type">Ok</span><br><span class="hljs-number">03</span>|<span class="hljs-type">Bunny</span>|<span class="hljs-type">Ok</span><br></code></pre></div></td></tr></table></figure>
 
 <p>这件事情通过Vim命令不太容易完成，但是你可以通过终端提供的命令<code>column</code>很快的完成它，当你的光标位于”Id”上时，运行<code>!&#125;column -t -s &quot;|&quot;</code>，你的文本就变得整齐了许多：</p>
-<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fsharp">Id  Name    Cuteness<br><span class="hljs-number">01</span>  Puppy   Very<br><span class="hljs-number">02</span>  Kitten  <span class="hljs-literal">Ok</span><br><span class="hljs-number">03</span>  Bunny   <span class="hljs-literal">Ok</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight fsharp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs fsharp">Id  Name    Cuteness<br><span class="hljs-number">01</span>  Puppy   Very<br><span class="hljs-number">02</span>  Kitten  <span class="hljs-literal">Ok</span><br><span class="hljs-number">03</span>  Bunny   <span class="hljs-literal">Ok</span><br></code></pre></div></td></tr></table></figure>
 
 <p>让我们分解一下上面那条命令，动词是<code>!</code>(<strong>过滤操作符</strong>)，名词是<code>&#125;</code>(到下一个段落)。<strong>过滤操作符</strong><code>!</code>接受终端命令作为另一个参数，因此我把<code>column -t -s &quot;|&quot;</code>传给它。我不想详细描述<code>column</code>是如何工作的，但是总之它格式化了文本。</p>
 <p>假设你不止想格式化你的文本，还想只展示<code>Ok</code>结尾的行，你知道<code>awk</code>命令可以做这件事情，那么你可以这样做：</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dart">!&#125;column -t -s <span class="hljs-string">&quot;|&quot;</span> | awk <span class="hljs-string">&#x27;NR &gt; 1 &amp;&amp; /Ok/&#123;print <span class="hljs-subst">$0</span>&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight dart"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dart">!&#125;column -t -s <span class="hljs-string">&quot;|&quot;</span> | awk <span class="hljs-string">&#x27;NR &gt; 1 &amp;&amp; /Ok/&#123;print <span class="hljs-subst">$0</span>&#125;&#x27;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>结果如下：</p>
-<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">02 </span> Kitten  Ok<br><span class="hljs-symbol">03 </span> Bunny   Ok<br></code></pre></td></tr></table></figure>
+<figure class="highlight basic"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs basic"><span class="hljs-symbol">02 </span> Kitten  Ok<br><span class="hljs-symbol">03 </span> Bunny   Ok<br></code></pre></div></td></tr></table></figure>
 <p>666！管道竟然在Vim中也能起作用。</p>
 <p>这就是Vim的结合性的强大之处。你知道的动词 <strong>操作符</strong>，名词 <strong>动作</strong>，终端命令越多，你组建复杂操作的能力成倍增长。</p>
 <p>换句话说，假设你只知道四个<strong>动作</strong>：<code>w, $, &#125;, G</code>和删除操作符(<code>d</code>)，你可以做8件事：按四种方式移动(<code>w, $, &#125;, G</code>)和删除4种文本对象(<code>dw, d$, d&#125;, dG</code>)。如果有一天你学习了小写变大写的<strong>操作符</strong>(<code>gU</code>)，你的Vim工具箱中多的不是1种工具，而是4种：<code>gUw, gU$, gU&#125;, gUG</code>。现在你的Vim工具箱中就有12种工具了。如果你知道10个<strong>动作</strong>和5个<strong>操作符</strong>，那么你就有60种工具(50个操作+10个移动)。另外，行号动作(<code>nG</code>)给你了<code>n</code>种<strong>动作</strong>，其中<code>n</code>是你文件中的行数(例如前往第5行，<code>5G</code>)。搜索动作(<code>/</code>)实际上给你带来无限数量的<strong>动作</strong>因为你可以搜索任何内容。你知道多少终端命令，外部命令操作符(<code>!</code>)就给你了多少种过滤工具。使用Vim这种能够组合的工具，所有你知道的东西都可以被串起来完成更复杂的操作。你知道的越多，你就越强大。</p>
@@ -362,7 +362,7 @@
 <p>甚至，<strong>动作</strong>和<strong>操作符</strong>都是可拓展的，你可以自己创造<strong>动作</strong>和<strong>操作符</strong>去丰富你的Vim工具箱，<a target="_blank" rel="noopener" href="https://github.com/kana/vim-textobj-user"><code>Vim-textobj-user</code></a>插件允许你创建自己的文本对象，同时包含有<a target="_blank" rel="noopener" href="https://github.com/kana/vim-textobj-user/wiki">一系列定义好的文本对象</a>。</p>
 <p>另外，如果你不知道我刚才使用的<code>column</code>和<code>awk</code>命令也没有关系，重要的是Vim可以和终端命令很好的结合起来。</p>
 <h2 id="聪明地学习语法"><a href="#聪明地学习语法" class="headerlink" title="聪明地学习语法"></a>聪明地学习语法</h2><p>你刚刚学完Vim唯一的语法规则：</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">verb + <span class="hljs-built_in">noun</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight maxima"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs maxima">verb + <span class="hljs-built_in">noun</span><br></code></pre></div></td></tr></table></figure>
 <p>我学Vim中最大的”AHA moment”之一是当我刚学完大写命令(<code>gU</code>)时，想要把一个单词变成大写，我本能的运行了<code>gUiW</code>，它居然成功了，我光标所在的单词都大写了。我正是从那是开始理解Vim的。我希望你也会在不久之后有你自己的”AHA moment”，如果之前没有的话。</p>
 <p>这一章的目标是向你展现Vim中的<code>verb+noun</code>模式，因此之后你就可以像学习一门新的语言一样渐进的学习Vim而不是死记每个命令的组合。</p>
 <p>学习这种模式并且理解其中的含义，这是聪明的学习方式。</p>
@@ -375,9 +375,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-                    
                       <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
                     
                   </div>
                 

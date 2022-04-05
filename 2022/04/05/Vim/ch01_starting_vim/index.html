@@ -67,7 +67,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -255,7 +255,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：11 小时前
+                  本文最后更新于：2022年4月5日 凌晨
                 
               </p>
             
@@ -269,67 +269,67 @@
 <li><a target="_blank" rel="noopener" href="https://hub.fastgit.org/vim/vim">Vim 官方仓库镜像</a></li>
 </ul>
 <h2 id="Vim命令"><a href="#Vim命令" class="headerlink" title="Vim命令"></a>Vim命令</h2><p>当您安装好Vim后，在终端运行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">vim<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">vim<br></code></pre></div></td></tr></table></figure>
 
 <p>您应该会看到一个介绍界面。这就是您用来处理文本的工作区。不像其它大部分文本编辑器和IDE，Vim是一个模式编辑器。如果您想输入”hello”，您需要使用’i’命令切换到插入模式。按下’ihello<Esc>‘可以在工作区插入文本”hello”。</p>
 <h2 id="退出Vim"><a href="#退出Vim" class="headerlink" title="退出Vim"></a>退出Vim</h2><p>有好几种不同的方法都可以退出Vim。（译者注：在stackflow论坛上，有个著名的问题“如何退出Vim”，五年来，有超过100万开发者遇到相同的问题。^_^，这件事已经成为了开发者中的一个梗）。最常用的退出方法是在Vim中输入：</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:quit</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight clojure"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs clojure"><span class="hljs-symbol">:quit</span><br></code></pre></div></td></tr></table></figure>
 
 <p>您可以使用简写<code>:q</code>。这是一个命令行模式的命令(command-line mode：Vim的另一种模式)。如果您在普通模式输入<code>:</code>，光标将移动到屏幕底部，在这里您可以输入命令。在后面的第15章，您会学到关于命令行模式更多信息。如果您处于插入模式，按下<code>:</code>将会在屏幕上直接显示”:”(冒号)。因此，您需要按下<code>&lt;Esc&gt;</code>键切换回普通模式。顺带说一下，在命令行模式也可以通过按<code>&lt;Esc&gt;</code>键切换回普通模式。您将会注意到，在Vim的好几种模式下都可以通过按<code>&lt;Esc&gt;</code>键切回普通模式。</p>
 <h2 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h2><p>若要保存您的修改，在Vim中输入：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">:<span class="hljs-built_in">write</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">:<span class="hljs-built_in">write</span><br></code></pre></div></td></tr></table></figure>
 
 <p>您也可以输入简写’:w’。如果这是一个新建的文件，您必须给出文件名才能保存。下面的命令使文件保存为名为’file.txt’的文件，在Vim命令行运行：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">:w <span class="hljs-built_in">file</span>.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">:w <span class="hljs-built_in">file</span>.txt<br></code></pre></div></td></tr></table></figure>
 
 <p>如果想保存并退出，可以将’:w’和’:q’命令联起来，在Vim命令行中输入：</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:wq</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight clojure"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs clojure"><span class="hljs-symbol">:wq</span><br></code></pre></div></td></tr></table></figure>
 
 <p>如果想不保存修改而强制退出，可以在’:q’命令后加’!’（叹号）,在Vim命令行中：</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-symbol">:q!</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight clojure"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs clojure"><span class="hljs-symbol">:q!</span><br></code></pre></div></td></tr></table></figure>
 
 <h2 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h2><p>在本指南全文中，我将向您提及好几种Vim的帮助页面。您可以通过输入<code>:help &#123;命令&#125;</code>(<code>:h</code>是简写)进入相关命令的帮助文档。可以向<code>:h</code>命令传递主题、命令名作为参数。比如，如果想查询退出Vim的方法，在vim中输入：</p>
-<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cos">:<span class="hljs-keyword">h</span> <span class="hljs-keyword">write</span>-<span class="hljs-keyword">quit</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight cos"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cos">:<span class="hljs-keyword">h</span> <span class="hljs-keyword">write</span>-<span class="hljs-keyword">quit</span><br></code></pre></div></td></tr></table></figure>
 
 <p>我是怎么知道应该搜索”write-quit”这个关键词的呢？实际上我也不知道，我仅仅只是输入’:h quit’，然后按<code>&lt;Tab&gt;</code>。Vim会自动显示相关联的关键词供用户选择。如果您需要查询一些信息，只需要输入<code>:h</code>后接关键词，然后按<code>&lt;Tab&gt;</code>。</p>
 <h2 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h2><p>如果想在终端中使用Vim打开名为(‘hello1.txt’)，在终端中运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim hello1.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">vim hello1.txt<br></code></pre></div></td></tr></table></figure>
 
 <p>可以一次打开多个文件，在终端中：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim hello1.txt hello2.txt hello3.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">vim hello1.txt hello2.txt hello3.txt<br></code></pre></div></td></tr></table></figure>
 
 <p>Vim会在不同的buffers中打开’hello1.txt’，’hello2.txt’，’hello3.txt’。在下一章您将学到关于buffers的知识。</p>
 <h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>您可以在终端中向<code>vim</code>命令传递参数。  </p>
 <p>如果想查看Vim的当前版本，在终端中运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim --version<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">vim --version<br></code></pre></div></td></tr></table></figure>
 
 <p>终端中将显示您当前Vim的版本和所有支持的特性，’+’表示支持的特性，’-‘表示不支持的特性。本教程中的一些操作需要您的Vim支持特定的特性。比如，在后面的章节中提到可以使用<code>:history</code>查看Vim的命令行历史记录。您的Vim必须包含<code>+cmdline_history</code>这一特性，这条命令才能正常使用。一般情况下，如果您通过主流的安装源下载Vim的话，您安装的Vim是支持所有特性的，</p>
 <p>您在终端里做的很多事情都可以在Vim内部实现。比如，在Vim程序中也可以查看当前Vim版本，您可以运行下面的命令，在Vim中输入：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">:<span class="hljs-built_in">version</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs applescript">:<span class="hljs-built_in">version</span><br></code></pre></div></td></tr></table></figure>
 
 <p>如果您想打开<code>hello.txt</code>文件后迅速执行一条命令，您可以向<code>vim</code>传递一个<code>+&#123;cmd&#125;</code>选项。</p>
 <p>在Vim中，您可以使用<code>:s</code>命令（<code>substitue</code>的缩写）替换文本。如果您想打开<code>hello.txt</code>后立即将所有的”pancake”替换成”bagel”，在终端中：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim +%s/pancake/bagel/g hello.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">vim +%s/pancake/bagel/g hello.txt<br></code></pre></div></td></tr></table></figure>
 
 <p>该命令可以被叠加，在终端中：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim +%s/pancake/bagel/g +%s/bagel/egg/g +%s/egg/donut/g hello.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">vim +%s/pancake/bagel/g +%s/bagel/egg/g +%s/egg/donut/g hello.txt<br></code></pre></div></td></tr></table></figure>
 
 <p>Vim会将所有”pancake” 实例替换为”bagel”，然后将所有”bagel”替换为”egg”，然后将所有”egg”替换为”donut”（在后面的章节中您将学到如何替换）。</p>
 <p>您同样可以使用<code>c</code>标志来代替<code>+</code>语法，在终端中：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim -c %s/pancake/bagel/g hello.txt<br>vim -c %s/pancake/bagel/g -c %s/bagel/egg/g -c %s/egg/donut/g hello.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">vim -c %s/pancake/bagel/g hello.txt<br>vim -c %s/pancake/bagel/g -c %s/bagel/egg/g -c %s/egg/donut/g hello.txt<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="打开多个窗口"><a href="#打开多个窗口" class="headerlink" title="打开多个窗口"></a>打开多个窗口</h2><p>您可以使用<code>o</code>和<code>O</code>选项使Vim打开后分别显示为水平或垂直分割的窗口。</p>
 <p>若想将Vim打开为2个水平分割的窗口，在终端中运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim -o2<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">vim -o2<br></code></pre></div></td></tr></table></figure>
 
 <p>若想将Vim打开为5个水平分割的窗口，在终端中运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim -o5<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">vim -o5<br></code></pre></div></td></tr></table></figure>
 
 <p>若想将Vim打开为5个水平分割的窗口，并使前两个窗口显示<code>hello1.txt</code>和<code>hello2.txt</code>的内容，在终端中运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim -o5 hello1.txt hello2.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">vim -o5 hello1.txt hello2.txt<br></code></pre></div></td></tr></table></figure>
 
 <p>若想将Vim打开为2个垂直分割的窗口、5个垂直分割的窗口、5个垂直分割窗口并显示2个文件，在终端中分别运行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim -O<br>vim -O5<br>vim -O5 hello1.txt hello2.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">vim -O<br>vim -O5<br>vim -O5 hello1.txt hello2.txt<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="挂起"><a href="#挂起" class="headerlink" title="挂起"></a>挂起</h2><p>如果您编辑时想将Vim挂起，您可以按下<code>Ctrl-z</code>。同样，您也可以使用<code>:stop</code>或<code>:suspend</code>命令达到相同的效果。若想从挂起状态返回，在终端中运行<code>fg</code>命令。</p>
 <h2 id="聪明的启动Vim"><a href="#聪明的启动Vim" class="headerlink" title="聪明的启动Vim"></a>聪明的启动Vim</h2><p>您可以向<code>vim</code>命令传递不同的选项(option)和标志(flag)，就像其他终端命令一样。其中一个选项是命令行命令（<code>+&#123;cmd&#125;</code>或<code>-c cmd</code>）。当您读完本教程学到更多命令后，看看您是否能将相应命令应用到Vim的启动中。同样，作为一个终端命令，您可以将<code>vim</code>命令和其他终端命令联合起来。比如，您可以将<code>ls</code>命令的输出重定向到Vim中编辑，命令是<code>ls -l | vim -</code>。</p>
@@ -343,9 +343,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-                    
                       <a class="hover-with-bg" href="/categories/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
                     
                   </div>
                 
@@ -370,7 +370,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/05/Server/Nginx/">
+                      <a href="/2022/04/05/Server/Nginx/Nginx/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Nginx转发后会默认会自动去掉请求头中带有下划线的参数</span>
                         <span class="visible-mobile">上一篇</span>
