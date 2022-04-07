@@ -278,16 +278,16 @@
 <li>搜索模式寄存器 (<code>&quot;/</code>).</li>
 </ol>
 <h2 id="寄存器命令"><a href="#寄存器命令" class="headerlink" title="寄存器命令"></a>寄存器命令</h2><p>要使用寄存器，您必须先使用命令将内容存储到寄存器，以下是一些存值到寄存器中的操作：</p>
-<figure class="highlight llvm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs llvm">y    复制<br><span class="hljs-keyword">c</span>    删除文本并进入输入模式<br>d    删除文本<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight llvm"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs llvm">y    复制<br><span class="hljs-keyword">c</span>    删除文本并进入输入模式<br>d    删除文本<br></code></pre></td></tr></table></figure>
 
 <p>其实还有更多的寄存器写入操作（比如<code>s</code>或<code>x</code>），但是上面列出的是最常用的一些。根据经验看来，如果一个操作删除了文本，那么很有可能这个操作将移除的文本存入寄存器中了。</p>
 <p>想要从寄存器中取出（粘贴）文本，你可以用以下的命令：</p>
-<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span>    在光标位置之后粘贴文本<br><span class="hljs-selector-tag">P</span>    在光标位置之前粘贴文本<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">p</span>    在光标位置之后粘贴文本<br><span class="hljs-selector-tag">P</span>    在光标位置之前粘贴文本<br></code></pre></td></tr></table></figure>
 
 <p><code>p</code>和<code>P</code>都可以接受计数和一个寄存器标志作为参数。比如，想要把最近复制的文本粘贴10次的话可以用<code>10p</code>。想粘贴寄存器”a”中的文本，可以用<code>&quot;ap</code>。想将寄存器“a”中的文本粘贴10次的话，可以使用<code>10&quot;ap</code>。注意，从技术层面讲，命令<code>p</code>实际上表示的是”put”(放置)，而不是”paste”(粘贴)，使用粘贴只是因为它更符合传统习惯。</p>
 <p>从某个特定寄存器中读取文本的通用语法是<code>&quot;x</code>，其中<code>x</code>是这个寄存器的标志。</p>
 <h2 id="在输入模式中使用寄存器"><a href="#在输入模式中使用寄存器" class="headerlink" title="在输入模式中使用寄存器"></a>在输入模式中使用寄存器</h2><p>在这一章节中你学到的东西在输入模式中也同样适用。想要获取寄存器”a”中的文本，通常可以使用<code>&quot;ap</code>来进行。不过当你在输入模式下时，你需要运行<code>Ctrl-r a</code>。在输入模式下使用寄存器的语法是：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">Ctrl-r x</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Ctrl-r x</span><br></code></pre></td></tr></table></figure>
 
 <p>其中<code>x</code>是寄存器标志。既然你现在已经知道如何存储和访问寄存器了，让我们学点更深入的吧。</p>
 <h2 id="匿名寄存器-quot-quot"><a href="#匿名寄存器-quot-quot" class="headerlink" title="匿名寄存器(&quot;&quot;)"></a>匿名寄存器(<code>&quot;&quot;</code>)</h2><p>想从匿名寄存器中获取文本，可以使用<code>&quot;&quot;p</code>。 匿名寄存器默认存储着你最近一次复制，修改或删除的文本。如果再进行另一次复制，修改或删除，Vim会自动替换匿名寄存器中的文本。匿名寄存器和电脑上粘贴板的功能很接近。</p>
@@ -316,7 +316,7 @@
 <p>还有一个小技巧，在输入模式下，你可以使用<code>Ctrl-r 0</code>快速地粘贴你刚才复制的内容。</p>
 <h3 id="编号寄存器-quot-1-9"><a href="#编号寄存器-quot-1-9" class="headerlink" title="编号寄存器 (&quot;1-9)"></a>编号寄存器 (<code>&quot;1-9</code>)</h3><p>当你修改或者删除至少一整行的文本时，这部分文本会按时间顺序被存储在1-9号编号寄存器中。（编号越小时间距离越近）</p>
 <p>比如，你有以下这些文本：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs livecodeserver"><span class="hljs-built_in">line</span> <span class="hljs-literal">three</span><br><span class="hljs-built_in">line</span> <span class="hljs-literal">two</span><br><span class="hljs-built_in">line</span> <span class="hljs-literal">one</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-built_in">line</span> <span class="hljs-literal">three</span><br><span class="hljs-built_in">line</span> <span class="hljs-literal">two</span><br><span class="hljs-built_in">line</span> <span class="hljs-literal">one</span><br></code></pre></td></tr></table></figure>
 
 <p>当你的光标在文本“line three”上时,使用<code>dd</code>来一行一行地删除这些文本。在所有文本都已经删除后，1号寄存器中的内容应该是”line one”（时间上最近的文本）， 2号寄存器则包含”line two”(时间上第二近的文本)，3号寄存器中则包含”line three”（最早删除的文本）。普通模式下可以使用<code>&quot;1p</code>来获取1号寄存器中的内容。</p>
 <p>编号寄存器的编号在使用点命令时会自动增加。比如，如果你的1号编号寄存器（<code>&quot;1</code>）中的内容为”line one”， 2号寄存器（<code>&quot;2</code>）为”line two”, 三号寄存器（<code>&quot;3</code>）”line three”,你可以使用以下的技巧来连续地粘贴他们：</p>
@@ -351,29 +351,29 @@
 <p>为了从寄存器”a”中获取文本，可以使用命令<code>&quot;ap</code>。你可以使用以26个字母命名的寄存器来存储26个不同的文本。</p>
 <p>有时你可能会想要往已有内容的命名寄存器中继续添加内容，这种情况下，你可以追加文本而不是全部重来。你可以使用大写版本的命名寄存器来进行文本的追加。比如，假设你的”a”寄存器中已经存有文本”Hello”，如果你想继续添加”world”到寄存器”a”中，你可以先找到文本”world”然后使用<code>&quot;Aiw</code>来进行复制,即可完成追加。</p>
 <h2 id="只读寄存器-quot-quot-quot"><a href="#只读寄存器-quot-quot-quot" class="headerlink" title="只读寄存器(&quot;:, &quot;., &quot;%)"></a>只读寄存器(<code>&quot;:</code>, <code>&quot;.</code>, <code>&quot;%</code>)</h2><p>Vim有三个只读寄存器：<code>.</code>,<code>:</code>和<code>%</code>，它们的用法非常简单：</p>
-<figure class="highlight ada"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ada">.    存储上一个输入的文本<br>:    存储上一次执行的命令<br>%    存储当前文件的文件名<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ada">.    存储上一个输入的文本<br>:    存储上一次执行的命令<br>%    存储当前文件的文件名<br></code></pre></td></tr></table></figure>
 
 <p>如果你写入”Hello Vim”,之后再运行<code>&quot;.p</code>就会打印出文本”Hello Vim”。如果你想要获得当前文件的文件名，可以运行命令<code>&quot;%p</code>。如果你运行命令<code>:s/foo/bar/g</code>，再运行<code>&quot;:p</code>的话则会打印出文本”s&#x2F;foo&#x2F;bar&#x2F;g”。</p>
 <h2 id="Buffer交替文件寄存器-quot"><a href="#Buffer交替文件寄存器-quot" class="headerlink" title="Buffer交替文件寄存器 (&quot;#)"></a>Buffer交替文件寄存器 (<code>&quot;#</code>)</h2><p>在Vim中，<code>#</code>通常代表交替文件。交替文件指的是你上一个打开的文件，想要插入交替文件的名字的话，可以使用命令<code>&quot;#p</code>。</p>
 <h2 id="表达式寄存器-quot"><a href="#表达式寄存器-quot" class="headerlink" title="表达式寄存器 (&quot;=)"></a>表达式寄存器 (<code>&quot;=</code>)</h2><p>Vim有一个表达式寄存器，<code>&quot;=</code>,用于计算表达式的结果。</p>
 <p>你可以使用以下命令计算数学表达式<code>1+1</code>的值：</p>
-<figure class="highlight 1c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs 1c"><span class="hljs-string">&quot;=1+1&lt;Enter&gt;p</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;=1+1&lt;Enter&gt;p</span><br></code></pre></td></tr></table></figure>
 
 <p>在这里，你在告诉Vim你正在使用表达式寄存器<code>&quot;=</code>，你的表达式是（<code>1+1</code>），你还需要输入<code>p</code>来得到结果。正如之前所提到的，你也可以在输入模式中访问寄存器。想要在输入模式中计算数学表达式的值，你可以使用：</p>
-<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">Ctrl</span>-r =<span class="hljs-number">1</span>+<span class="hljs-number">1</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Ctrl</span>-r =<span class="hljs-number">1</span>+<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
 
 <p>你可以使用<code>@</code>来从任何寄存器中获取表达式并用表达式寄存器计算其值。如果你希望从寄存器”a”中获取文本：</p>
-<figure class="highlight 1c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs 1c"><span class="hljs-string">&quot;=@a</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;=@a</span><br></code></pre></td></tr></table></figure>
 
 <p>之后输入<code>&lt;enter&gt;</code>，再输入<code>p</code>。类似地，想在输入模式中得到寄存器”a”中的值可以使用：</p>
-<figure class="highlight ini"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ini"><span class="hljs-attr">Ctrl-r</span> =@a<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">Ctrl-r</span> =@a<br></code></pre></td></tr></table></figure>
 
 <p>表达式是Vim中非常宏大的一个话题，所以我只会在这里介绍一些基础知识，我将会在之后的VimScript章节中进一步讲解更多关于表达式的细节。</p>
 <h2 id="选取和拖放寄存器-quot-quot"><a href="#选取和拖放寄存器-quot-quot" class="headerlink" title="选取和拖放寄存器 (&quot;*, &quot;+)"></a>选取和拖放寄存器 (<code>&quot;*</code>, <code>&quot;+</code>)</h2><p>你难道不觉得有些时候你需要从某些外部的程序中复制一些文本并粘贴到Vim中吗，或者反过来操作？有了Vim的选取和拖放寄存器你就能办到。Vim有两个选取寄存器：<code>quotestar</code> (<code>&quot;*</code>) 和 <code>quoteplus</code> (<code>&quot;+</code>)。你可以用它们来访问从外部程序中复制的文本。</p>
 <p>如果你在运行一个外部程序（比如Chrome浏览器），然后你使用<code>Ctrl-c</code>(或者<code>Cmd-c</code>,取决于你的操作系统)复制了一部分文本，通常你是没有办法在Vim里使用<code>p</code>来粘贴这部分文本的。但是，Vim的两个寄存器<code>&quot;+</code>和<code>&quot;*</code>都是和你系统的粘贴板相连接的，所以你可以使用<code>&quot;+p</code>和<code>&quot;*p</code>来粘贴这些文本。反过来，如果你使用<code>&quot;+yiw</code>或者<code>&quot;*yiw</code>在Vim中复制了一些文本，你可以使用<code>Ctrl-v</code>（或者<code>Cmd-v</code>）。值得注意的是这个方法只在你的Vim开启了<code>+clipboard</code>选项时才有用，可以在命令行中运行<code>vim --version</code>查看这一选项。如果你看见<code>-clipboard</code>的话，则需要安装一下支持Vim粘贴板的配置。</p>
 <p>你也许会想如果<code>&quot;*</code>和<code>&quot;+</code>能办到的事完全相同，那为什么Vim需要两个不同的寄存器呢？一些机器使用的是X11窗口系统，这一系统有3个类型的选项：首选，次选和粘贴板。如果你的机器使用的是X11的话,Vim使用的是<code>quotestar</code> (<code>&quot;*</code>)寄存器作为X11的首选选项，并使用 <code>quoteplus</code> (<code>&quot;+</code>)作为粘贴板选项。这只在你的Vim配置里开启了<code>xterm_clipboard</code> 选项时才有效（<code>vim --version</code>中的<code>+xterm_clipboard</code>）。如果你的的Vim配置中没有 <code>xterm_clipboard</code>也不是什么大问题。这只是意味着<code>quotestar</code> 和<code>quoteplus</code>两个寄存器是可以互相替代的。</p>
 <p>我发觉使用<code>=*p</code>或者<code>=+p</code>的话比较麻烦，为了使Vim仅使用<code>p</code>就能粘贴从外部程序复制的文本，你可以在你的<code>vimrc</code>配置文件中加入下面一行：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros"><span class="hljs-built_in">set</span> <span class="hljs-attribute">clipboard</span>=unnamed<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">set</span> <span class="hljs-attribute">clipboard</span>=unnamed<br></code></pre></td></tr></table></figure>
 
 <p>现在当我从外部程序中复制文本时，我可以使用匿名寄存器<code>p</code>来进行粘贴。我也可以在Vim中复制文本后在外部程序中使用<code>Ctrl-v</code>来粘贴。如果你的Vim开启了 <code>+xterm_clipboard</code>设置，你或许会想同时也使用<code>unnamed</code>和<code>unnamedplus</code>的粘贴板选项。</p>
 <h2 id="黑洞寄存器-quot"><a href="#黑洞寄存器-quot" class="headerlink" title="黑洞寄存器 (&quot;_)"></a>黑洞寄存器 (<code>&quot;_</code>)</h2><p>你每次删除或修改文本的时候，这部分文本都会自动保存在Vim的寄存器中。有些时候你并不希望把什么东西都往寄存器里存，这该怎么办到呢？</p>
