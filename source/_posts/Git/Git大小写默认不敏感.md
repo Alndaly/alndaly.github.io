@@ -10,13 +10,7 @@ description: Git相关文档
 
 # Git 大小写不敏感引发的问题
 
-[![img](https://p26-passport.byteacctimg.com/img/user-avatar/65fb661a904a41f70ac47d51519c3e51~300x300.image)](https://juejin.cn/user/4160207730518871)
-
-[Ka_Ka ![lv-2](https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/f597b88d22ce5370bd94495780459040.svg)](https://juejin.cn/user/4160207730518871)
-
-2021年06月29日 14:54 · 阅读 1152
-
-关注
+[![img](https://p26-passport.byteacctimg.com/img/user-avatar/65fb661a904a41f70ac47d51519c3e51~300x300.image
 
 ![【Git系列】Git 大小写不敏感引发的血案](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c2eae29e98142dfb3584c2317e9328a~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.image)
 
@@ -45,13 +39,11 @@ description: Git相关文档
               │   └── index.vue
               └── TitleCell
                   └── index.vue
-  复制代码
   ```
-
+  
   ```js
   // main.js
   const files = require.context('../components/common', true, /\.vue$/)
-  复制代码
   ```
 
 ## 准备工作
@@ -101,10 +93,9 @@ description: Git相关文档
   ```js
   // main.js
   const files = require.context('../components/common', true, /\.vue$/)
-  复制代码
   ```
-
-  最后并把代码提交到了远端,并且告诉 `user2` 代码有更新
+  
+最后并把代码提交到了远端,并且告诉 `user2` 代码有更新
 
 ## [user2]的响应
 
@@ -127,15 +118,13 @@ description: Git相关文档
                 │   └── index.vue
                 └── TitleCell
                     └── index.vue
-  复制代码
   ```
-
-  ```js
+  
+```js
   // main.js 有变化！！！
   const files = require.context('../components/COMMON', true, /\.vue$/)
-  复制代码
   ```
-
+  
   这个时候，“~~报应~~”来的太突然，项目报错了！引用的路径是`COMMON`而实际项目的路径是`common`
 
   ![18.jpg](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a073f83286924f99bf704bead00db36e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
@@ -164,7 +153,6 @@ description: Git相关文档
 
 ```bash
 git config core.ignorecase false # 让你变的敏感
-复制代码
 ```
 
 ![21.jpg](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7bcd4ced859947e79225ba37c62c01b6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
@@ -177,17 +165,15 @@ git config core.ignorecase false # 让你变的敏感
 
   ```bash
   git che master
-  复制代码
   ```
-
+  
 - 拉代码 `pull`
 
   ```bash
   git pull
-  复制代码
   ```
-
-  > 这个时候就会发现项目无法启动，因为 `main.js` 中的文件路径引用已经由 `common => COMMON` 了，但实际文件名依旧是 `common`
+  
+> 这个时候就会发现项目无法启动，因为 `main.js` 中的文件路径引用已经由 `common => COMMON` 了，但实际文件名依旧是 `common`
 
 ### 3. 手动更改文件名
 
@@ -201,18 +187,16 @@ git config core.ignorecase false # 让你变的敏感
 
   ```bash
   git add .
-  复制代码
   ```
-
+  
 - 提交 `commit`
 
   ```bash
   git commit -m user2手动同步更新文件名
-  复制代码
   ```
-
+  
   ![20_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f6c3930f274425b8a8f7e851d6d1a15~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
-
+  
 - 推送 `push`
 
   ```bash
@@ -220,30 +204,27 @@ git config core.ignorecase false # 让你变的敏感
   #（此时如果其他用户是之前拉取的分支那么也会出现本篇文章所描述的问题！）
   # 方法嘛~~ 就是当前文章~~哈哈哈
   git push
-  复制代码
   ```
-
+  
 - 切分支 `checkout`
 
   ```bash
   git che feature/user2
-  复制代码
   ```
-
+  
   ![08_D_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d1bcad27960452eb1a6c49ae8b58c9a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
-
+  
   ![09_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61453f98e4ea4a508027ecc39cbae4cd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
-
+  
 - `merge` master 到 `feature/user2` 分支
 
   ```bash
   git merge master
-  复制代码
   ```
-
-  ![10_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5949cfb1676b41ef9d44b58f3f173259~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
-
-  ![11_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/811b5a7041f54b08a2b4b0ab47be5460~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
+  
+![10_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5949cfb1676b41ef9d44b58f3f173259~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
+  
+![11_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/811b5a7041f54b08a2b4b0ab47be5460~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
 
 ### 查看 `commit` 记录
 
@@ -265,7 +246,6 @@ git config core.ignorecase false # 让你变的敏感
 
 ```bash
 git config core.ignorecase false # emmmmm……俺敏感了
-复制代码
 ```
 
 ### 2. 更改文件名 & 文件引用路径
@@ -280,7 +260,6 @@ git config core.ignorecase false # emmmmm……俺敏感了
   
   // 新
   const files = require.context('../components/COMMON', true, /\.vue$/)
-  复制代码
   ```
 
 ### 3. 暂存（add）& 提交(commit)
@@ -289,14 +268,12 @@ git config core.ignorecase false # emmmmm……俺敏感了
 
   ```bash
   git add .
-  复制代码
   ```
-
+  
 - 提交 `commit`
 
   ```bash
   git commit -m <msg>
-  复制代码
   ```
 
 ### 4. 切换分支
@@ -313,18 +290,16 @@ git config core.ignorecase false # emmmmm……俺敏感了
 
   ```bash
   git merge feature/user1 # user1的分支合并到本地master
-  复制代码
   ```
-
+  
   ![10_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0411bb699b343a9a588d424481eb5ff~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
-
+  
   ![11_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3bc59c816414a0d81c6b08ce98b8fe5~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
-
+  
 - 推送 `push`
 
   ```bash
   git push # 推送到远端master
-  复制代码
   ```
 
 ## [user2]更新变更
@@ -335,7 +310,6 @@ git config core.ignorecase false # emmmmm……俺敏感了
 
 ```bash
 git config core.ignorecase false
-复制代码
 ```
 
 ### 2. 切分支 & pull 代码
@@ -344,16 +318,14 @@ git config core.ignorecase false
 
   ```bash
   git checkout master
-  复制代码
   ```
-
+  
 - 拉代码 `pull`
 
   ```bash
   git pull # 更新 master 分支
-  复制代码
   ```
-
+  
 - 结果如下：
 
   ```bash
@@ -367,10 +339,8 @@ git config core.ignorecase false
           src/components/COMMON/TitleCell/index.vue
   请在合并前移动或删除。
   正在终止
-  
-  复制代码
   ```
-
+  
   > 注意！上面那个问题一旦触发，那么你接下来所有的操作比如 `check`,`switch`,`pull`等操作都会报这个错误！！
 
   其实上面已经告诉你怎么操作了，按照提示 `删除`或者`移动`原有的`common文件夹`,然后再`pull`(`check`,`switch`)即可解决
@@ -389,14 +359,12 @@ git config core.ignorecase false
 
   ```bash
   git checkout feature/user2
-  复制代码
   ```
-
+  
 - `merge` 代码
 
   ```bash
   git merge master # 更新 feature/user2 分支
-  复制代码
   ```
 
 ### 4 查看 `commit` 记录
@@ -413,7 +381,6 @@ git config core.ignorecase false
 
 ```bash
 git config core.ignorecase true # git 默认不敏感
-复制代码
 ```
 
 ### 2. 切分支 & pull 代码
@@ -422,25 +389,23 @@ git config core.ignorecase true # git 默认不敏感
 
   ```bash
   git checkout master
-  复制代码
   ```
-
+  
 - 拉代码 `pull`
 
   ```bash
   git pull # 更新 master 分支
-  复制代码
   ```
-
-  结果如下图：
-
-  ![13_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4aa62317a0d45b996b4346f0c55bc28~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
-
-  惊不惊喜意不意外？
-
-  ![40.jpg](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/637c79a4d8e244e7b1823eb5c6bb4e4a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
-
-  虽然远端的文件名已经由`common` => `COMMON`,但是当`user2` 执行`pull`的时候本地的文件名依旧还是老的`common`
+  
+结果如下图：
+  
+![13_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4aa62317a0d45b996b4346f0c55bc28~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
+  
+惊不惊喜意不意外？
+  
+![40.jpg](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/637c79a4d8e244e7b1823eb5c6bb4e4a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
+  
+虽然远端的文件名已经由`common` => `COMMON`,但是当`user2` 执行`pull`的时候本地的文件名依旧还是老的`common`
 
 ### 3. 更改文件名、切换分支、merge master
 
@@ -451,25 +416,23 @@ git config core.ignorecase true # git 默认不敏感
 
   ```bash
   git checkout feature/user2
-  复制代码
   ```
-
+  
   `COMMON文件夹`变成空的了
-
+  
   ![08_D_git大小写不敏感引发的问题](https://raw.githubusercontent.com/Popxie/kaka-img-repo/master/img/blogs/08_D_git%E5%A4%A7%E5%B0%8F%E5%86%99%E4%B8%8D%E6%95%8F%E6%84%9F%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98.png)
-
+  
   ![09_git大小写不敏感引发的问题](https://raw.githubusercontent.com/Popxie/kaka-img-repo/master/img/blogs/09_git%E5%A4%A7%E5%B0%8F%E5%86%99%E4%B8%8D%E6%95%8F%E6%84%9F%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98.png)
-
+  
 - 最后执行 `merge` 后的变化如下：
 
   ```bash
   git merge master
-  复制代码
   ```
-
-  `COMMON文件夹`又有内容了
-
-  ![14_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f391d8a96f248bc962b63bede21d5fb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
+  
+`COMMON文件夹`又有内容了
+  
+![14_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f391d8a96f248bc962b63bede21d5fb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
 
 ### 4. 查看 `commit`
 
@@ -487,14 +450,12 @@ git config core.ignorecase true # git 默认不敏感
 
   ```bash
   git rm <文件夹路径> -r # -r 表示递归
-  复制代码
   ```
-
+  
 - 删除文件 `rm`
 
   ```bash
   git rm <文件路径>
-  复制代码
   ```
 
 ## [user1]向远端同步变更
@@ -503,7 +464,6 @@ git config core.ignorecase true # git 默认不敏感
 
 ```bash
 git config core.ignorecase false
-复制代码
 ```
 
 ### 2. 制作副本
@@ -518,7 +478,6 @@ common` => `common copy
 
 ```bash
  git rm ./src/components/common -r # -r 表示递归
-复制代码
 ```
 
 ### 4. 还原名字
@@ -537,10 +496,9 @@ common` => `common copy
 
   ```js
   common === COMMON // true,
-  复制代码
   ```
-
-  所以上面的提示是没有问题的 我个人认为
+  
+所以上面的提示是没有问题的 我个人认为
 
 ### 5. 暂存、commit、merge 到 master、推到远端
 
@@ -558,11 +516,10 @@ common` => `common copy
           src/components/common/TitleCell/index.vue
   请在切换分支前移动或删除。
   正在终止
-  复制代码
   ```
-
+  
   此时的项目结构是这样子的：
-
+  
   ~~~bash
   .
   ├── README.md
@@ -578,22 +535,20 @@ common` => `common copy
               │   └── index.vue
               └── TitleCell
                   └── index.vue
-                  ```
-  复制代码
   ~~~
-
+  
   并没有`common`文件夹！!那么就无解了？？但是否定的！那我们就:
-
+  
   - 把`COMMON`=> `common`
-
+  
   - 再删除`common`
-
+  
     ![22_git大小写不敏感引发的问题](https://raw.githubusercontent.com/Popxie/kaka-img-repo/master/img/blogs/22_git%E5%A4%A7%E5%B0%8F%E5%86%99%E4%B8%8D%E6%95%8F%E6%84%9F%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98.png)![23_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e34a54996c1047b1ad5323ac80d6eb63~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
-
+  
   - 最后执行 `git check master`
-
+  
   忽略执行删除后的文件变更，直接 `git checkout master`
-
+  
 - `merge` 出问题
 
   ```bash
@@ -607,11 +562,10 @@ common` => `common copy
           src/components/COMMON/TitleCell/index.vue
   请在合并前移动或删除。
   正在终止
-  复制代码
   ```
-
+  
   并没有`COMMON`,处理方法同上:
-
+  
   - 把`common`=> `COMMON`
   - 再删除`COMMON`
     ![24_git大小写不敏感引发的问题](https://raw.githubusercontent.com/Popxie/kaka-img-repo/master/img/blogs/24_git%E5%A4%A7%E5%B0%8F%E5%86%99%E4%B8%8D%E6%95%8F%E6%84%9F%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98.png)![23_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/efb8b56621944f0da593a1f6e99e3477~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
@@ -625,7 +579,6 @@ common` => `common copy
 
 ```bash
 git config core.ignorecase true
-复制代码
 ```
 
 ### 2. 更改文件名
@@ -665,14 +618,12 @@ git config core.ignorecase true
               │   └── index.vue
               └── TitleCell
                   └── index.vue
-  复制代码
   ```
 
 ### 1. 开启 敏感模式·情况一
 
 ```bash
 git config core.ignorecase false
-复制代码
 ```
 
 ### 2. pull 最新代码
@@ -687,7 +638,6 @@ error: 工作区中下列未跟踪的文件将会因为合并操作而被覆盖�
         src/components/COMMON/TitleCell/index.vue
 请在合并前移动或删除。
 正在终止
-复制代码
 ```
 
 不出所料 会跟开头讲的 状况一致，这里就不重复赘述了，参考上面的即可解决。
@@ -702,7 +652,6 @@ error: 工作区中下列未跟踪的文件将会因为合并操作而被覆盖�
 
 ```bash
 git config core.ignorecase true
-复制代码
 ```
 
 ### 2. `pull` 最新代码
@@ -725,14 +674,12 @@ common` => `COMMON
 
   ```bash
   git checkout feature/user2
-  复制代码
   ```
-
+  
 - `merge` 代码
 
   ```bash
   git merge master
-  复制代码
   ```
 
 ### 5. 查看 `commit` 记录
