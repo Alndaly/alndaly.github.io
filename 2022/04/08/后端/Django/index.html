@@ -214,7 +214,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.1k 字
+      3.1k 字
     </span>
   
 
@@ -223,7 +223,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18 分钟
+      27 分钟
     </span>
   
 
@@ -294,6 +294,27 @@
 
 <h2 id="Django的时间返回中间带T"><a href="#Django的时间返回中间带T" class="headerlink" title="Django的时间返回中间带T"></a>Django的时间返回中间带<code>T</code></h2><p><code>settings.py</code>中增加如下配置</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">REST_FRAMEWORK = &#123;<br>    <span class="hljs-string">&#x27;DATETIME_FORMAT&#x27;</span>: <span class="hljs-string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>,<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">DATABASES = &#123;<br>    <span class="hljs-string">&#x27;default&#x27;</span>: &#123;<br>        <span class="hljs-string">&#x27;OPTIONS&#x27;</span>: &#123;<span class="hljs-string">&#x27;charset&#x27;</span>: <span class="hljs-string">&#x27;utf8mb4&#x27;</span>&#125;,<br>        <span class="hljs-string">&#x27;ENGINE&#x27;</span>: <span class="hljs-string">&#x27;django.db.backends.mysql&#x27;</span>,  <span class="hljs-comment"># 数据库引擎</span><br>        <span class="hljs-string">&#x27;NAME&#x27;</span>: <span class="hljs-string">&#x27;mall&#x27;</span>,  <span class="hljs-comment"># 数据库名称</span><br>        <span class="hljs-string">&#x27;USER&#x27;</span>: <span class="hljs-string">&#x27;root&#x27;</span>,  <span class="hljs-comment"># 连接数据库的用户名称</span><br>        <span class="hljs-string">&#x27;PASSWORD&#x27;</span>: <span class="hljs-string">&#x27;root&#x27;</span>,  <span class="hljs-comment"># 用户密码</span><br>        <span class="hljs-string">&#x27;HOST&#x27;</span>: <span class="hljs-string">&#x27;localhost&#x27;</span>,  <span class="hljs-comment"># 访问的数据库的主机的ip地址</span><br>        <span class="hljs-string">&#x27;PORT&#x27;</span>: <span class="hljs-string">&#x27;3306&#x27;</span>,  <span class="hljs-comment"># 默认mysql访问端口</span><br>    &#125;,<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Mysql转Django模型类"><a href="#Mysql转Django模型类" class="headerlink" title="Mysql转Django模型类"></a>Mysql转Django模型类</h2><p>创建一个Django项目</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">django-admin startproject ‘xxxx‘<br></code></pre></td></tr></table></figure>
+
+<p>修改setting文件，在setting里面设置你要连接的数据库类型和连接名称，地址之类，和创建新项目的时候一致</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable constant_">DATABASES</span> = &#123;<br>    <span class="hljs-string">&#x27;default&#x27;</span>: &#123;<br>        <span class="hljs-string">&#x27;ENGINE&#x27;</span>: <span class="hljs-string">&#x27;django.db.backends.mysql&#x27;</span>,<br>        <span class="hljs-string">&#x27;NAME&#x27;</span>: <span class="hljs-string">&#x27;sqlexam&#x27;</span>,<br>        <span class="hljs-string">&#x27;USER&#x27;</span>: <span class="hljs-string">&#x27;root&#x27;</span>,<br>        <span class="hljs-string">&#x27;PASSWORD&#x27;</span>: <span class="hljs-string">&#x27;root12345&#x27;</span>,<br>        <span class="hljs-string">&#x27;HOST&#x27;</span>: <span class="hljs-string">&#x27;127.0.0.1&#x27;</span>,<br>        <span class="hljs-string">&#x27;PORT&#x27;</span>: <span class="hljs-number">3306</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>接下来就可以根据数据库数据生成对应的models模型文件</p>
+<p>1、生成模型文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">python3 manage.<span class="hljs-property">py</span> inspectdb<br></code></pre></td></tr></table></figure>
+
+<p>2、将模型文件导入到app当中</p>
+<p>创建app</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">python3 manage.<span class="hljs-property">py</span> startapp <span class="hljs-string">&#x27;app名字&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>将模型导入创建的app中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">python3 manage.<span class="hljs-property">py</span> inspectdb &gt; app/models.<span class="hljs-property">py</span><br></code></pre></td></tr></table></figure>
+
+
             </div>
             <hr>
             <div>
