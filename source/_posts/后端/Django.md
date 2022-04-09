@@ -131,3 +131,65 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
 }
 ```
+
+## 数据库配置
+
+```python
+DATABASES = {
+    'default': {
+        'OPTIONS': {'charset': 'utf8mb4'},
+        'ENGINE': 'django.db.backends.mysql',  # 数据库引擎
+        'NAME': 'mall',  # 数据库名称
+        'USER': 'root',  # 连接数据库的用户名称
+        'PASSWORD': 'root',  # 用户密码
+        'HOST': 'localhost',  # 访问的数据库的主机的ip地址
+        'PORT': '3306',  # 默认mysql访问端口
+    },
+}
+```
+
+## Mysql转Django模型类
+
+创建一个Django项目
+
+```javascript
+django-admin startproject ‘xxxx‘
+```
+
+修改setting文件，在setting里面设置你要连接的数据库类型和连接名称，地址之类，和创建新项目的时候一致
+
+```javascript
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sqlexam',
+        'USER': 'root',
+        'PASSWORD': 'root12345',
+        'HOST': '127.0.0.1',
+        'PORT': 3306
+    }
+}
+```
+
+接下来就可以根据数据库数据生成对应的models模型文件
+
+1、生成模型文件
+
+```javascript
+python3 manage.py inspectdb
+```
+
+2、将模型文件导入到app当中
+
+创建app
+
+```javascript
+python3 manage.py startapp 'app名字'
+```
+
+将模型导入创建的app中
+
+```javascript
+python3 manage.py inspectdb > app/models.py
+```
+
