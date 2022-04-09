@@ -220,3 +220,66 @@ plt.savefig("Figure saved in jpg format.jpg")
 ```
 
 这会将图形保存为 jpg 格式。
+
+# Python编写函数检查数值型特征项异常状态
+
+## 引入包
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+#from matplotlib.font_manager import FontManager
+
+#fm = FontManager()
+#fonts = set(f.name for f in fm.ttflist)
+config = {
+    "font.family": 'serif',
+    "font.serif": ['Songti SC'],
+    "font.size": 15,
+    "font.sans-serif": [''],
+    "figure.figsize": (12,7),
+    "mathtext.fontset": 'stix',
+}
+plt.rcParams.update(config)
+```
+
+## 编写函数
+
+**此处这个data是个Dataframe**
+
+```python
+def checkOut(column_name):
+    
+    ax1 = plt.subplot(221)
+    bp = ax1.boxplot(data[column_name])
+    ax1.set_title('删除异常值前')
+    lower_whisker = [item.get_ydata()[1] for item in bp['whiskers']][0]
+    upper_whisker = [item.get_ydata()[1] for item in bp['whiskers']][1]
+    print("上边缘：", upper_whisker)
+    print("下边缘：", lower_whisker)
+    print("非异常范围：", [lower_whisker,upper_whisker])
+    
+    ##### 寻找异常值 #####
+    outlier = data[(data[column_name] > upper_whisker) | (data[column_name] < lower_whisker)][column_name]
+    ##### 删除异常值 ######
+    not_outlier = data[(data[column_name] <= upper_whisker) & (data[column_name] >= lower_whisker)][column_name]
+    ax2 = plt.subplot(222)
+    ##### 重新检查是否还有异常值 #####
+    ax2.boxplot(not_outlier)
+    ax2.set_title('删除异常值后')
+    
+    ax3 = plt.subplot(212)
+    ax3 = sns.distplot(not_outlier, bins=100, color='r')
+    
+    plt.savefig('{}异常值检测与处理'.format(column_name)) # 保存图片 注意一定要先运行这一行在做plt.show画布显示，否则画布会是空的
+    plt.show()
+```
+
+## 效果如下
+
+```python
+checkOut('pax_fcny')
+```
+
+![pax_fcny异常值检测以及处理](https://cdn.jsdelivr.net/gh/Alndaly/imgsrc/img/pax_fcny%E5%BC%82%E5%B8%B8%E5%80%BC%E6%A3%80%E6%B5%8B%E4%BB%A5%E5%8F%8A%E5%A4%84%E7%90%86.png)
