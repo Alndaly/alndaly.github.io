@@ -2,7 +2,7 @@
 title: Git基本操作
 date: 2022-04-05 17:18:27
 tags:
-  - [Git]
+  - [git]
 categories:
   - [技术]
 description: Git相关文档

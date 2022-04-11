@@ -2,7 +2,7 @@
 title: Django快速搭建后端
 date: 2022-04-08 23:35:27
 tags:
-  - [Django]
+  - [django]
   - [后端]
 categories:
   - [技术]
@@ -192,4 +192,18 @@ python3 manage.py startapp 'app名字'
 ```javascript
 python3 manage.py inspectdb > app/models.py
 ```
+
+# 修改数据库
+
+## 方法一
+
+1. 在nivicat中直接直接改动数据结构
+
+2. 在终端中执行
+
+   ```python
+   python manage.py inspectdb
+   ```
+
+   
 

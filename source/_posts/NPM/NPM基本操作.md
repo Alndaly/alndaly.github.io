@@ -2,8 +2,8 @@
 title: NPM基本操作
 date: 2022-04-05 17:21:27
 tags:
-  - [NPM]
-  - [Node]
+  - [npm]
+  - [node]
 categories:
   - [技术]
 description: NPM的一些基本操作

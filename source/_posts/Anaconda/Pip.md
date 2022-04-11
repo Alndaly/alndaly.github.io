@@ -2,8 +2,8 @@
 title: Pip基本操作
 date: 2022-04-05 17:20:27
 tags:
-  - [Python]
-  - [Pip]
+  - [python]
+  - [pip]
 categories:
   - [技术]
 description: Python Pip自己的包上传

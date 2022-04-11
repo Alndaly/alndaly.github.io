@@ -2,7 +2,7 @@
 title: 切换Git账号
 date: 2022-04-05 17:16:27
 tags:
-  - [Git]
+  - [git]
 categories:
   - [技术]
 description: Git相关文档

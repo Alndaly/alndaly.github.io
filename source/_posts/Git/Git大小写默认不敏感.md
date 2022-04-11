@@ -2,15 +2,13 @@
 title: Git 大小写不敏感引发的问题
 date: 2022-04-07 23:35:27
 tags:
-  - [Git]
+  - [git]
 categories:
   - [技术]
 description: Git相关文档
 ---
 
 # Git 大小写不敏感引发的问题
-
-[![img](https://p26-passport.byteacctimg.com/img/user-avatar/65fb661a904a41f70ac47d51519c3e51~300x300.image
 
 ![【Git系列】Git 大小写不敏感引发的血案](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c2eae29e98142dfb3584c2317e9328a~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.image)
 
@@ -95,6 +93,7 @@ description: Git相关文档
   const files = require.context('../components/common', true, /\.vue$/)
   ```
   
+
 最后并把代码提交到了远端,并且告诉 `user2` 代码有更新
 
 ## [user2]的响应
@@ -123,8 +122,8 @@ description: Git相关文档
 ```js
   // main.js 有变化！！！
   const files = require.context('../components/COMMON', true, /\.vue$/)
-  ```
-  
+```
+
   这个时候，“~~报应~~”来的太突然，项目报错了！引用的路径是`COMMON`而实际项目的路径是`common`
 
   ![18.jpg](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a073f83286924f99bf704bead00db36e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
@@ -222,8 +221,9 @@ git config core.ignorecase false # 让你变的敏感
   git merge master
   ```
   
+
 ![10_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5949cfb1676b41ef9d44b58f3f173259~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
-  
+
 ![11_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/811b5a7041f54b08a2b4b0ab47be5460~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
 
 ### 查看 `commit` 记录
@@ -397,14 +397,15 @@ git config core.ignorecase true # git 默认不敏感
   git pull # 更新 master 分支
   ```
   
+
 结果如下图：
-  
+
 ![13_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4aa62317a0d45b996b4346f0c55bc28~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
-  
+
 惊不惊喜意不意外？
-  
+
 ![40.jpg](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/637c79a4d8e244e7b1823eb5c6bb4e4a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
-  
+
 虽然远端的文件名已经由`common` => `COMMON`,但是当`user2` 执行`pull`的时候本地的文件名依旧还是老的`common`
 
 ### 3. 更改文件名、切换分支、merge master
@@ -430,8 +431,9 @@ git config core.ignorecase true # git 默认不敏感
   git merge master
   ```
   
+
 `COMMON文件夹`又有内容了
-  
+
 ![14_git大小写不敏感引发的问题](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f391d8a96f248bc962b63bede21d5fb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image)
 
 ### 4. 查看 `commit`
@@ -498,6 +500,7 @@ common` => `common copy
   common === COMMON // true,
   ```
   
+
 所以上面的提示是没有问题的 我个人认为
 
 ### 5. 暂存、commit、merge 到 master、推到远端

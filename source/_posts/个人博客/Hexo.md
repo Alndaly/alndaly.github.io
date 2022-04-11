@@ -2,9 +2,9 @@
 title: 利用 Github Actions 自动部署 Hexo 博客
 date: 2022-04-05 18:13:27
 tags:
-  - [Hexo]
-  - [Git]
-  - [Actions]
+  - [hexo]
+  - [git]
+  - [actions]
 categories:
   - [技术]
 description: Github Actions 可以很方便实现 CI/CD 工作流，类似 Travis 的用法，来帮我们完成一些工作，比如实现自动化测试、打包、部署等操作。当我们运行 Jobs 时，它会创建一个容器 (runner)，容器支持：Ubuntu、Windows 和 MacOS 等系统，在容器中我们可以安装软件，利用安装的软件帮我们处理一些数据，然后把处理好的数据推送到某个地方。

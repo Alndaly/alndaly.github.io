@@ -2,7 +2,7 @@
 title: mitmproxy
 date: 2022-04-05 15:15:27
 tags:
-  - [Python]
+  - [python]
   - [爬虫]
 categories:
   - [技术]

@@ -2,7 +2,7 @@
 title: WebpackDay01
 date: 2022-04-05 17:31:27
 tags:
-  - [Webpack]
+  - [webpack]
   - [前端]
 categories:
   - [技术]
