@@ -133,8 +133,8 @@ pip install -U <包的名字>
 我使用的是第二个
 
 ```bash
-python [setup.py](<http://setup.py/>) bdist_egg     # 生成类似 edssdk-0.0.1-py2.7.egg，支持 easy_install
-python [setup.py](<http://setup.py/>) sdist         # 生成类似 edssdk-0.0.1.tar.gz，支持 pip
+python setup.py bdist_egg     # 生成类似 edssdk-0.0.1-py2.7.egg，支持 easy_install
+python setup.py sdist         # 生成类似 edssdk-0.0.1.tar.gz，支持 pip
 ```
 
 两个命令打包好之后都会生成`build`和`dist`两个目录，打包的文件会放在`dist`目录下，供后边上传到`PyPi`服务器
