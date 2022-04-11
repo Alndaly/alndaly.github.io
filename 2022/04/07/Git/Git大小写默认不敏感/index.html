@@ -255,7 +255,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      7k 字
+      6.9k 字
     </span>
   
 
@@ -264,7 +264,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      59 分钟
+      58 分钟
     </span>
   
 
@@ -302,8 +302,7 @@
               </p>
             
             <div class="markdown-body">
-              <h1 id="Git-大小写不敏感引发的问题"><a href="#Git-大小写不敏感引发的问题" class="headerlink" title="Git 大小写不敏感引发的问题"></a>Git 大小写不敏感引发的问题</h1><p>[![img](<a target="_blank" rel="noopener" href="https://p26-passport.byteacctimg.com/img/user-avatar/65fb661a904a41f70ac47d51519c3e51~300x300.image">https://p26-passport.byteacctimg.com/img/user-avatar/65fb661a904a41f70ac47d51519c3e51~300x300.image</a></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c2eae29e98142dfb3584c2317e9328a~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.image" srcset="/img/loading.gif" lazyload alt="【Git系列】Git 大小写不敏感引发的血案"></p>
+              <h1 id="Git-大小写不敏感引发的问题"><a href="#Git-大小写不敏感引发的问题" class="headerlink" title="Git 大小写不敏感引发的问题"></a>Git 大小写不敏感引发的问题</h1><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c2eae29e98142dfb3584c2317e9328a~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.image" srcset="/img/loading.gif" lazyload alt="【Git系列】Git 大小写不敏感引发的血案"></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>由于当年太年轻，资历不够深！！！导致文件命名不规范，现在想更正文件夹名字（<code>common =&gt; COMMON</code>），结果发现一个很奇特的现象！ git 对文件(夹)名的大小写不敏感！！！！引发了一些问题。最终经过查阅资料得以解决，遂！写下这篇帖子记录一下。走<del>跟着渣渣一起吃着花生 🥜 喝着啤酒 🍺 燥起来</del></p>
 </blockquote>
@@ -344,6 +343,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 此时 common =&gt; common 没有变化！！！</span><br>.<br>├── main.js<br>└── src<br>    └── components<br>        └── common<br>            ├── FootCell<br>            │   └── index.vue<br>            ├── Pagination<br>            │   └── index.vue<br>            ├── Table<br>            │   └── index.vue<br>            └── TitleCell<br>                └── index.vue<br></code></pre></td></tr></table></figure></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// main.js 有变化！！！</span><br><span class="hljs-keyword">const</span> files = <span class="hljs-built_in">require</span>.<span class="hljs-title function_">context</span>(<span class="hljs-string">&#x27;../components/COMMON&#x27;</span>, <span class="hljs-literal">true</span>, <span class="hljs-regexp">/\.vue$/</span>)<br></code></pre></td></tr></table></figure>
+
 <p>  这个时候，“<del>报应</del>”来的太突然，项目报错了！引用的路径是<code>COMMON</code>而实际项目的路径是<code>common</code></p>
 <p>  <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a073f83286924f99bf704bead00db36e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.image" srcset="/img/loading.gif" lazyload alt="18.jpg"></p>
 <ul>
