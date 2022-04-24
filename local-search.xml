@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>SSH 三步解决免密登录</title>
+    <link href="/2022/04/26/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <url>/2022/04/26/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="SSH-三步解决免密登录"><a href="#SSH-三步解决免密登录" class="headerlink" title="SSH 三步解决免密登录"></a>SSH 三步解决免密登录</h1><blockquote><p><a href="https://blog.csdn.net/jeikerxiao/article/details/84105529">原文链接</a></p></blockquote><h2 id="客户端生成公私钥"><a href="#客户端生成公私钥" class="headerlink" title="客户端生成公私钥"></a>客户端生成公私钥</h2><p>本地客户端生成公私钥：（一路回车默认即可）</p><figure class="highlight sh"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs sh">ssh-keygen<br></code></pre></td></tr></table></figure><p>上面这个命令会在用户目录.ssh文件夹下创建公私钥</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> ~/.ssh<br><span class="hljs-built_in">ls</span><br></code></pre></td></tr></table></figure><p>对应下会多出两个密钥：</p><p>id_rsa （私钥）</p><p>id_rsa.pub (公钥)</p><h2 id="上传公钥到服务器"><a href="#上传公钥到服务器" class="headerlink" title="上传公钥到服务器"></a>上传公钥到服务器</h2><p>这里测试用的服务器地址为：192.168.235.22<br>用户为：root</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.235.22<br></code></pre></td></tr></table></figure><p>上面这条命令是写到服务器上的ssh目录下去了</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> ~/.ssh<br>vim authorized_keys<br></code></pre></td></tr></table></figure><p>可以看到客户端写入到服务器的 id_rsa.pub （公钥）内容。</p><h2 id="测试免密登录"><a href="#测试免密登录" class="headerlink" title="测试免密登录"></a>测试免密登录</h2><p>客户端通过ssh连接远程服务器，就可以免密登录了。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">ssh root@192.168.235.22<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SSH</tag>
+      
+      <tag>服务器</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>HTTP或HTTPS内网穿透服务</title>
     <link href="/2022/04/24/%E8%AE%A1%E7%BD%91/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
     <url>/2022/04/24/%E8%AE%A1%E7%BD%91/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
