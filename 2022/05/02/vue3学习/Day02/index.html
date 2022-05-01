@@ -16,22 +16,21 @@
   <meta name="author" content="Kinda Hall">
   <meta name="keywords" content="个人博客, Personal Blog">
   
-    <meta name="description" content="NPM的一些基本操作">
+    <meta name="description" content="自定义组件双向绑定原生input组件  自带双向绑定  1&lt;input v-model&#x3D;&quot;searchText&quot; &#x2F;&gt;  自定义组件  需要作如下处理  子组件123456789101112&lt;!-- CustomInput.vue --&gt;&lt;script setup&gt;defineProps([&amp;#x27;modelValue&amp;#x27;])de">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NPM基本操作">
-<meta property="og:url" content="https://alndaly.github.io/2022/04/05/NPM/NPM%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:title" content="Kinda">
+<meta property="og:url" content="https://alndaly.github.io/2022/05/02/vue3%E5%AD%A6%E4%B9%A0/Day02/index.html">
 <meta property="og:site_name" content="Kinda">
-<meta property="og:description" content="NPM的一些基本操作">
+<meta property="og:description" content="自定义组件双向绑定原生input组件  自带双向绑定  1&lt;input v-model&#x3D;&quot;searchText&quot; &#x2F;&gt;  自定义组件  需要作如下处理  子组件123456789101112&lt;!-- CustomInput.vue --&gt;&lt;script setup&gt;defineProps([&amp;#x27;modelValue&amp;#x27;])de">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-05T09:21:27.000Z">
-<meta property="article:modified_time" content="2022-04-05T09:21:27.000Z">
+<meta property="article:published_time" content="2022-05-01T16:50:18.999Z">
+<meta property="article:modified_time" content="2022-05-01T16:50:18.999Z">
 <meta property="article:author" content="Kinda Hall">
-<meta property="article:tag" content="npm">
-<meta property="article:tag" content="node">
+<meta property="article:tag" content="个人博客, Personal Blog">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>NPM基本操作 - Kinda</title>
+  <title>Kinda</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -193,7 +192,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="NPM基本操作">
+            <span class="h2" id="subtitle" title="">
               
             </span>
 
@@ -203,8 +202,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-05 17:21" pubdate>
-        2022年4月5日 下午
+      <time datetime="2022-05-02 00:50" pubdate>
+        2022年5月2日 凌晨
       </time>
     </span>
   
@@ -214,7 +213,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      621 字
+      2.7k 字
     </span>
   
 
@@ -223,7 +222,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      23 分钟
     </span>
   
 
@@ -252,55 +251,56 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">NPM基本操作</h1>
+            <h1 style="display: none"></h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年4月5日 下午
+                  本文最后更新于：2022年5月2日 凌晨
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="自己的包的上传"><a href="#自己的包的上传" class="headerlink" title="自己的包的上传"></a>自己的包的上传</h1><ol>
-<li>先把下载包的服务器地址切换为NPM官方服务器，注意这一步很重要！</li>
-<li>输入<code>npm login</code> 回车，根据提示输入账号、密码、邮箱，输入密码的时候不会显示出来，直接输就可以了。</li>
-<li>创建一个要打包的文件夹，进入到文件夹。</li>
-<li>运行<code>npm init</code>初始化一个<code>package.json</code>文件，根据提示输入包名，入口。这里没写的或者要修改也可以到<code>package.json</code>文件进行修改。</li>
-<li>在你创建的文件夹里新建两个文件: <code>index.js</code>和<code>README.md</code>，<code>index.js</code>文件就是你要导出的内容。</li>
-<li><code>README.md</code>就是一个包的介绍,可以写怎么下载,怎么使用</li>
-<li>包写好后,运行<code>npm publish 文件夹名称</code>发布，注意<code>npm publish</code>后面这个是你的包文件夹名称不是<code>package.json</code>里的<code>name</code>，为了统一，文件夹名称和包名最好还是写一样的。</li>
-<li>发布成功后,到<a target="_blank" rel="noopener" href="https://www.npmjs.com/">NPM官网</a>搜索就可以搜到了。</li>
-</ol>
-<h1 id="查看本地NPM镜像"><a href="#查看本地NPM镜像" class="headerlink" title="查看本地NPM镜像"></a>查看本地NPM镜像</h1><p>1.查看镜像源</p>
-<p><code>npm get registry</code></p>
-<p>2.切换官方源</p>
-<p><code>npm config set registry &lt;http://registry.npmjs.org</code>&gt;</p>
-<p>3.切换淘宝源（最新版）</p>
-<p><code>npm config set registry &lt;https://registry.npmmirror.com</code>&gt;</p>
-<p>4.使用临时镜像源，当安装依赖不想切换源地址时，仅安装当前依赖可以使用</p>
-<p><code>npm install xxx（依赖名） --registry=https://xxx（源地址）</code></p>
+              <h1 id="自定义组件双向绑定"><a href="#自定义组件双向绑定" class="headerlink" title="自定义组件双向绑定"></a>自定义组件双向绑定</h1><h2 id="原生input组件"><a href="#原生input组件" class="headerlink" title="原生input组件"></a>原生<code>input</code>组件</h2><blockquote>
+<p> 自带双向绑定</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs vue">&lt;input v-model=&quot;searchText&quot; /&gt;<br></code></pre></td></tr></table></figure>
 
+<h2 id="自定义组件"><a href="#自定义组件" class="headerlink" title="自定义组件"></a>自定义组件</h2><blockquote>
+<p> 需要作如下处理</p>
+</blockquote>
+<h3 id="子组件"><a href="#子组件" class="headerlink" title="子组件"></a>子组件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;!-- CustomInput.vue --&gt;<br>&lt;script setup&gt;<br>defineProps([&#x27;modelValue&#x27;])<br>defineEmits([&#x27;update:modelValue&#x27;])<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;input<br>    :value=&quot;modelValue&quot;<br>    @input=&quot;$emit(&#x27;update:modelValue&#x27;, $event.target.value)&quot;<br>  /&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="父组件"><a href="#父组件" class="headerlink" title="父组件"></a>父组件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;CustomInput v-model=&quot;searchText&quot; /&gt;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>默认的传参方式需要有一个<code>modelValue</code>的<code>props</code>，以及一个<code>update:modelValue</code>的事件传参</p>
+</blockquote>
+<p><strong>当然也可以自定义传参，方式如下，多个数据双向绑定便可利用这种方式</strong></p>
+<h3 id="子组件-1"><a href="#子组件-1" class="headerlink" title="子组件"></a>子组件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;!-- MyComponent.vue --&gt;<br>&lt;script setup&gt;<br>defineProps([&#x27;title&#x27;])<br>defineEmits([&#x27;update:title&#x27;])<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;input<br>    type=&quot;text&quot;<br>    :value=&quot;title&quot;<br>    @input=&quot;$emit(&#x27;update:title&#x27;, $event.target.value)&quot;<br>  /&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="父组件-1"><a href="#父组件-1" class="headerlink" title="父组件"></a>父组件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;MyComponent v-model:title=&quot;bookTitle&quot; /&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="v-model修饰符"><a href="#v-model修饰符" class="headerlink" title="v-model修饰符"></a><code>v-model</code>修饰符</h2><h3 id="处理-v-model-修饰符"><a href="#处理-v-model-修饰符" class="headerlink" title="处理 v-model 修饰符"></a>处理 <code>v-model</code> 修饰符</h3><p>当我们在学习输入绑定时，我们知道了 <code>v-model</code> 有一些内置的修饰符，例如 <code>.trim</code>，<code>.number</code> 和 <code>.lazy</code>。然而在某些场景下，你可能想要添加自定义的修饰符。</p>
+<p>我们一起来创建一个自定义的修饰符 <code>capitalize</code>，它会自动将 <code>v-model</code> 绑定输入的字符串值第一个字母转为大写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;MyComponent v-model.capitalize=&quot;myText&quot; /&gt;<br></code></pre></td></tr></table></figure>
+
+<p>要给组件的 <code>v-model</code> 添加修饰符，都可以通过 <code>modelModifiers</code> prop 在组件内访问到。在下面的例子中，我们会创建一个包含 <code>modelModifiers</code> prop 的组件，它的默认值是一个空对象：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup&gt;<br>const props = defineProps(&#123;<br>  modelValue: String,<br>  modelModifiers: &#123; default: () =&gt; (&#123;&#125;) &#125;<br>&#125;)<br><br>defineEmits([&#x27;update:modelValue&#x27;])<br><br>console.log(props.modelModifiers) // &#123; capitalize: true &#125;<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;input<br>    type=&quot;text&quot;<br>    :value=&quot;modelValue&quot;<br>    @input=&quot;$emit(&#x27;update:modelValue&#x27;, $event.target.value)&quot;<br>  /&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+
+<p>注意这里组件的 <code>modelModifiers</code> prop 包含了 <code>capitalize</code> 且其值为 <code>true</code>，因为它在模板中的 <code>v-model</code> 绑定上被使用了。</p>
+<p>此时和 prop 相关的已经准备完毕，我们可以开始检索 <code>modelModifiers</code> 对象的 key 并写一个处理函数来改变抛出事件附带的值。在下面的代码里我们就是在每次 <code>&lt;input/&gt;</code> 元素抛出 <code>input</code> 事件时执行大写首字母：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup&gt;<br>const props = defineProps(&#123;<br>  modelValue: String,<br>  modelModifiers: &#123; default: () =&gt; (&#123;&#125;) &#125;<br>&#125;)<br><br>const emit = defineEmits([&#x27;update:modelValue&#x27;])<br><br>function emitValue(e) &#123;<br>  let value = e.target.value<br>  if (props.modelModifiers.capitalize) &#123;<br>    value = value.charAt(0).toUpperCase() + value.slice(1)<br>  &#125;<br>  emit(&#x27;update:modelValue&#x27;, value)<br>&#125;<br>&lt;/script&gt;<br><br>&lt;template&gt;<br>  &lt;input type=&quot;text&quot; :value=&quot;modelValue&quot; @input=&quot;emitValue&quot; /&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+
+<p>对于又有参数又有修饰符的 <code>v-model</code> 绑定，生成的 prop 名将是 <code>arg + &quot;Modifiers&quot;</code>。举个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;MyComponent v-model:title.capitalize=&quot;myText&quot;&gt;<br></code></pre></td></tr></table></figure>
+
+<p>则相应的声明应该是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vue">const props = defineProps([&#x27;title&#x27;, &#x27;titleModifiers&#x27;])<br>defineEmits([&#x27;update:title&#x27;])<br><br>console.log(props.titleModifiers) // &#123; capitalize: true &#125;<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/npm/">npm</a>
-                    
-                      <a class="hover-with-bg" href="/tags/node/">node</a>
-                    
-                  </div>
                 
               </div>
               
@@ -315,9 +315,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/05/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                      <a href="/2022/05/02/vue3%E5%AD%A6%E4%B9%A0/Day01/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">面试题</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -325,8 +325,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/05/Anaconda/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-                        <span class="hidden-mobile">Anaconda环境配置/基本操作</span>
+                      <a href="/2022/04/26/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                        <span class="hidden-mobile">SSH 三步解决免密登录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
