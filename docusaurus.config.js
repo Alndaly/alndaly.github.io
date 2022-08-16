@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
 	title: 'Kinda',
 	tagline: 'Kinda的个人网站',
-	url: 'https://your-docusaurus-test-site.com',
+	url: 'https://kinda.com',
 	baseUrl: '/',
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
@@ -57,6 +57,7 @@ const config = {
 		/** @type {import('@docusaurus/preset-classic').ThemeConfig} */
 		({
 			navbar: {
+				hideOnScroll: true,
 				title: 'Kinda',
 				// logo: {
 				// 	alt: 'My Site Logo',
@@ -64,7 +65,7 @@ const config = {
 				// },
 				items: [
 					{
-						to: '/docs',
+						to: '/docs/',
 						label: '文档',
 						position: 'left',
 					},

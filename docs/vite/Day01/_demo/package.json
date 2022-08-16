@@ -1,0 +1,13 @@
+{
+  "name": "vite-learn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "vite": "^3.0.8"
+  }
+}
