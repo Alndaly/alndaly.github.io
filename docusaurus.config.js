@@ -56,6 +56,11 @@ const config = {
 	themeConfig:
 		/** @type {import('@docusaurus/preset-classic').ThemeConfig} */
 		({
+			docs: {
+				sidebar: {
+					hideable: true,
+				},
+			},
 			navbar: {
 				hideOnScroll: true,
 				title: 'Kinda',
@@ -69,7 +74,7 @@ const config = {
 						label: '文档',
 						position: 'left',
 					},
-					{ to: '/blog', label: '博客', position: 'left',},
+					{ to: '/blog', label: '博客', position: 'left' },
 					{
 						href: 'https://github.com/facebook/docusaurus',
 						label: 'GitHub',
