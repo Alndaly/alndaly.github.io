@@ -59,7 +59,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"alndaly.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":3386895327,"gtag":"G-0Q63MSHL4Z","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -68,6 +68,47 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
+          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+          ga.l = +new Date;
+          ga('create', '3386895327', 'auto');
+          ga('send', 'pageview');
+        });
+      }
+    </script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript('https://www.googletagmanager.com/gtag/js?id=G-0Q63MSHL4Z', function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-0Q63MSHL4Z');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
 
   
 <!-- hexo injector head_end start -->
@@ -243,9 +284,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/04/05/%E9%9A%8F%E7%AC%94/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E8%87%AA%E5%AA%92%E4%BD%93/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/05/%E9%9A%8F%E7%AC%94/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E8%87%AA%E5%AA%92%E4%BD%93/" target="_self">
         <div>
-          
           互联网时代下，你真的看清自己了吗？
         </div>
       </a>
@@ -304,9 +345,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/04/05/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/Hexo/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/05/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/Hexo/" target="_self">
         <div>
-          
           Github Actions 可以很方便实现 CI&#x2F;CD 工作流，类似 Travis 的用法，来帮我们完成一些工作，比如实现自动化测试、打包、部署等操作。当我们运行 Jobs 时，它会创建一个容器 (runner)，容器支持：Ubuntu、Windows 和 MacOS 等系统，在容器中我们可以安装软件，利用安装的软件帮我们处理一些数据，然后把处理好的数据推送到某个地方。
         </div>
       </a>
@@ -369,9 +410,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/04/05/Webpack%E5%AD%A6%E4%B9%A0/Day01/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/05/Webpack%E5%AD%A6%E4%B9%A0/Day01/" target="_self">
         <div>
-          
           前端打包工具Webpack学习第一天
         </div>
       </a>
@@ -432,9 +473,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/04/05/%E9%9D%A2%E8%AF%95/TCP/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/05/%E9%9D%A2%E8%AF%95/TCP/" target="_self">
         <div>
-          
           TCP面试常问
         </div>
       </a>
@@ -495,9 +536,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/04/05/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/05/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98/" target="_self">
         <div>
-          
           面试常问
         </div>
       </a>
@@ -556,9 +597,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/04/05/NPM/NPM%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/05/NPM/NPM%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" target="_self">
         <div>
-          
           NPM的一些基本操作
         </div>
       </a>
@@ -619,9 +660,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/04/05/Anaconda/Pip/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/05/Anaconda/Pip/" target="_self">
         <div>
-          
           Python Pip自己的包上传
         </div>
       </a>
@@ -682,9 +723,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/04/05/Anaconda/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/05/Anaconda/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" target="_self">
         <div>
-          
           Python Anaconda 虚拟环境相关文档
         </div>
       </a>
@@ -745,9 +786,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/04/05/Git/Git/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/05/Git/Git/" target="_self">
         <div>
-          
           Git相关文档
         </div>
       </a>
@@ -806,9 +847,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/04/05/Git/forking%20workflow/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/05/Git/forking%20workflow/" target="_self">
         <div>
-          
           Git相关文档
         </div>
       </a>
@@ -954,47 +995,6 @@
       
     })(window, document);
   </script>
-
-
-
-
-  
-
-  
-    <!-- Google Analytics -->
-    <script defer>
-      if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript('https://www.google-analytics.com/analytics.js', function() {
-          window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
-          ga.l = +new Date;
-          ga('create', '3386895327', 'auto');
-          ga('send', 'pageview');
-        });
-      }
-    </script>
-  
-
-  
-    <!-- Google gtag.js -->
-    <script defer>
-      if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript('https://www.googletagmanager.com/gtag/js?id=G-0Q63MSHL4Z', function() {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-0Q63MSHL4Z');
-        });
-      }
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
 
 
 
