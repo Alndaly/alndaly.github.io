@@ -1,0 +1,26 @@
+{
+  "unversionedId": "Github/Actions",
+  "id": "Github/Actions",
+  "title": "Github Actions自动化部署",
+  "description": "频繁的手动进行yarn build，连接服务器，部署项目过于麻烦，Github提供的Actions可以很好的进行这一部署过程的自动化。",
+  "source": "@site/docs/Github/Actions.md",
+  "sourceDirName": "Github",
+  "slug": "/Github/Actions",
+  "permalink": "/docs/Github/Actions",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Github/Actions.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Github Actions自动化部署"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Curl命令使用",
+    "permalink": "/docs/Curl"
+  },
+  "next": {
+    "title": "Nginx相关",
+    "permalink": "/docs/Nginx"
+  }
+}

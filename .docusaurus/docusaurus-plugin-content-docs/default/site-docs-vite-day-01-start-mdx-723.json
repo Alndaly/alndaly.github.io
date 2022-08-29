@@ -1,0 +1,26 @@
+{
+  "unversionedId": "Vite/Day01/start",
+  "id": "Vite/Day01/start",
+  "title": "Vite基础",
+  "description": "loadEnv",
+  "source": "@site/docs/Vite/Day01/start.mdx",
+  "sourceDirName": "Vite/Day01",
+  "slug": "/Vite/Day01/start",
+  "permalink": "/docs/Vite/Day01/start",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Vite/Day01/start.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Vite基础"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "第一天",
+    "permalink": "/docs/category/第一天"
+  },
+  "next": {
+    "title": "Vim学习文档",
+    "permalink": "/docs/category/vim学习文档"
+  }
+}

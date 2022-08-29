@@ -1,0 +1,16 @@
+{
+  "title": "Shell学习文档",
+  "description": "Shell相关的学习文档",
+  "slug": "/category/shell学习文档",
+  "permalink": "/docs/category/shell学习文档",
+  "navigation": {
+    "previous": {
+      "title": "Vim Rumtime",
+      "permalink": "/docs/Vim/ch24_vim_runtime"
+    },
+    "next": {
+      "title": "conda系列操作",
+      "permalink": "/docs/Shell/conda"
+    }
+  }
+}

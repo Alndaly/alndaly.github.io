@@ -1,0 +1,50 @@
+{
+  "unversionedId": "Vim/ch18_git",
+  "id": "Vim/ch18_git",
+  "title": "Git",
+  "description": "VIM相关文档",
+  "source": "@site/docs/Vim/ch18_git.md",
+  "sourceDirName": "Vim",
+  "slug": "/Vim/ch18_git",
+  "permalink": "/docs/Vim/ch18_git",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Vim/ch18_git.md",
+  "tags": [
+    {
+      "label": "VIM",
+      "permalink": "/docs/tags/vim"
+    },
+    {
+      "label": "编辑器",
+      "permalink": "/docs/tags/编辑器"
+    },
+    {
+      "label": "git",
+      "permalink": "/docs/tags/git"
+    }
+  ],
+  "version": "current",
+  "frontMatter": {
+    "title": "Git",
+    "tags": [
+      "VIM",
+      "编辑器",
+      "git"
+    ],
+    "categories": [
+      [
+        "技术"
+      ]
+    ],
+    "description": "VIM相关文档"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "折叠",
+    "permalink": "/docs/Vim/ch17_fold"
+  },
+  "next": {
+    "title": "编译",
+    "permalink": "/docs/Vim/ch19_compile"
+  }
+}

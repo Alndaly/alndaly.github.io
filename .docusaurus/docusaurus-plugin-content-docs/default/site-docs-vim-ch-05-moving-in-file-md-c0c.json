@@ -1,0 +1,45 @@
+{
+  "unversionedId": "Vim/ch05_moving_in_file",
+  "id": "Vim/ch05_moving_in_file",
+  "title": "在文件中移动",
+  "description": "VIM相关文档",
+  "source": "@site/docs/Vim/ch05_moving_in_file.md",
+  "sourceDirName": "Vim",
+  "slug": "/Vim/ch05_moving_in_file",
+  "permalink": "/docs/Vim/ch05_moving_in_file",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Vim/ch05_moving_in_file.md",
+  "tags": [
+    {
+      "label": "VIM",
+      "permalink": "/docs/tags/vim"
+    },
+    {
+      "label": "编辑器",
+      "permalink": "/docs/tags/编辑器"
+    }
+  ],
+  "version": "current",
+  "frontMatter": {
+    "title": "在文件中移动",
+    "tags": [
+      "VIM",
+      "编辑器"
+    ],
+    "categories": [
+      [
+        "技术"
+      ]
+    ],
+    "description": "VIM相关文档"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "语法",
+    "permalink": "/docs/Vim/ch04_vim_grammar"
+  },
+  "next": {
+    "title": "输入模式",
+    "permalink": "/docs/Vim/ch06_insert_mode"
+  }
+}

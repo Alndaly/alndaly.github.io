@@ -1,0 +1,22 @@
+{
+  "unversionedId": "心理学/心理学",
+  "id": "心理学/心理学",
+  "title": "幸福",
+  "description": "我问了一个问题，这个问题，让我们把注意力放在了现实的某一个部分，进而忽视其他。",
+  "source": "@site/docs/心理学/心理学.md",
+  "sourceDirName": "心理学",
+  "slug": "/心理学/",
+  "permalink": "/docs/心理学/",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/心理学/心理学.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "幸福"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Nginx相关",
+    "permalink": "/docs/Nginx"
+  }
+}

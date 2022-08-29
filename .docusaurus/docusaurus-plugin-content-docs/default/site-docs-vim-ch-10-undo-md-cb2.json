@@ -1,0 +1,45 @@
+{
+  "unversionedId": "Vim/ch10_undo",
+  "id": "Vim/ch10_undo",
+  "title": "撤销",
+  "description": "VIM相关文档",
+  "source": "@site/docs/Vim/ch10_undo.md",
+  "sourceDirName": "Vim",
+  "slug": "/Vim/ch10_undo",
+  "permalink": "/docs/Vim/ch10_undo",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Vim/ch10_undo.md",
+  "tags": [
+    {
+      "label": "VIM",
+      "permalink": "/docs/tags/vim"
+    },
+    {
+      "label": "编辑器",
+      "permalink": "/docs/tags/编辑器"
+    }
+  ],
+  "version": "current",
+  "frontMatter": {
+    "title": "撤销",
+    "tags": [
+      "VIM",
+      "编辑器"
+    ],
+    "categories": [
+      [
+        "技术"
+      ]
+    ],
+    "description": "VIM相关文档"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "宏命令",
+    "permalink": "/docs/Vim/ch09_macros"
+  },
+  "next": {
+    "title": "可视模式",
+    "permalink": "/docs/Vim/ch11_visual_mode"
+  }
+}

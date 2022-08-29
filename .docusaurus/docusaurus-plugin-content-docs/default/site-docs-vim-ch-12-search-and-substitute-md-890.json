@@ -1,0 +1,45 @@
+{
+  "unversionedId": "Vim/ch12_search_and_substitute",
+  "id": "Vim/ch12_search_and_substitute",
+  "title": "搜索和替换",
+  "description": "VIM相关文档",
+  "source": "@site/docs/Vim/ch12_search_and_substitute.md",
+  "sourceDirName": "Vim",
+  "slug": "/Vim/ch12_search_and_substitute",
+  "permalink": "/docs/Vim/ch12_search_and_substitute",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Vim/ch12_search_and_substitute.md",
+  "tags": [
+    {
+      "label": "VIM",
+      "permalink": "/docs/tags/vim"
+    },
+    {
+      "label": "编辑器",
+      "permalink": "/docs/tags/编辑器"
+    }
+  ],
+  "version": "current",
+  "frontMatter": {
+    "title": "搜索和替换",
+    "tags": [
+      "VIM",
+      "编辑器"
+    ],
+    "categories": [
+      [
+        "技术"
+      ]
+    ],
+    "description": "VIM相关文档"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "可视模式",
+    "permalink": "/docs/Vim/ch11_visual_mode"
+  },
+  "next": {
+    "title": "全局命令",
+    "permalink": "/docs/Vim/ch13_the_global_command"
+  }
+}

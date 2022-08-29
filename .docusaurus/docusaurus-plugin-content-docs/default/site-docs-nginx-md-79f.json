@@ -1,0 +1,26 @@
+{
+  "unversionedId": "Nginx",
+  "id": "Nginx",
+  "title": "Nginx相关",
+  "description": "配置Nginx http自动跳转https",
+  "source": "@site/docs/Nginx.md",
+  "sourceDirName": ".",
+  "slug": "/Nginx",
+  "permalink": "/docs/Nginx",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Nginx.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Nginx相关"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Github Actions自动化部署",
+    "permalink": "/docs/Github/Actions"
+  },
+  "next": {
+    "title": "幸福",
+    "permalink": "/docs/心理学/"
+  }
+}

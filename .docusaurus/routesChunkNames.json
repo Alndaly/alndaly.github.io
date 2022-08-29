@@ -1,0 +1,285 @@
+{
+  "/__docusaurus/debug-767": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugbec-beb"
+    }
+  },
+  "/__docusaurus/debug/config-61d": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugbec-beb"
+    }
+  },
+  "/__docusaurus/debug/content-cad": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugbec-beb"
+    },
+    "allContent": "allContent---docusaurus-debug-content-246-9aa"
+  },
+  "/__docusaurus/debug/globalData-0bc": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugbec-beb"
+    }
+  },
+  "/__docusaurus/debug/metadata-2e1": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugbec-beb"
+    }
+  },
+  "/__docusaurus/debug/registry-8ed": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugbec-beb"
+    }
+  },
+  "/__docusaurus/debug/routes-022": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugbec-beb"
+    }
+  },
+  "/blog-de8": {
+    "__comp": "__comp---theme-blog-list-pagea-6-a-7ba",
+    "__context": {
+      "plugin": "plugin---blog-196-f75"
+    },
+    "sidebar": "sidebar---blog-814-8ac",
+    "items": [
+      {
+        "content": "content---bloga-6-f-0b6"
+      }
+    ],
+    "metadata": "metadata---blogb-2-b-df1"
+  },
+  "/blog/2022/08/19/-a3f": {
+    "__comp": "__comp---theme-blog-post-pageccc-cab",
+    "__context": {
+      "plugin": "plugin---blog-196-f75"
+    },
+    "sidebar": "sidebar---blog-814-8ac",
+    "content": "content---blog-2022-08-19-855-bd7"
+  },
+  "/blog/archive-18d": {
+    "__comp": "__comp---theme-blog-archive-page-9-e-4-1d8",
+    "__context": {
+      "plugin": "plugin---blog-196-f75"
+    },
+    "archive": "archive---blog-archiveb-2-f-393"
+  },
+  "/docs/tags-b22": {
+    "__comp": "__comp---theme-doc-tags-list-page-372-89e",
+    "__context": {
+      "plugin": "plugin---docs-tags-865-9c0"
+    },
+    "tags": "tags---docs-tags-559-5e5"
+  },
+  "/docs/tags/curl-71b": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__context": {
+      "plugin": "plugin---docs-tags-865-9c0"
+    },
+    "tag": "tag---docs-tags-curl-7-cf-67a"
+  },
+  "/docs/tags/git-b6b": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__context": {
+      "plugin": "plugin---docs-tags-865-9c0"
+    },
+    "tag": "tag---docs-tags-git-7-b-6-99f"
+  },
+  "/docs/tags/vim-bde": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__context": {
+      "plugin": "plugin---docs-tags-865-9c0"
+    },
+    "tag": "tag---docs-tags-vim-974-eff"
+  },
+  "/docs/tags/编辑器-40a": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__context": {
+      "plugin": "plugin---docs-tags-865-9c0"
+    },
+    "tag": "tag---docs-tags-编辑器dd-6-0dc"
+  },
+  "/markdown-page-103": {
+    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__context": {
+      "plugin": "plugin---markdown-pageae-8-449"
+    },
+    "content": "content---markdown-page-393-028"
+  },
+  "/docs-0e9": {
+    "__comp": "__comp---theme-doc-page-1-be-9be",
+    "__context": {
+      "plugin": "plugin---docs-tags-865-9c0"
+    },
+    "versionMetadata": "versionMetadata---docs-935-398"
+  },
+  "/docs/-a8c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-c-37-4d0"
+  },
+  "/docs/category/shell学习文档-e56": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-shell学习文档efc-b90"
+  },
+  "/docs/category/vim学习文档-cd2": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-vim学习文档ea-0-35e"
+  },
+  "/docs/category/vite学习文档-c6a": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-vite学习文档-70-c-5f7"
+  },
+  "/docs/category/第一天-413": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-第一天-232-8e0"
+  },
+  "/docs/Clash-0c3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-clashe-61-a3e"
+  },
+  "/docs/Curl-189": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-curl-2-fa-1c8"
+  },
+  "/docs/Github/Actions-b90": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-github-actionsd-23-4a2"
+  },
+  "/docs/Nginx-9eb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-nginx-79-f-e06"
+  },
+  "/docs/Shell/conda-0b4": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-shell-conda-173-58f"
+  },
+  "/docs/Shell/grep-d55": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-shell-grep-579-db6"
+  },
+  "/docs/Shell/sed-51a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-shell-sed-87-d-f21"
+  },
+  "/docs/Vim/ch00_read_this_first-0ee": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-00-read-this-first-288-2a3"
+  },
+  "/docs/Vim/ch01_starting_vim-fe2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-01-starting-vim-6-bf-df3"
+  },
+  "/docs/Vim/ch02_buffers_windows_tabs-b05": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-02-buffers-windows-tabsc-19-65c"
+  },
+  "/docs/Vim/ch03_searching_files-19b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-03-searching-files-3-bb-ab0"
+  },
+  "/docs/Vim/ch04_vim_grammar-421": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-04-vim-grammar-5-b-7-1df"
+  },
+  "/docs/Vim/ch05_moving_in_file-8ca": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-05-moving-in-filec-0-c-929"
+  },
+  "/docs/Vim/ch06_insert_mode-639": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-06-insert-mode-1-cb-59b"
+  },
+  "/docs/Vim/ch07_the_dot_command-101": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-07-the-dot-commandd-41-574"
+  },
+  "/docs/Vim/ch08_registers-424": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-08-registersa-78-8f7"
+  },
+  "/docs/Vim/ch09_macros-2eb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-09-macrosa-85-cd8"
+  },
+  "/docs/Vim/ch10_undo-d2c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-10-undocb-2-fd5"
+  },
+  "/docs/Vim/ch11_visual_mode-932": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-11-visual-mode-988-f8d"
+  },
+  "/docs/Vim/ch12_search_and_substitute-f95": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-12-search-and-substitute-890-2a4"
+  },
+  "/docs/Vim/ch13_the_global_command-8fd": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-13-the-global-commandd-76-9ee"
+  },
+  "/docs/Vim/ch14_external_commands-1bd": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-14-external-commands-1-f-0-abd"
+  },
+  "/docs/Vim/ch15_command-line_mode-c37": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-15-command-line-mode-00-d-1af"
+  },
+  "/docs/Vim/ch16_tags-fa8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-16-tagsdd-6-976"
+  },
+  "/docs/Vim/ch17_fold-c21": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-17-fold-875-92e"
+  },
+  "/docs/Vim/ch18_git-de9": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-18-git-009-e41"
+  },
+  "/docs/Vim/ch19_compile-a9c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-19-compile-3-e-4-f67"
+  },
+  "/docs/Vim/ch20_views_sessions_viminfo-aba": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-20-views-sessions-viminfo-0-d-6-54d"
+  },
+  "/docs/Vim/ch21_multiple_file_operations-2fd": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-21-multiple-file-operationsa-7-c-efc"
+  },
+  "/docs/Vim/ch22_vimrc-3f7": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-22-vimrcaef-46a"
+  },
+  "/docs/Vim/ch23_vim_packages-8cf": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-23-vim-packages-8-dc-7c7"
+  },
+  "/docs/Vim/ch24_vim_runtime-2f4": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vim-ch-24-vim-runtimeaec-be8"
+  },
+  "/docs/Vite/Day01/start-3ca": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vite-day-01-start-723-536"
+  },
+  "/docs/心理学/-872": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-心理学-05-a-86d"
+  },
+  "/-ca2": {
+    "__comp": "__comp---site-src-pages-index-tsx-1-df-d3e",
+    "__context": {
+      "plugin": "plugin---markdown-pageae-8-449"
+    },
+    "config": "config---5-e-9-4f3"
+  }
+}

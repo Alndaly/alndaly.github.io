@@ -1,0 +1,26 @@
+{
+  "unversionedId": "Shell/grep",
+  "id": "Shell/grep",
+  "title": "使用 grep 查找所有包含指定文本的文件",
+  "description": "- 目标：本文提供一些关于如何搜索出指定目录或整个文件系统中那些包含指定单词或字符串的文件。",
+  "source": "@site/docs/Shell/grep.md",
+  "sourceDirName": "Shell",
+  "slug": "/Shell/grep",
+  "permalink": "/docs/Shell/grep",
+  "draft": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/Shell/grep.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "使用 grep 查找所有包含指定文本的文件"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "conda系列操作",
+    "permalink": "/docs/Shell/conda"
+  },
+  "next": {
+    "title": "Linux之sed命令详解",
+    "permalink": "/docs/Shell/sed"
+  }
+}
