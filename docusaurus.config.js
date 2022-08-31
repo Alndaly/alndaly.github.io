@@ -56,6 +56,13 @@ const config = {
 	themeConfig:
 		/** @type {import('@docusaurus/preset-classic').ThemeConfig} */
 		({
+			liveCodeBlock: {
+				/**
+				 * The position of the live playground, above or under the editor
+				 * Possible values: "top" | "bottom"
+				 */
+				playgroundPosition: 'bottom',
+			},
 			docs: {
 				sidebar: {
 					hideable: true,
@@ -106,7 +113,7 @@ const config = {
 				darkTheme: darkCodeTheme,
 			},
 		}),
-	themes: ['@docusaurus/theme-live-codeblock'],
+	plugins: ['@docusaurus/theme-live-codeblock'],
 };
 
 module.exports = config;
