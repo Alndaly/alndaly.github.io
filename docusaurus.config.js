@@ -69,7 +69,7 @@ const config = {
 				},
 			},
 			navbar: {
-				hideOnScroll: true,
+				// hideOnScroll: true,
 				title: 'Kinda',
 				// logo: {
 				// 	alt: 'My Site Logo',
