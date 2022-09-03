@@ -6,9 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-	title: 'Kinda',
+	title: 'LUCKY达',
 	tagline: 'Kinda的个人网站',
-	url: 'https://kinda.com',
+	url: 'https://alnda.cn',
 	baseUrl: '/',
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
@@ -99,7 +99,7 @@ const config = {
 						],
 					},
 				],
-				copyright: `Copyright © ${new Date().getFullYear()} Kinda, Inc.`,
+				copyright: `Copyright © ${new Date().getFullYear()} Kinda. <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2020037204号-2</a> <img src="/img/police.png""/> <a href='http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33011002015700' target='_blank'>浙公网安备 33011002015700号</a>`,
 			},
 			prism: {
 				theme: lightCodeTheme,
