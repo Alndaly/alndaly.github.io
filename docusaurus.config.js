@@ -47,7 +47,7 @@ const config = {
 						'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
 				},
 				theme: {
-					customCss: require.resolve('./src/css/custom.css'),
+					customCss: require.resolve('./src/css/custom.scss'),
 				},
 			}),
 		],
@@ -69,7 +69,7 @@ const config = {
 				},
 			},
 			navbar: {
-				// hideOnScroll: true,
+				hideOnScroll: true,
 				title: 'Kinda',
 				// logo: {
 				// 	alt: 'My Site Logo',
@@ -113,7 +113,7 @@ const config = {
 				darkTheme: darkCodeTheme,
 			},
 		}),
-	plugins: ['@docusaurus/theme-live-codeblock'],
+	plugins: ['@docusaurus/theme-live-codeblock', 'docusaurus-plugin-sass'],
 };
 
 module.exports = config;

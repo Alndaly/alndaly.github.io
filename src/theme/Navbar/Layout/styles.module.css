@@ -6,6 +6,8 @@
 	transform: translate3d(0, calc(-100% - 2px), 0);
 }
 
-.transparencyNavBar {
-	background: none;
+.unTransparencyNavBar {
+	background: rgba(47,65,84,0.7);
+	backdrop-filter: blur(4px);
+	height: 3.5rem;
 }

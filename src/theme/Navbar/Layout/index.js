@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
+import { useLocation } from 'react-router';
 import { useThemeConfig } from '@docusaurus/theme-common';
 import { throttle } from 'lodash';
 import {
@@ -25,25 +26,31 @@ export default function NavbarLayout({ children }) {
 	const showTop = () => {
 		var scrollTop =
 			document.body.scrollTop || document.documentElement.scrollTop;
-		if (scrollTop <= 100) {
+		if (scrollTop >= 100) {
 			// 如果接近于顶部，则NavBar变透明
-			setNavBarTransparency(true);
-			return
+			setNavBarUnTransparency(true);
+			return;
 		}
-		setNavBarTransparency(false)
+		setNavBarUnTransparency(false);
 	};
 	window.onscroll = throttle(showTop, 200);
 	const mobileSidebar = useNavbarMobileSidebar();
-	const [navBarTransparency, setNavBarTransparency] = useState(true);
+	const [navBarUnTransparency, setNavBarUnTransparency] = useState(false);
+	const [currentPath, setCurrentPath] = useState('/');
 	const { navbarRef, isNavbarVisible } = useHideableNavbar(hideOnScroll);
+	const path = useLocation().pathname;
+	useEffect(() => {
+		setCurrentPath(path);
+	}, []);
+
 	return (
 		<nav
 			ref={navbarRef}
 			className={clsx(
 				'navbar',
 				'navbar--fixed-top',
-				navBarTransparency && styles.transparencyNavBar,
-				hideOnScroll && [
+				navBarUnTransparency && styles.unTransparencyNavBar,
+				hideOnScroll && currentPath !=='/' && [
 					styles.navbarHideable,
 					!isNavbarVisible && styles.navbarHidden,
 				],
