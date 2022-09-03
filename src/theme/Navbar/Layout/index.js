@@ -26,14 +26,14 @@ export default function NavbarLayout({ children }) {
 	const showTop = () => {
 		var scrollTop =
 			document.body.scrollTop || document.documentElement.scrollTop;
-		if (scrollTop >= 100) {
+		if (scrollTop >= 50) {
 			// 如果接近于顶部，则NavBar变透明
 			setNavBarUnTransparency(true);
 			return;
 		}
 		setNavBarUnTransparency(false);
 	};
-	window.onscroll = throttle(showTop, 200);
+	window.onscroll = throttle(showTop, 100);
 	const mobileSidebar = useNavbarMobileSidebar();
 	const [navBarUnTransparency, setNavBarUnTransparency] = useState(false);
 	const [currentPath, setCurrentPath] = useState('/');
@@ -49,7 +49,7 @@ export default function NavbarLayout({ children }) {
 			className={clsx(
 				'navbar',
 				'navbar--fixed-top',
-				navBarUnTransparency && styles.unTransparencyNavBar,
+				navBarUnTransparency && currentPath ==='/' && styles.unTransparencyNavBar,
 				hideOnScroll && currentPath !=='/' && [
 					styles.navbarHideable,
 					!isNavbarVisible && styles.navbarHidden,
