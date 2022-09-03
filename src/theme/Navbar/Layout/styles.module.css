@@ -6,16 +6,6 @@
 	transform: translate3d(0, calc(-100% - 2px), 0);
 }
 
-.navbarColorChangable {
-	position: fixed;
-	width: 100%;
+.transparencyNavBar {
 	background: none;
-  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .5s;
-	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-	-webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%),
-		0 2px 10px 0 rgb(0 0 0 / 12%);
-}
-
-.unNavbarTranspanced{
-  background: aqua!important;
 }

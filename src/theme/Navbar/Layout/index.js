@@ -25,14 +25,16 @@ export default function NavbarLayout({ children }) {
 	const showTop = () => {
 		var scrollTop =
 			document.body.scrollTop || document.documentElement.scrollTop;
-		setNavBarTranspance(false);
-		// if (scrollTop <= 100) {
-		// 	setNavBarTranspance(true);
-		// }
+		if (scrollTop <= 100) {
+			// 如果接近于顶部，则NavBar变透明
+			setNavBarTransparency(true);
+			return
+		}
+		setNavBarTransparency(false)
 	};
 	window.onscroll = throttle(showTop, 200);
 	const mobileSidebar = useNavbarMobileSidebar();
-	const [navBarTranspance, setNavBarTranspance] = useState(false);
+	const [navBarTransparency, setNavBarTransparency] = useState(true);
 	const { navbarRef, isNavbarVisible } = useHideableNavbar(hideOnScroll);
 	return (
 		<nav
@@ -40,6 +42,7 @@ export default function NavbarLayout({ children }) {
 			className={clsx(
 				'navbar',
 				'navbar--fixed-top',
+				navBarTransparency && styles.transparencyNavBar,
 				hideOnScroll && [
 					styles.navbarHideable,
 					!isNavbarVisible && styles.navbarHidden,
