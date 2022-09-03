@@ -6,9 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-	title: 'LUCKY达',
+	title: '陌上见花开',
 	tagline: 'Kinda的个人网站',
-	url: 'https://alnda.cn',
+	url: 'https://kinda.info',
 	baseUrl: '/',
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
@@ -56,13 +56,20 @@ const config = {
 	themeConfig:
 		/** @type {import('@docusaurus/preset-classic').ThemeConfig} */
 		({
+			liveCodeBlock: {
+				/**
+				 * The position of the live playground, above or under the editor
+				 * Possible values: "top" | "bottom"
+				 */
+				playgroundPosition: 'bottom',
+			},
 			docs: {
 				sidebar: {
 					hideable: true,
 				},
 			},
 			navbar: {
-				hideOnScroll: true,
+				// hideOnScroll: true,
 				title: 'Kinda',
 				// logo: {
 				// 	alt: 'My Site Logo',
@@ -106,6 +113,7 @@ const config = {
 				darkTheme: darkCodeTheme,
 			},
 		}),
+	plugins: ['@docusaurus/theme-live-codeblock'],
 };
 
 module.exports = config;
