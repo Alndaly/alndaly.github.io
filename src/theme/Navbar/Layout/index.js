@@ -49,11 +49,18 @@ export default function NavbarLayout({ children }) {
 			className={clsx(
 				'navbar',
 				'navbar--fixed-top',
-				navBarUnTransparency && currentPath ==='/' && styles.unTransparencyNavBar,
-				hideOnScroll && currentPath !=='/' && [
-					styles.navbarHideable,
-					!isNavbarVisible && styles.navbarHidden,
-				],
+				styles.commonNavBar,
+				currentPath === '/'
+					? navBarUnTransparency
+						? styles.unTransparencyNavBar
+						: styles.transparencyNavBar
+					: styles.unTransparencyNavBar,
+				hideOnScroll &&
+					currentPath !== '/' &&
+					[
+						styles.navbarHideable,
+						!isNavbarVisible && styles.navbarHidden,
+					],
 				{
 					'navbar--dark': style === 'dark',
 					'navbar--primary': style === 'primary',
