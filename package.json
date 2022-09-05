@@ -14,8 +14,8 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "push": "standard-version && git push --follow-tags origin develop",
-    "commit": "git cz"
+    "commit": "git cz",
+    "push": "git push --follow-tags origin develop"
   },
   "dependencies": {
     "@docusaurus/core": "^2.1.0",
