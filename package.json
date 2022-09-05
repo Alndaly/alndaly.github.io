@@ -52,6 +52,7 @@
     "@tsconfig/docusaurus": "^1.0.5",
     "commitlint-config-cz": "^0.13.3",
     "cz-customizable": "^7.0.0",
+    "git-cz": "^4.9.0",
     "install": "^0.13.0",
     "lint-staged": "^13.0.3",
     "standard-version": "^9.5.0",
@@ -71,5 +72,10 @@
   },
   "engines": {
     "node": ">=16.14"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
   }
 }
