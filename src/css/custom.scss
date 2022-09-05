@@ -6,6 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
+	--ifm-navbar-link-color: black;
 	--ifm-code-border-radius: 3px;
 	--ifm-code-background: rgba(175, 184, 193, 0.2);
 	--ifm-navbar-link-hover-color: #bbb;
@@ -21,6 +22,11 @@
 	--ifm-color-primary-lightest: #3cad6e;
 	--ifm-code-font-size: 95%;
 	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+	@media screen and (max-width: 996px) {
+		.navbar-sidebar__brand > .navbar__brand > .navbar__title {
+			color: black;
+		}
+	}
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -38,10 +44,15 @@
 	--ifm-color-primary-lighter: #32d8b4;
 	--ifm-color-primary-lightest: #4fddbf;
 	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+	@media screen and (max-width: 996px) {
+		.navbar-sidebar__brand > .navbar__brand > .navbar__title {
+			color: white;
+		}
+	}
 }
 
 .hero {
-	background: url("https://cdn.jsdelivr.net/gh/Alndaly/imgsrc/img/202204050049465.jpeg") no-repeat center center;
+	background: url("../../static/img/background.jpeg") no-repeat center center;
 	height: 100vh;
 	width: 100vw;
 	background-size: cover;
@@ -108,6 +119,16 @@
 	color: #fff;
 }
 
+.navbar__items > button > svg {
+	color: #fff;
+}
+
 .container {
 	margin-top: 3.5rem;
+}
+
+@media screen and (max-width: 996px) {
+	.main-wrapper > .heroBanner_src-pages-index-module {
+		padding: 0rem;
+	}
 }
