@@ -10,7 +10,7 @@ const config = {
 	customFields: {
 		// 注意benAnField会直接当作html渲染 所以此处一定要注意xss攻击的安全性
 		benAnFields: {
-			beiAnId: '浙ICP备2020037204号-2',
+			beiAnId: '浙ICP备2020037204号-3',
 			policeImg: '/img/police.png',
 			wangAnId: '浙公网安备 33011002015700号',
 			recordCode: '33011002015700',
