@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/Alndaly/alndaly.github.io/compare/v0.0.2...v0.0.3) (2022-09-05)
+
+
+### Features
+
+* 优化首页图片体积 ([3dde399](https://github.com/Alndaly/alndaly.github.io/commit/3dde3997708b3e32dc815b69c9ce0bbe517ecced))
+* 完善移动端样式 ([114c9a0](https://github.com/Alndaly/alndaly.github.io/commit/114c9a0f4a6c910f395cc07682b91dffdf645a2b))
+
 ### [0.0.2](https://github.com/Alndaly/alndaly.github.io/compare/v0.0.1...v0.0.2) (2022-09-05)
 
 
