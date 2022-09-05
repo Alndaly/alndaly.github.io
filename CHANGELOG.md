@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/Alndaly/alndaly.github.io/compare/v0.0.1...v0.0.2) (2022-09-05)
+
+
+### Features
+
+* 美化部分样式，增加搜索组件，底部适配国内备案 ([a3e3005](https://github.com/Alndaly/alndaly.github.io/commit/a3e300501443937cf545f0f48653585a53998fc5))
+
 ### 0.0.1 (2022-09-05)
 
 
