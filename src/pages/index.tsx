@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { getYiYan } from '../services/home'
+import useIsBrowser from '@docusaurus/useIsBrowser';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { to } from '../common'
 import clsx from 'clsx';
 import Typed from 'typed.js';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  // const { siteConfig } = useDocusaurusContext();
   // const [tagline, setTagLine] = useState('')
   const onGetYiYan = async () => {
     const [res, err] = await to(getYiYan())

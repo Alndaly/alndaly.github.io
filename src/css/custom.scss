@@ -6,6 +6,8 @@
 
 /* You can override the default Infima variables here. */
 :root {
+	--ifm-code-border-radius: 3px;
+	--ifm-code-background: rgba(175, 184, 193, 0.2);
 	--ifm-navbar-link-hover-color: #bbb;
 	--ifm-navbar-height: 4rem;
 	--ifm-navbar-link-color: #fff;
@@ -23,6 +25,8 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
+	--ifm-code-border-radius: 3px;
+	--ifm-code-background: rgba(175, 184, 193, 0.2);
 	--ifm-navbar-height: 4rem;
 	--ifm-navbar-link-color: #d0d0d0;
 	--ifm-color-content-inverse: #d0d0d0;
@@ -73,13 +77,10 @@
 	border-bottom: 1px solid #eaecef;
 }
 
-.theme-doc-markdown code:not([class]) {
+.container code:not([class]) {
 	border: none;
 	padding: 0.2em 0.4em;
-	margin: 0;
-	font-size: 85%;
-	background-color: rgba(175, 184, 193, 0.2);
-	border-radius: 3px;
+	margin: 0 0.2em;
 }
 
 .hero__subtitle {
@@ -107,6 +108,6 @@
 	color: #fff;
 }
 
-.container{
+.container {
 	margin-top: 3.5rem;
 }

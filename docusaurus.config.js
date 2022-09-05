@@ -6,6 +6,31 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+	// 自定义字段
+	customFields: {
+		// 注意benAnField会直接当作html渲染 所以此处一定要注意xss攻击的安全性
+		benAnFields: {
+			beiAnId: '浙ICP备2020037204号-2',
+			policeImg: '/img/police.png',
+			wangAnId: '浙公网安备 33011002015700号',
+			recordCode: '33011002015700',
+		},
+	},
+	themes: [
+		// ... Your other themes.
+		// [
+		// 	require.resolve('@easyops-cn/docusaurus-search-local'),
+		// 	{
+		// 		// ... Your options.
+		// 		// `hashed` is recommended as long-term-cache of index file is possible.
+		// 		hashed: true,
+		// 		// For Docs using Chinese, The `language` is recommended to set to:
+		// 		// ```
+		// 		// language: ["en", "zh"],
+		// 		// ```
+		// 	},
+		// ],
+	],
 	title: '陌上见花开',
 	tagline: 'Kinda的个人网站',
 	url: 'https://kinda.info',
@@ -56,6 +81,29 @@ const config = {
 	themeConfig:
 		/** @type {import('@docusaurus/preset-classic').ThemeConfig} */
 		({
+			algolia: {
+				// The application ID provided by Algolia
+				appId: '2HQC3PTDZ8',
+
+				// Public API key: it is safe to commit it
+				apiKey: 'dc070f617070cfef49bb1c58359522b4',
+
+				indexName: 'kinda',
+
+				// Optional: see doc section below
+				contextualSearch: true,
+
+				// Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+				externalUrlRegex: 'external\\.com|domain\\.com',
+
+				// Optional: Algolia search parameters
+				searchParameters: {},
+
+				// Optional: path for search page that enabled by default (`false` to disable it)
+				searchPagePath: 'search',
+
+				//... other Algolia params
+			},
 			liveCodeBlock: {
 				/**
 				 * The position of the live playground, above or under the editor
@@ -106,7 +154,7 @@ const config = {
 						],
 					},
 				],
-				copyright: `Copyright © ${new Date().getFullYear()} Kinda. <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2020037204号-2</a> <img src="/img/police.png""/> <a href='http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33011002015700' target='_blank'>浙公网安备 33011002015700号</a>`,
+				copyright: `Copyright © ${new Date().getFullYear()} Kinda.`,
 			},
 			prism: {
 				theme: lightCodeTheme,

@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { useLocation } from 'react-router';
 import { useThemeConfig } from '@docusaurus/theme-common';
 import { throttle } from 'lodash';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 import {
 	useHideableNavbar,
 	useNavbarMobileSidebar,
@@ -33,7 +34,10 @@ export default function NavbarLayout({ children }) {
 		}
 		setNavBarUnTransparency(false);
 	};
-	window.onscroll = throttle(showTop, 100);
+	const isBrowser = useIsBrowser();
+	if(isBrowser){
+		window.onscroll = throttle(showTop, 100)
+	}
 	const mobileSidebar = useNavbarMobileSidebar();
 	const [navBarUnTransparency, setNavBarUnTransparency] = useState(false);
 	const [currentPath, setCurrentPath] = useState('/');
