@@ -123,15 +123,16 @@
 	color: #fff;
 }
 
-.container {
-	margin-top: 3.5rem;
+.main-wrapper .container {
+	margin-top: 3.5rem!important;
 }
 
 @media screen and (max-width: 996px) {
 	.main-wrapper > .heroBanner_src-pages-index-module {
 		padding: 0rem;
 	}
-	.heroBanner_qdFl, .main-wrapper>.heroBanner_qdFl {
+	.heroBanner_qdFl,
+	.main-wrapper > .heroBanner_qdFl {
 		padding: 0rem;
 	}
 }
