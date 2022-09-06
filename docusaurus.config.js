@@ -6,6 +6,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+	stylesheets: [
+		{
+			href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap',
+		},
+		{
+			href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
+		},
+	],
 	// 自定义字段
 	customFields: {
 		// 注意benAnField会直接当作html渲染 所以此处一定要注意xss攻击的安全性
@@ -26,7 +34,7 @@ const config = {
 				hashed: true,
 				// For Docs using Chinese, The `language` is recommended to set to:
 				// ```
-				language: ["en", "zh"],
+				language: ['en', 'zh'],
 				// ```
 			},
 		],
@@ -62,14 +70,14 @@ const config = {
 					// Please change this to your repo.
 					// Remove this to remove the "edit this page" links.
 					editUrl:
-						'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+						'https://github.com/alndaly/alndaly.github.io/edit/docusaurus',
 				},
 				blog: {
 					showReadingTime: true,
 					// Please change this to your repo.
 					// Remove this to remove the "edit this page" links.
 					editUrl:
-						'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+						'https://github.com/alndaly/alndaly.github.io/edit/docusaurus',
 				},
 				theme: {
 					customCss: require.resolve('./src/css/custom.scss'),
@@ -131,7 +139,7 @@ const config = {
 					},
 					{ to: '/blog', label: '博客', position: 'left' },
 					{
-						href: 'https://github.com/facebook/docusaurus',
+						href: 'https://github.com/alndaly/alndaly.github.io/tree/docusaurus',
 						label: 'GitHub',
 						position: 'right',
 					},
@@ -149,7 +157,7 @@ const config = {
 							},
 							{
 								label: 'GitHub',
-								href: 'https://github.com/facebook/docusaurus',
+								href: 'https://github.com/alndaly/alndaly.github.io/tree/docusaurus',
 							},
 						],
 					},

@@ -27,6 +27,15 @@
 			color: black;
 		}
 	}
+	.theme-doc-markdown > .anchor {
+		padding-bottom: 0.3em;
+		border-bottom: 1px solid #eaecef;
+	}
+	
+	.theme-doc-markdown > header > h1 {
+		padding-bottom: 0.3em;
+		border-bottom: 1px solid #eaecef;
+	}
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -48,6 +57,15 @@
 		.navbar-sidebar__brand > .navbar__brand > .navbar__title {
 			color: white;
 		}
+	}
+	.theme-doc-markdown > .anchor {
+		padding-bottom: 0.3em;
+		border-bottom: 1px solid #435266;
+	}
+	
+	.theme-doc-markdown > header > h1 {
+		padding-bottom: 0.3em;
+		border-bottom: 1px solid #435266;
 	}
 }
 
@@ -76,16 +94,6 @@
 	font-size: 2rem;
 	font-weight: 500;
 	line-height: 1.2;
-}
-
-.theme-doc-markdown > .anchor {
-	padding-bottom: 0.3em;
-	border-bottom: 1px solid #eaecef;
-}
-
-.theme-doc-markdown > header > h1 {
-	padding-bottom: 0.3em;
-	border-bottom: 1px solid #eaecef;
 }
 
 .container code:not([class]) {
