@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/Alndaly/alndaly.github.io/compare/v0.0.3...v0.0.4) (2022-09-08)
+
+
+### Features
+
+* 🎸 切换首页底部的功能栏 ([38a7876](https://github.com/Alndaly/alndaly.github.io/commit/38a78768cb253335e55fa246c7623d0435f3c89f))
+
 ### [0.0.3](https://github.com/Alndaly/alndaly.github.io/compare/v0.0.2...v0.0.3) (2022-09-05)
 
 
