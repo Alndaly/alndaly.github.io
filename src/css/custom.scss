@@ -26,6 +26,13 @@
 		.navbar-sidebar__brand > .navbar__brand > .navbar__title {
 			color: black;
 		}
+		.main-wrapper > .heroBanner_src-pages-index-module {
+			padding: 0rem;
+		}
+		.heroBanner_qdFl,
+		.main-wrapper > .heroBanner_qdFl {
+			padding: 0rem;
+		}
 	}
 	.theme-doc-markdown > .anchor {
 		padding-bottom: 0.3em;
@@ -56,6 +63,13 @@
 	@media screen and (max-width: 996px) {
 		.navbar-sidebar__brand > .navbar__brand > .navbar__title {
 			color: white;
+		}
+		.main-wrapper > .heroBanner_src-pages-index-module {
+			padding: 0rem;
+		}
+		.heroBanner_qdFl,
+		.main-wrapper > .heroBanner_qdFl {
+			padding: 0rem;
 		}
 	}
 	.theme-doc-markdown > .anchor {
@@ -133,14 +147,4 @@
 
 .main-wrapper .container {
 	margin-top: 3.5rem !important;
-}
-
-@media screen and (max-width: 996px) {
-	.main-wrapper > .heroBanner_src-pages-index-module {
-		padding: 0rem;
-	}
-	.heroBanner_qdFl,
-	.main-wrapper > .heroBanner_qdFl {
-		padding: 0rem;
-	}
 }
