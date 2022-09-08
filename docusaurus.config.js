@@ -133,8 +133,28 @@ const config = {
 				// },
 				items: [
 					{
-						to: '/docs/',
-						label: '文档',
+						to: '/docs/前端/',
+						label: '前端',
+						position: 'left',
+					},
+					{
+						to: '/docs/服务端/',
+						label: '服务端',
+						position: 'left',
+					},
+					{
+						to: '/docs/工具/',
+						label: '工具',
+						position: 'left',
+					},
+					{
+						to: '/docs/杂项/',
+						label: '杂项',
+						position: 'left',
+					},
+					{
+						to: '/docs/心理/',
+						label: '心理',
 						position: 'left',
 					},
 					{ to: '/blog', label: '博客', position: 'left' },

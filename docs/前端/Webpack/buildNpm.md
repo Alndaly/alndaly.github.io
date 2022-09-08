@@ -96,5 +96,5 @@ module.exports = {
 
 ## 加上一些commit规范
 
-[COMMIT规范](../Github/standard.md)
+[COMMIT规范](/docs/杂项/Github/standard.md)
 
