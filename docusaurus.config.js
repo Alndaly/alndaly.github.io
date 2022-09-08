@@ -21,7 +21,7 @@ const config = {
 			beiAnId: '浙ICP备2020037204号-3',
 			policeImg: '/img/police.png',
 			wangAnId: '浙公网安备 33011002016712号',
-			recordCode: '33011002015700',
+			recordCode: '33011002016712',
 		},
 	},
 	themes: [
