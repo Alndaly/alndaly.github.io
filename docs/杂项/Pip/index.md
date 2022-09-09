@@ -1,8 +1,7 @@
 ---
 title: Pip基本操作
 date: 2022-04-05 17:20:27
-tags:
-  - [python, pip]
+tags: [python, pip]
 description: Python Pip自己的包上传
 ---
 
