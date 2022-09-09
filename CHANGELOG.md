@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/Alndaly/alndaly.github.io/compare/v0.0.5...v0.0.6) (2022-09-09)
+
+
+### Bug Fixes
+
+* 🐛 修复打包时中文路径引用异常 ([14daf82](https://github.com/Alndaly/alndaly.github.io/commit/14daf82975faa418686dee3038367b3c8ab9d394))
+
 ### [0.0.5](https://github.com/Alndaly/alndaly.github.io/compare/v0.0.4...v0.0.5) (2022-09-08)
 
 ### [0.0.4](https://github.com/Alndaly/alndaly.github.io/compare/v0.0.3...v0.0.4) (2022-09-08)
