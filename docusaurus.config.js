@@ -143,6 +143,11 @@ const config = {
 						position: 'left',
 					},
 					{
+						to: '/docs/人工智能/',
+						label: '人工智能',
+						position: 'left',
+					},
+					{
 						to: '/docs/工具/',
 						label: '工具',
 						position: 'left',
@@ -185,6 +190,7 @@ const config = {
 				copyright: `Copyright © ${new Date().getFullYear()} Kinda.`,
 			},
 			prism: {
+				additionalLanguages: ['powershell'],
 				theme: lightCodeTheme,
 				darkTheme: darkCodeTheme,
 			},
