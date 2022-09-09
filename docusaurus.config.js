@@ -191,7 +191,7 @@ const config = {
 				copyright: `Copyright © ${new Date().getFullYear()} Kinda.`,
 			},
 			prism: {
-				additionalLanguages: ['powershell'],
+				additionalLanguages: ['powershell', 'swift'],
 				theme: lightCodeTheme,
 				darkTheme: darkCodeTheme,
 			},
