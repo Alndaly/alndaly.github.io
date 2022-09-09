@@ -71,6 +71,7 @@ const config = {
 					// Remove this to remove the "edit this page" links.
 					editUrl:
 						'https://github.com/alndaly/alndaly.github.io/edit/docusaurus',
+					showLastUpdateTime: true,
 				},
 				blog: {
 					showReadingTime: true,
