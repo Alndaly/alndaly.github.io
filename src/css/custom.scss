@@ -87,29 +87,26 @@
 	background: url("../../static/img/background.jpg") no-repeat center center;
 	height: 100vh;
 	background-size: cover;
+	&::after {
+		position: absolute;
+		z-index: 1;
+		content: "";
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+	& > .container {
+		z-index: 2;
+		width: 70%;
+		& > .typed-cursor {
+			font-size: 2rem;
+			font-weight: 500;
+			line-height: 1.2;
+		}
+	}
 }
 
-.hero::after {
-	position: absolute;
-	z-index: 1;
-	content: "";
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.3);
-}
-
-.hero > .container {
-	z-index: 2;
-	width: 70%;
-}
-
-.hero > .container > .typed-cursor {
-	font-size: 2rem;
-	font-weight: 500;
-	line-height: 1.2;
-}
-
-.container code:not([class]) {
+code:not([class]) {
 	border: none;
 	padding: 0.2em 0.4em;
 	margin: 0 0.2em;
@@ -134,6 +131,9 @@
 
 .main-wrapper {
 	min-height: 100vh;
+	.container{
+		margin-top: 3.5rem !important;
+	}
 }
 
 .navbar__items--right > div > button > svg {
@@ -142,10 +142,6 @@
 
 .navbar__items > button > svg {
 	color: #fff;
-}
-
-.main-wrapper .container {
-	margin-top: 3.5rem !important;
 }
 
 table {
