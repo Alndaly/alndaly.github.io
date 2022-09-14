@@ -35,6 +35,63 @@ curl [options] [URL...]
 4. ftp://aiezu.com/file[a-z].txt
 :::
 
+### 请求方法
+
+- `-X "POST/GET"`
+
+#### 范例
+
+```shell
+curl -X POST https://www.example.com
+```
+
+### POST请求
+
+:::tip
+使用`-d`参数以后，HTTP 请求会自动加上标头`Content-Type : application/x-www-form-urlencoded`。并且会自动将请求转为 `POST` 方法，因此可以省略`-X POST`。
+:::
+
+:::tip
+`--data-urlencode`参数等同于`-d`，发送 POST 请求的数据体，区别在于会自动将发送的数据进行 URL 编码。
+:::
+
+- `-d "string"`
+- `--data-urlencode "string"`
+
+#### 范例
+
+```shell
+curl -d 'login=emma＆password=123' -X POST https://google.com/login
+# 或者
+curl -d 'login=emma' -d 'password=123' -X POST  https://google.com/login
+```
+
+:::tip
+curl可以读取本地文本文件的数据发起post请求，具体范例如下
+:::
+
+```shell
+curl -d '@data.txt' https://google.com/login
+```
+
+发送的数据hello world之间有一个空格，需要进行 URL 编码。
+
+```shell
+curl --data-urlencode 'comment=hello world' https://google.com/login
+```
+
+### 文件上传
+
+- `-F 'file=@filePath;filename=fileName;type=type;'`
+
+#### 范例
+
+指定 `MIME` 类型为`image/png`，否则 `curl` 会把 MIME 类型设为`application/octet-stream`。
+
+```shell
+curl -F 'file=@photo.png;filename=me.png;type=image/png' https://google.com/profile
+```
+
 ### 请求头
 
 - `-H "name: value"`
@@ -57,6 +114,12 @@ curl [options] [URL...]
 - `--referer <URL>`
 
 设置访问时的来源页面，告诉http服务从哪个页面进入到此页面；
+
+#### 范例
+
+```shell
+curl -A 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36' https://google.com
+```
 
 ### 响应头
 
@@ -104,6 +167,24 @@ curl [options] [URL...]
 
 相当于重启浏览器；
 
+#### 范例
+
+```shell
+curl -b 'foo=bar' https://google.com
+```
+
+```shell
+curl -b 'foo1=bar;foo2=bar2' https://google.com
+```
+
+```shell
+curl -b cookies.txt https://www.google.com
+```
+
+```shell
+curl -c cookies.txt https://www.google.com
+```
+
 ### 代理
 
 - `-x host:port`
@@ -133,3 +214,66 @@ http_proxy、HTTPS_PROXY、socks4、socks4a、socks5；
 使用SOCKS5代理；
 
 此参数会覆盖“-x”参数；
+
+
+#### 范例
+
+```shell
+curl -x socks5://james:cats@myproxy.com:8080 https://www.example.com
+```
+
+```shell
+curl -x james:cats@myproxy.com:8080 https://www.example.com
+```
+
+### 跟随重定向
+
+#### 范例
+
+- `-L`
+
+```shell
+curl -L -d 'tweet=hi' https://api.twitter.com/tweet
+```
+
+### 调试
+
+- `-v`
+- `--trace`
+
+:::tip
+`--trace`参数也可以用于调试，还会输出原始的二进制数据。
+:::
+
+#### 范例
+
+```shell
+curl -v https://www.example.com
+```
+
+### 文件保存
+
+- `-o filaName`
+- `-O`
+
+:::tip
+`-O`参数将服务器回应保存成文件，并将 URL 的最后部分当作文件名。
+:::
+
+#### 范例
+
+```shell
+curl -o example.html https://www.example.com
+```
+
+```shell
+curl -O https://www.example.com/foo/bar.html
+```
+
+### 模拟网速
+
+- `--limit-rate`
+
+```shell
+curl --limit-rate 200k https://google.com
+```
