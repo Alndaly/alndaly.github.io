@@ -150,6 +150,11 @@ const config = {
 						position: 'left',
 					},
 					{
+						to: '/docs/摄影/',
+						label: '摄影',
+						position: 'left',
+					},
+					{
 						to: '/docs/服务端/',
 						label: '服务端',
 						position: 'left',
