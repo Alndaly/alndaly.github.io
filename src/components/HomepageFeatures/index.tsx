@@ -31,11 +31,21 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
   },
+  {
+    title: 'web画板',
+    path: 'https://kinda.info/excalidraw',
+    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    description: (
+      <>
+        在网站中简单绘画
+      </>
+    ),
+  },
 ];
 
 function Feature({ title, path, Svg, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--6')}>
+    <div className={clsx('col col--4')}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>

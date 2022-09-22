@@ -1,5 +1,5 @@
 ---
-title: 自己编写的开源`@kinda/utils`NPM包
+title: 自己编写的开源 @kinda/utils NPM包
 ---
 
 > github地址：https://github.com/Alndaly/kinda-utils.git
