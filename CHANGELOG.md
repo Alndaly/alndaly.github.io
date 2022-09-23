@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/Alndaly/alndaly.github.io/compare/v0.0.8...v0.0.9) (2022-09-23)
+
+
+### Features
+
+* 🎸 增加excalidraw入口 ([ad0d9aa](https://github.com/Alndaly/alndaly.github.io/commit/ad0d9aadf33fb52e2b7063474fce4dde83a132b0))
+
+
+### Bug Fixes
+
+* 🐛 修复部分latex的错误 ([8981ee7](https://github.com/Alndaly/alndaly.github.io/commit/8981ee736c07477379eef8c56b42e22a20682bd1))
+* 修复actions ([8978044](https://github.com/Alndaly/alndaly.github.io/commit/89780447e4b29f3313544ea6c37c66557ef023ea))
+
 ### [0.0.8](https://github.com/Alndaly/alndaly.github.io/compare/v0.0.7...v0.0.8) (2022-09-11)
 
 ### [0.0.7](https://github.com/Alndaly/alndaly.github.io/compare/v0.0.6...v0.0.7) (2022-09-09)
