@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkclassic=self.webpackChunkclassic||[]).push([[2898],{65990:a=>{a.exports=JSON.parse('{"label":"Django","permalink":"/docs/tags/django","allTagsPath":"/docs/tags","count":1,"items":[{"id":"backend/Django/base","title":"Django\u5feb\u901f\u642d\u5efa\u540e\u7aef","description":"Django\u540e\u7aef\u3002","permalink":"/docs/backend/Django/base"}]}')}}]);

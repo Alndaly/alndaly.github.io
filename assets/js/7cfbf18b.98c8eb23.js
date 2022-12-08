@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkclassic=self.webpackChunkclassic||[]).push([[8132],{26453:s=>{s.exports=JSON.parse('{"label":"curl","permalink":"/docs/tags/curl","allTagsPath":"/docs/tags","count":1,"items":[{"id":"others/Curl","title":"Curl\u547d\u4ee4\u4f7f\u7528","description":"Curl\u76f8\u5173\u6587\u6863","permalink":"/docs/others/Curl"}]}')}}]);
