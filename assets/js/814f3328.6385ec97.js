@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkclassic=self.webpackChunkclassic||[]).push([[2535],{45641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"\u516c\u53f8\u4f53\u5236","permalink":"/blog/company-institution"},{"title":"\u53d1\u5c55","permalink":"/blog/development"},{"title":"\u4e00\u4e9b\u601d\u8003","permalink":"/blog/thoughts-of-life"}]}')}}]);
