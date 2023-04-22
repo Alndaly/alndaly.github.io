@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kinda.info/blog</id>
     <title>陌上见花开 Blog</title>
-    <updated>2023-04-10T16:06:56.000Z</updated>
+    <updated>2023-04-22T09:07:09.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kinda.info/blog"/>
     <subtitle>陌上见花开 Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[公司体制]]></title>
         <id>https://kinda.info/blog/company-institution</id>
         <link href="https://kinda.info/blog/company-institution"/>
-        <updated>2023-04-10T16:06:56.000Z</updated>
+        <updated>2023-04-22T09:07:09.000Z</updated>
         <summary type="html"><![CDATA[企业对员工的管理不应该是管理他的时间，而应该是管理他的产出。]]></summary>
         <content type="html"><![CDATA[<blockquote><p>企业对员工的管理不应该是管理他的<strong>时间</strong>，而应该是管理他的<strong>产出</strong>。</p><p>并且这个管理，某种程度上是促进员工对<strong>自己时间</strong>的合理安排。</p></blockquote><p><strong>每个人的时间都是宝贵的，一个好的管理者一定是对员工的时间能够正向管理的人（双赢）。</strong></p><div class="theme-admonition theme-admonition-caution alert alert--warning admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>警告</div><div class="admonitionContent_S0QG"><p>如果员工本身比较<strong>喜欢卷</strong>，并且<strong>你的薪资不是很高</strong>，然后员工本身很想要赚钱，所以他会选择多找几分工作（因为你不需要他全天在你的公司），这种情况下，他会觉得你提供的这一份工作不仅工资不高，而且还会干扰他另外的工资高的工作，你提供的工作便会变的可有可无。</p><p>这种情况一定概率会导致对方放弃你的工作转而被别的公司挖走。</p><p><strong>解决这一问题的方案</strong></p><ul><li>自身公司有足够高的工资。</li><li>招收员工一定要看准对方的需求点，看中对方人品：<ul><li>不卷</li><li>侧重WLB</li><li>热爱生活</li><li>或许对方有家庭会更好？</li></ul></li></ul></div></div><h2 class="anchor anchorWithHideOnScrollNavbar_emO8" id="简单步骤">简单步骤<a class="hash-link" href="#简单步骤" title="{heading}的直接链接">​</a></h2><ol><li>迭代之前开一个总体会议，这个会议<strong>非常非常非常重要</strong>，这之前，管理层要切实计划好自己想表达的诉求和大致的一个时间排期。</li><li>各员工要根据自己的切实时间规划，合理说出自己较为精准的时间排期。</li><li>前端后端各自总负责人，花5-7天做好各自的系统架构，写出<strong>系分文档</strong>、<strong>接口文档</strong>。</li><li>各自的文档写完后，再开一个会，对照文档，大家过一遍并且说出各自的疑问。</li><li>开始各自规划时间并且开始开发。</li><li>截止日期前完成开发，并且提交成果。</li></ol>]]></content>
         <author>
@@ -23,7 +23,7 @@
         <title type="html"><![CDATA[发展]]></title>
         <id>https://kinda.info/blog/development</id>
         <link href="https://kinda.info/blog/development"/>
-        <updated>2023-04-10T16:06:56.000Z</updated>
+        <updated>2023-04-22T09:07:09.000Z</updated>
         <summary type="html"><![CDATA[随着工作，日益感觉前端这一岗位其实存在非常大的泡沫，自己需要浅下心来做一些偏向于造轮子、底层的事情，这样子能懂得基础，而不是只会运用别人提供好的工具。]]></summary>
         <content type="html"><![CDATA[<p>随着工作，日益感觉前端这一岗位其实存在非常大的泡沫，自己需要浅下心来做一些偏向于造轮子、底层的事情，这样子能懂得基础，而不是只会运用别人提供好的工具。</p><p>当然，空余时间还需要多去学一些其他的知识，比如AI、服务端、运营、产品、UI等等等等。。。</p><p></p><div class="imgBox_y57G"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/Alndaly/imgsrc/img/E1lQ7-aVcAAAK3S.jpeg" alt="E1lQ7-aVcAAAK3S" class="img_CujE"></div><p></p>]]></content>
         <author>
@@ -35,7 +35,7 @@
         <title type="html"><![CDATA[生活变迁]]></title>
         <id>https://kinda.info/blog/life2</id>
         <link href="https://kinda.info/blog/life2"/>
-        <updated>2023-04-10T16:06:56.000Z</updated>
+        <updated>2023-04-22T09:07:09.000Z</updated>
         <summary type="html"><![CDATA[从当初的街里亲戚相隔几百米却关系紧密，到如今的街坊邻居仅隔几十米却难言一语。时间过去了近百年，电子化的设备越来越多，但却是吸引了人们太多的注意力。]]></summary>
         <content type="html"><![CDATA[<p>从当初的街里亲戚相隔几百米却关系紧密，到如今的街坊邻居仅隔几十米却难言一语。时间过去了近百年，电子化的设备越来越多，但却是吸引了人们太多的注意力。</p><p>在你没有手机的日子里，初中、高中，虽然教育制度不该这么严格要求每个人都要全力学习，但我在这一阶段看到了人的另外一个角度，那就是人与人之间的关系。</p>]]></content>
         <author>
@@ -47,7 +47,7 @@
         <title type="html"><![CDATA[人性]]></title>
         <id>https://kinda.info/blog/life3</id>
         <link href="https://kinda.info/blog/life3"/>
-        <updated>2023-04-10T16:06:56.000Z</updated>
+        <updated>2023-04-22T09:07:09.000Z</updated>
         <summary type="html"><![CDATA[我们是否真的在抛弃人类最重要的]]></summary>
         <content type="html"><![CDATA[<p>我们是否真的在抛弃人类最重要的</p><p>去选择了最不重要的东西</p><p>爱是人性的光辉</p><p>但是攀比心理、过强的自尊心，让我们执着于比较</p><p>听闻一家崛起，便是万家追逐</p><p>掌控欲让我们执着于管理，执着于什么都想懂</p><p>听闻有新技术，便想略微触及</p><p>但人类毕竟是人类啊</p><p>怎么能做到什么都懂呢</p>]]></content>
     </entry>
@@ -55,7 +55,7 @@
         <title type="html"><![CDATA[结果导向]]></title>
         <id>https://kinda.info/blog/result</id>
         <link href="https://kinda.info/blog/result"/>
-        <updated>2023-04-10T16:06:56.000Z</updated>
+        <updated>2023-04-22T09:07:09.000Z</updated>
         <summary type="html"><![CDATA[有些东西别人反对你，不相信你，和你说顺从大势时，那就不要再继续和对方说你的观点了，可能你们之间的观念已经根本上不一样了，这个时候就自己努力，直到取得成功了之后，再将成果摆到对方面前，这是对方自然不会多说什么，只会说：“噢，那你确实厉害。”]]></summary>
         <content type="html"><![CDATA[<p>有些东西别人反对你，不相信你，和你说顺从大势时，那就不要再继续和对方说你的观点了，可能你们之间的观念已经根本上不一样了，这个时候就自己努力，直到取得成功了之后，再将成果摆到对方面前，这是对方自然不会多说什么，只会说：“噢，那你确实厉害。”</p><div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>备注</div><div class="admonitionContent_S0QG"><p>当然，我必须要强调，结果导向本质上其实是会磨灭部分人性的光辉的，所以只能在有时候应用，根本上一定要注重价值导向的培养。</p></div></div>]]></content>
         <author>
@@ -67,7 +67,7 @@
         <title type="html"><![CDATA[一些思考]]></title>
         <id>https://kinda.info/blog/thoughts-of-life</id>
         <link href="https://kinda.info/blog/thoughts-of-life"/>
-        <updated>2023-04-10T16:06:56.000Z</updated>
+        <updated>2023-04-22T09:07:09.000Z</updated>
         <summary type="html"><![CDATA[其实普通人在现在这个中国活着就和游戏中的NPC一样，并且比NPC还要更智能（虽然没有灵魂）。]]></summary>
         <content type="html"><![CDATA[<p>其实普通人在现在这个中国活着就和游戏中的NPC一样，并且比NPC还要更智能（虽然没有灵魂）。</p><p>从毕业了之后，准确来讲，应该说毕业前两年左右，我就开始意识到其实大学的教育（此处我仅仅指的教育）对我来讲没有任何意义，唯一存在一定启蒙的只有一节金融管理信息系统的课程，而这节课讲的是前后端分离的一个项目，分组合作完成，用的敏捷开发模式。也是在那节课，我了解到了前后端分离到底是什么意思，我知道了django，我知道了vue，并且切实用两者去做了实践。然后四年中真正有意义的时间，是我大三开始的创业，注意此处的有意义指的是kpi性质的，而不是okr，即目标导向的意义，价值导向的意义此处并无体现。</p><p>在创业期间，历经四个月的团队合作，我们成功做出了一款小程序并且上线。期间需要接触以及学习的东西不可计量。</p><p>这期间对我来说，几乎可以说熟练了 JS、SASS、TS、Python、Django、Vue、微信小程序开发、Webpack，同时基于项目是团队一起做的，也大幅度增加了交流，对前后端分离有了非常清楚的了解与认知。</p><p>这一点毫无疑问是非常讽刺的，无论是技术还是交流，在我看来，四年的大学生活，不如我这一年多的初创经历。</p><p>然而更加讽刺的是，当大学生活结束之后，我们被迫走上社会（当然你也可以选择 gap，但如果你家里并没有什么特殊，那么试问有多少家庭对你的 gap 充分理解与支持，别说那是自己的事儿，家人的意见我不信你一点不在乎），此时的你如果大学期间是按部就班读的，那好，接下来你要接触的，大学里大概率是没有教过你的。</p><p>毕业之后，你会发现接下来的时间都被安排的明明白白，如果你是一个乖孩子，正常读书，那么此时从未被教授过前后端知识的你即将面临简历海投却没有回音的局面，你会开始怀疑自己，然后屈服于一些更加低薪，更加普通的岗位，或者考公、当老师；进入岗位后，你会发现要学的更多，如何处理同事间的关系，和领导要怎么相处，怎么称呼他人（当然，这些在私企或者外企基本还是比较简单的，此处局限于国企，至于具体原因，涉及面太广，之后有空再写一篇）；紧接着，二十五六岁的你可能还没谈过恋爱，此时一点不懂什么是真的爱的你会被催促着去找一个要陪伴终身的伴侣；然后到个三十岁不到，经济刚刚有起色的你会被催促着生个孩子；生了孩子后，发现无法逃脱现状了的你被迫屈服现实，再将这一套思想逐步灌输到你自己的孩子身上。如此循环一代又一代，完美的游戏生成了。NPC 自发维护着游戏，服从于氪金玩家的规则，服务于氪金玩家的利益。</p><p>一个没有灵魂的 NPC 参与游戏也就参与了，不会有太多的想法，但当你觉醒了自己的灵魂，发现了这一套体系的问题所在，但你被迫只能参与，没法操纵自己的身体。如果你有幸做到思考与实践，那么很大程度上，你会看到这个时代对你指指点点（正常过日子好了诶，别人都这么过来的），但是问题就在与别人都这么过来的就一定对的吗？如果这是对的，那么为什么现在的他们多数都还是那副样子并没有什么特别呢？</p><p>最后的最后，这个世界，我只想说一句——</p><blockquote><p>欢迎来到<strong>《地球Online》</strong></p></blockquote>]]></content>
         <author>
