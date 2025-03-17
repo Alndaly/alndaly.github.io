@@ -1,0 +1,13 @@
+---
+title: Vite基础
+---
+
+## loadEnv
+
+`loadEnv(mode: string, envDir: string, prefixes?: string | string[]): Record<string, string>;`
+
+三个参数
+
+- `mode` 模式（可以从defineConfig中传入）
+- `envDir` 环境变量文件所在文件夹路径
+- `prefixes` 环境变量前缀过滤（会使process中不携带对应的前缀的变量不加到env中）

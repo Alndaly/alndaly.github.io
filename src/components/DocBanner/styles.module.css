@@ -1,0 +1,9 @@
+.docBanner {
+	height: 250px;
+	width: 100%;
+	background: url('../../../static/img/banner.jpg');
+	background-size: cover;
+    margin-bottom: 20px;
+	justify-content: center;
+	align-items: center;
+}
