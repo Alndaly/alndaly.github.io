@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkclassic=self.webpackChunkclassic||[]).push([[4169],{15685:s=>{s.exports=JSON.parse('{"label":"pip","permalink":"/docs/tags/pip","allTagsPath":"/docs/tags","count":1,"items":[{"id":"others/Pip/index","title":"Pip\u57fa\u672c\u64cd\u4f5c","description":"Python Pip\u81ea\u5df1\u7684\u5305\u4e0a\u4f20","permalink":"/docs/others/Pip/"}]}')}}]);
