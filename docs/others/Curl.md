@@ -29,10 +29,10 @@ curl [options] [URL...]
 
 :::info**需要抓取多个URL时用下面通配符的方式**
 
-1. http://{www,ftp,mail}.aiezu.com；
-2. http://aiezu.com/images/[001-999].jpg；
-3. http://aiezu.com/images/[1-999].html；
-4. ftp://aiezu.com/file[a-z].txt
+1. `http://{www,ftp,mail}.aiezu.com`
+2. `http://aiezu.com/images/[001-999].jpg`
+3. `http://aiezu.com/images/[1-999].html`
+4. `ftp://aiezu.com/file[a-z].txt`
 :::
 
 ### 请求方法
