@@ -2,58 +2,38 @@
 
 name: deploy_website
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "docusaurus" branch
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
       - name: Install Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '16.x'
+          node-version: '22.x'
 
-      - name: Install yarn
-        run: npm install -g yarn
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install npm dependencies
-        run: yarn
-
+        run: pnpm install
       
       - name: Show folder files
         run: ls -all $GITHUB_WORKSPACE/
 
       - name: Run build task
-        run: yarn build
+        run: pnpm build
 
-      # Deploy website to Aliyun ECS
-      # - name: Deploy to aliyun server  
-      #   uses: easingthemes/ssh-deploy@v2.1.5
-      #   env:
-      #     SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}  #这个是阿里云的私钥
-      #     SOURCE: "./build/"
-      #     REMOTE_HOST: ${{ secrets.REMOTE_HOST }}    #阿里云的 ip
-      #     REMOTE_USER: ${{ secrets.REMOTE_USER }}    #阿里云用户
-      #     TARGET: ${{ secrets.REMOTE_LOCATION }}       #被部署的服务器路径 
-
-      # Deploy website to github pages
       - name: Deploy to github pages
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
