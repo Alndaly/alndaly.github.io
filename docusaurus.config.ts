@@ -177,7 +177,17 @@ const config: Config = {
       crossorigin: 'anonymous',
     },
   ],
-  plugins: ['@docusaurus/theme-live-codeblock', 'docusaurus-plugin-sass'],
+  plugins: [
+    '@docusaurus/theme-live-codeblock',
+    'docusaurus-plugin-sass',
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'G-GH52E616NM',
+        anonymizeIP: true,
+      },
+    ]
+  ],
 };
 
 export default config;
