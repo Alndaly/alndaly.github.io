@@ -188,14 +188,7 @@ const config: Config = {
   ],
   plugins: [
     '@docusaurus/theme-live-codeblock',
-    'docusaurus-plugin-sass',
-    [
-      '@docusaurus/plugin-google-gtag',
-      {
-        trackingID: 'G-GH52E616NM',
-        anonymizeIP: true,
-      },
-    ]
+    'docusaurus-plugin-sass'
   ],
 };
 
