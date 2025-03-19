@@ -7,18 +7,17 @@ import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 import DocBanner from '../components/DocBanner';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 function HomepageHeader() {
 	const { siteConfig } = useDocusaurusContext();
 	return (
-		<header className={clsx('hero hero--primary', styles.heroBanner)}>
-			<div className='container'>
-				<Heading as='h1' className='hero__title'>
-					{siteConfig.title}
-				</Heading>
-				<p className='hero__subtitle'>{siteConfig.tagline}</p>
-			</div>
-		</header>
+		<div className={clsx(styles.heroBanner)}>
+			<Heading as='h1' className='hero__title'>
+				{siteConfig.title}
+			</Heading>
+			<p className='hero__subtitle'>{siteConfig.tagline}</p>
+		</div>
 	);
 }
 

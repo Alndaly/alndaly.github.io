@@ -7,8 +7,9 @@ import rehypeKatex from 'rehype-katex';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Alndaly',
-  tagline: 'Alndaly的个人网站',
+  title: 'Kinda',
+  staticDirectories: ['public', 'static'],
+  tagline: '你好👋，我是Kinda，欢迎来到我的笔记网站',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
