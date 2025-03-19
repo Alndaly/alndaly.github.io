@@ -6,25 +6,76 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+	--ifm-color-primary: #2e8555;
+	--ifm-color-primary-dark: #29784c;
+	--ifm-color-primary-darker: #277148;
+	--ifm-color-primary-darkest: #205d3b;
+	--ifm-color-primary-light: #33925d;
+	--ifm-color-primary-lighter: #359962;
+	--ifm-color-primary-lightest: #3cad6e;
+	--ifm-code-font-size: 95%;
+	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+	--ifm-color-primary: #25c2a0;
+	--ifm-color-primary-dark: #21af90;
+	--ifm-color-primary-darker: #1fa588;
+	--ifm-color-primary-darkest: #1a8870;
+	--ifm-color-primary-light: #29d5b0;
+	--ifm-color-primary-lighter: #32d8b4;
+	--ifm-color-primary-lightest: #4fddbf;
+	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+body {
+	font-family: LXWK, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+code {
+	font-family: LXWK-Mono, Menlo, Monaco, Consolas, 'Courier New', monospace !important;
+}
+
+@font-face {
+	font-family: 'LXWK';
+	src: url('/font/LXGWWenKai-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LXWK';
+	src: url('/font/LXGWWenKai-Medium.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LXWK';
+	src: url('/font/LXGWWenKai-Regular.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LXWK-Mono';
+	src: url('/font/LXGWWenKaiMono-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LXWK-Mono';
+	src: url('/font/LXGWWenKaiMono-Medium.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LXWK-Mono';
+	src: url('/font/LXGWWenKaiMono-Regular.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
 }
