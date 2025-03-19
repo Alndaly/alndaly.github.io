@@ -37,6 +37,10 @@ const config: Config = {
     [
       'classic',
       {
+        gtag: {
+          trackingID: 'G-GH52E616NM',
+          anonymizeIP: true,
+        },
         sitemap: {
           changefreq: 'weekly',
           priority: 0.5,
@@ -57,15 +61,6 @@ const config: Config = {
           customCss: './src/css/custom.css',
         },
       } satisfies Preset.Options,
-    ],
-    [
-      '@docusaurus/preset-classic',
-      {
-        gtag: {
-          trackingID: 'G-GH52E616NM',
-          anonymizeIP: true,
-        },
-      },
     ],
   ],
 
